@@ -43,11 +43,18 @@ header h1 {
      justify-content: flex-end;
      margin-left: auto;
      height: 50px;
-     text-align: center;
      background-color: green;
      border: solid white 1px;
+     border-radius: 10%;
  }
-
+.display-items:hover {
+    padding-top: 20px;
+background: rgba(138, 233, 126, 0.424);
+}
+.display-items:focus {
+    padding-top: 20px;
+    background: rgba(0, 0, 0, 0.424);
+}
  .To-Do-Item .Item-Header h2 {
    border-bottom: solid black 5px;
  }

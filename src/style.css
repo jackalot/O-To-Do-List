@@ -1,3 +1,11 @@
-* {
-    background-color: red;
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    justify-content: center;
+}
+header h1 {
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
 }

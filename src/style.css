@@ -33,6 +33,21 @@ header h1 {
     border-radius: 20px;
     border-style: dashed;
  }
- .To-Do-Item h2 {
+ .To-Do-Item .Item-Header {
+    display: flex;
+    flex-direction: row;
+ }
+ .display-items {
+     display: flex;
+     flex-direction: row;
+     justify-content: flex-end;
+     margin-left: auto;
+     height: 50px;
+     text-align: center;
+     background-color: green;
+     border: solid white 1px;
+ }
+
+ .To-Do-Item .Item-Header h2 {
    border-bottom: solid black 5px;
  }

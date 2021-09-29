@@ -9,3 +9,19 @@ header h1 {
     padding-left: 5px;
     padding-right: 5px;
 }
+.To-Do-Item {
+    background: gray;
+    display: flex;
+    flex-direction: row;
+}
+.To-Do-Item .Item-Text {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.To-Do-Item .Item-Box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}

@@ -55,6 +55,10 @@ background: rgba(138, 233, 126, 0.424);
     padding-top: 20px;
     background: rgba(0, 0, 0, 0.424);
 }
- .To-Do-Item .Item-Header h2 {
+ .To-Do-Item .Item-Header h3 {
    border-bottom: solid black 5px;
+ }
+ .Project-div {
+    background-color: rgb(75, 75, 75);
+    padding: 10px;
  }

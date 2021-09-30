@@ -10,7 +10,7 @@ function start () {
     console.log(projectIsAvailable);
     if(projectIsAvailable) //its not false so it returned one of the project strings
     {
-        importToDoItemToDom();
+        importToDoItemToDom(item, projectIsAvailable);
     }
 }
 start();

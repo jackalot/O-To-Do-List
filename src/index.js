@@ -1,2 +1,2 @@
 import './style.css';
-console.log("hello world");
+import makeToDoItem from './makeItem';

@@ -25,10 +25,31 @@ console.log(projectDiv);
                 itemTextDiv.appendChild(itemHeader);
                     const headerH3 = document.createElement("h3");
                     itemHeader.appendChild(headerH3);
-                    const displayItemsBtn = documen.createElement("button");
+                    const displayItemsBtn = document.createElement("button");
                     itemHeader.appendChild(displayItemsBtn);
                 /*END HEADER DIV */
-                    
+                /*Due-Date, Priority, description */
+                const dueDateh3 = document.createElement("h3");
+                itemTextDiv.appendChild(dueDateh3);
+                const priorityh4 = document.createElement("h4");
+                itemTextDiv.appendChild(priorityh4);
+                const descriptionP = document.createElement("p");
+                itemTextDiv.appendChild(descriptionP);
+                /*END Due-Date, Priority, description */
+                /*BEGIN Check list */
+                //This is the div that holds the check list
+                const checkListDiv = document.createElement("div");
+                itemTextDiv.appendChild(checkListDiv);
+                    const listNoteP = document.createElement("p");
+                    listNoteP.classList.add("list-note");
+                    checkListDiv.appendChild(listNoteP);
+                    /*Un-ordered list begin */
+                    const checklistUL = document.createElement("ul");
+                    //for loop that loops through checklist and lists them
+                    /* END unordered list*/
+                    itemTextDiv.appendChild(checklistUL);
+                const additionalNotesP = document.createElement("p");
+                itemTextDiv.appendChild(additionalNotesP);
     }
 }
 export default importToDoItemToDom;

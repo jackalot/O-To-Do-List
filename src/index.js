@@ -6,8 +6,8 @@ let projects = ["test1", "test2"];
 function start () {
     const item = makeToDoItem("title input", "this is a description input", "Due Date Now", "High priority", "super confused and just a test", ["finish", "this", "project"]);
     console.log(item);
-    const projectIsAvailable = checkForProject("test1", projects);
+    const projectIsAvailable = checkForProject("ddsd", projects);
     console.log(projectIsAvailable);
-    
+
 }
 start();

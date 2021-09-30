@@ -11,5 +11,6 @@ function checkForProject (name, projects) {
             return projects[i];
         }
     }
+    return false;
 }
 export default checkForProject;

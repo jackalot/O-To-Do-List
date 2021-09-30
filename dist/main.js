@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//put the item and list it under its individual project\nfunction importToDoItemToDom (item, project) {\nconst projectDiv = document.querySelector(\"#test1\")\nconsole.log(projectDiv);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (importToDoItemToDom);\n\n//# sourceURL=webpack://O-To-Do-List/./src/importItem.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//put the item and list it under its individual project\nfunction importToDoItemToDom (item, project) {\nconst projectDiv = document.querySelector(\"#test1\");\nconsole.log(projectDiv);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (importToDoItemToDom);\n\n//# sourceURL=webpack://O-To-Do-List/./src/importItem.js?");
 
 /***/ }),
 

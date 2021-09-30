@@ -4,7 +4,7 @@ function checkForProject (name, projects) {
     {
         return false;
     }
-    for(i = 0; i < projects.length; i++)
+    for(let i = 0; i < projects.length; i++)
     {
         if(projects[i] === name)
         {

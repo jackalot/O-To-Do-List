@@ -62,3 +62,8 @@ background: rgba(138, 233, 126, 0.424);
     background-color: rgb(75, 75, 75);
     padding: 10px;
  }
+ .project-header {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+ }

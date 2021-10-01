@@ -66,13 +66,14 @@ console.log(projectDiv);
                 const additionalNotesP = document.createElement("p");
                 additionalNotesP.textContent = item.notes;
                 itemTextDiv.appendChild(additionalNotesP);
-                /*begin item box div */
+                /*BEGIN item box div */
                 const itemBoxDiv = document.createElement("div");
                 itemBoxDiv.classList.add("Item-Box");
                 ToDoItem.appendChild(itemBoxDiv);
-                    const clearBtn = document.createElement("button");
-                    clearBtn.textContent = "Clear Item";
-                    itemBoxDiv.appendChild(clearBtn);
+                    const editBtn = document.createElement("button");
+                    editBtn.textContent = "Edit to do list";
+                    itemBoxDiv.appendChild(editBtn);
+                    /*END item box div */
     }
 }
 export default importToDoItemToDom;

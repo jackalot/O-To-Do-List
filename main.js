@@ -120,6 +120,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/createAProject.js":
+/*!*******************************!*\
+  !*** ./src/createAProject.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n//when you search for a project that doesnt exist\n//we call this module\nfunction CreateProject (projectName) {\nconst projectDiv = document.createElement(\"div\");\nprojectDiv.classList.add(\"Project-div\");\nprojectDiv.id = projectName;\nconst body = document.querySelector(\"body\");\nbody.appendChild(projectDiv);\n    const projectHeaderDiv = document.createElement(\"div\");\n    projectHeaderDiv.classList.add(\"project-header\");\n    projectDiv.appendChild(projectHeaderDiv);\n        const H2Name = document.createElement(\"h2\");\n        H2Name.textContent = projectName;\n        const displayBtn = document.createElement(\"button\");\n        displayBtn.textContent = \"Display Project To-Do-List\";\n        displayBtn.classList.add(\"display-items\");\n        projectHeaderDiv.appendChild(H2Name);\n        projectHeaderDiv.appendChild(displayBtn);\n    const ul = document.createElement(\"ul\");\n    projectDiv.appendChild(ul);\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateProject);\n\n//# sourceURL=webpack://O-To-Do-List/./src/createAProject.js?");
+
+/***/ }),
+
 /***/ "./src/importItem.js":
 /*!***************************!*\
   !*** ./src/importItem.js ***!
@@ -136,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _makeItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./makeItem */ \"./src/makeItem.js\");\n/* harmony import */ var _checkForProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./checkForProject */ \"./src/checkForProject.js\");\n/* harmony import */ var _importItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./importItem */ \"./src/importItem.js\");\n\n\n\n\nlet projects = [\"test1\", \"test2\"];\nfunction start () {\n    const item = (0,_makeItem__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"title input\", \"this is a description input\", \"Due Date Now\", \"High priority\", \"super confused and just a test\", [\"finish\", \"this\", \"project\"]);\n    console.log(item);\n    const projectIsAvailable = (0,_checkForProject__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"test1\", projects);\n    console.log(projectIsAvailable);\n    if(projectIsAvailable) //its not false so it returned one of the project strings\n    {\n        (0,_importItem__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(item, projectIsAvailable);\n    }\n}\nstart();\n\n//# sourceURL=webpack://O-To-Do-List/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _makeItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./makeItem */ \"./src/makeItem.js\");\n/* harmony import */ var _checkForProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./checkForProject */ \"./src/checkForProject.js\");\n/* harmony import */ var _importItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./importItem */ \"./src/importItem.js\");\n/* harmony import */ var _createAProject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createAProject */ \"./src/createAProject.js\");\n\n\n\n\n\nlet projects = [\"test1\", \"test2\"];\nfunction start () {\n    const item = (0,_makeItem__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"title input\", \"this is a description input\", \"Due Date Now\", \"High priority\", \"super confused and just a test\", [\"finish\", \"this\", \"project\"]);\n    //console.log(item);\n    const projectIsAvailable = (0,_checkForProject__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"test3\", projects);\n    console.log(projectIsAvailable);\n    if(projectIsAvailable) //its not false so it returned one of the project strings\n    {\n        (0,_importItem__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(item, projectIsAvailable);\n    }\n    else if(!projectIsAvailable)\n    {\n        console.log(\"creating project\");\n       (0,_createAProject__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(\"project input value\");\n    }\n}\nstart();\n\n//# sourceURL=webpack://O-To-Do-List/./src/index.js?");
 
 /***/ }),
 

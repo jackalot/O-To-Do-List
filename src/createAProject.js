@@ -15,6 +15,7 @@ body.appendChild(projectDiv);
         const displayBtn = document.createElement("button");
         displayBtn.textContent = "Display Project To-Do-List";
         displayBtn.addEventListener('click', ()=> {
+            console.log("click");
             getProject(projectName);
         })
         displayBtn.classList.add("display-items");

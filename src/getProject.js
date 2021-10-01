@@ -10,4 +10,4 @@ const projectUL = document.querySelector(`#${projectName} > ul`).childNodes;
     }
     console.log(projchildren)
 }
-export getProject;
+export default getProject;

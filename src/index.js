@@ -12,5 +12,9 @@ function start () {
     {
         importToDoItemToDom(item, projectIsAvailable);
     }
+    else if(!projectIsAvailable)
+    {
+        //create project module
+    }
 }
 start();

@@ -17,7 +17,7 @@ body.appendChild(projectDiv);
         displayBtn.addEventListener('click', ()=> {
             console.log("click");
             getProject(projectName);
-        })
+        });
         displayBtn.classList.add("display-items");
         projectHeaderDiv.appendChild(H2Name);
         projectHeaderDiv.appendChild(displayBtn);

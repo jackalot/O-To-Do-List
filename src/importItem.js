@@ -27,10 +27,6 @@ const projectDiv = document.querySelector('#' + project);
                     const headerH3 = document.createElement("h3");
                     headerH3.textContent = item.title;
                     itemHeader.appendChild(headerH3);
-                    const displayItemsBtn = document.createElement("button");
-                    displayItemsBtn.classList.add("display-items");
-                    displayItemsBtn.textContent = "Press this to hide the content below";
-                    itemHeader.appendChild(displayItemsBtn);
                 /*END HEADER DIV */
                 /*Due-Date, Priority, description */
                 const dueDateh3 = document.createElement("h3");

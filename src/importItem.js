@@ -9,7 +9,7 @@ const projectDiv = document.querySelector('#' + project);
     else
     {
         //when we get to making projects, assume theres a ul already made
-        const ul = document.querySelector("ul");
+        const ul = document.querySelector(`#${project} > ul`);
         console.log(ul);
         //Elements are created the same way its sorted in html
         //This is the list element that holds everything

@@ -3,8 +3,10 @@ import makeToDoItem from './makeItem';
 import checkForProject from './checkForProject';
 import importToDoItemToDom from './importItem';
 import CreateProject from './createAProject';
-let projects = ["test1", "test2"];
+let projects = ["test1", "test2"]; //since I am too lazy to refactor modules to work with objects
+let titleInputs = [];
 function start () {
+    const projectInput = window.prompt();
     const item = makeToDoItem("title input", "this is a description input", "Due Date Now", "High priority", "super confused and just a test", ["finish", "this", "project"]);
     //console.log(item);
     const projectIsAvailable = checkForProject("test3", projects);
@@ -16,7 +18,7 @@ function start () {
     else if(!projectIsAvailable)
     {
         console.log("creating project");
-        //Note = spacs make sure before passing in value theres no spaces
+        //Note = make sure before passing in value theres no spaces
        CreateProject("project-input-value");
        importToDoItemToDom(item, "project-input-value")
     }

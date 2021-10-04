@@ -1,5 +1,3 @@
-import { ProvidePlugin } from "webpack";
-
 //gets the project contents, returns it as an object
 function getProject (projectName) {
 const projectUL = document.querySelector(`#${projectName} > ul`).childNodes;

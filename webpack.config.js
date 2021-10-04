@@ -16,4 +16,12 @@ module.exports = {
             },
         ],
     },
+     // add it right here. And you can add multiple if needed.
+     // for example, we'll also handle the 'util' message:
+   resolve: {
+    fallback: {
+      "path": require.resolve("path-browserify"),
+      "util": require.resolve("util/"), /* or if you install it, use the require.resolve("util/") */
+    }
+  },
 };

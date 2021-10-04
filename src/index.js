@@ -8,11 +8,11 @@ function start () {
     const projectInput = window.prompt("Which project is this to do item? (if it is a new project, just insert the name)");
     const titleInput = window.prompt("What is the title of your to-do item?");
     const descInput = window.prompt("Whats the description for it?");
-    const priorityInput = windwow.prompt("What priority does this have?");
+    const priorityInput = window.prompt("What priority does this have?");
     const dudeDateInput = window.prompt("When is this due?")
     const notesInput = window.prompt("Any additional notes?");
     const checkListInput = window.prompt("For the checklist, insert one of the things you want in there?");
-    const item = makeToDoItem(titleInput, descInput, priorityInput, notesInput, notesInput, [checkListInput]);
+    const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]);
     //console.log(item);
     const projectIsAvailable = checkForProject(projectInput, projects);
     //console.log(projectIsAvailable);

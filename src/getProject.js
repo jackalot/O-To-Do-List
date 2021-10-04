@@ -4,7 +4,7 @@ const projectUL = document.querySelector(`#${projectName} > ul`).childNodes;
     let projchildren = {};
     for(var pop in projectUL)
     {
-      projchildren[pop] = obj[pop];
+      projchildren[pop] = projectUL[pop];
     }
     console.log(projchildren)
 }

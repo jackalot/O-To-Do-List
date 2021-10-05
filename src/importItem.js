@@ -1,3 +1,4 @@
+import hideToDo from "./hideToDo";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, project) {
 const projectDiv = document.querySelector('#' + project);
@@ -27,6 +28,14 @@ const projectDiv = document.querySelector('#' + project);
                     const headerH3 = document.createElement("h3");
                     headerH3.textContent = item.title;
                     itemHeader.appendChild(headerH3);
+                        const displayBtn = document.createElement("button");
+                        displayBtn.textContent = "Display To-Do-List";
+                        displayBtn.addEventListener('click', ()=> {
+                            console.log("click");
+                            hideToDo(item);
+                        });
+                        itemHeader.appendChild(displayBtn);
+                        displayBtn.classList.add("display-items");
                 /*END HEADER DIV */
                 /*Due-Date, Priority, description */
                 const dueDateh3 = document.createElement("h3");

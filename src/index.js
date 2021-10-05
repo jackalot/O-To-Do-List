@@ -12,7 +12,8 @@ function start () {
     const dudeDateInput = window.prompt("When is this due?")
     const notesInput = window.prompt("Any additional notes?");
     const checkListInput = window.prompt("For the checklist, insert one of the things you want in there?");
-    const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]);
+    //const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
+    const item = makeToDoItem("titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
     //console.log(item);
     const projectIsAvailable = checkForProject(projectInput, projects);
     //console.log(projectIsAvailable);

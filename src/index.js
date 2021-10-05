@@ -24,8 +24,8 @@ function start () {
     {
         console.log("creating project");
         //Note = make sure before passing in value theres no spaces
-       CreateProject("project-input-value");
-       importToDoItemToDom(item, "project-input-value")
+       CreateProject(projectInput);
+       importToDoItemToDom(item, projectInput)
     }
 }
 start();

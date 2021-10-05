@@ -17,14 +17,14 @@ function start () {
     //console.log(item);
     //const projectIsAvailable = checkForProject(projectInput, projects);
     const projectIsAvailable = checkForProject("projectInput", projects); //debugging
-    console.log(projectIsAvailable);
+    //console.log(projectIsAvailable);
     if(projectIsAvailable) //its not false so it returned one of the project strings
     {
         importToDoItemToDom(item, projectIsAvailable);
     }
     else if(!projectIsAvailable)
     {
-        console.log("creating project");
+        //console.log("creating project");
         //Note = make sure before passing in value theres no spaces
        //CreateProject(projectInput); //actual use
        CreateProject("projectInput"); //debugging

@@ -8,4 +8,5 @@ const projectUL = document.querySelector(`#${projectName} > ul`).childNodes;
     }
     console.log(projchildren)
 }
+//found out there's an even simpler way to do hide the project so all this was useless, keeping in case needed for later
 export default getProject;

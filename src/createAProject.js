@@ -1,6 +1,6 @@
 //when you search for a project that doesnt exist
 //we call this module
-import getProject from './getProject';
+import hideProject from './hideProject';
 function CreateProject (projectName) {
     const projectDiv = document.createElement("div");
     projectDiv.classList.add("Project-div");
@@ -16,7 +16,7 @@ function CreateProject (projectName) {
             displayBtn.textContent = "Display Project To-Do-List";
             displayBtn.addEventListener('click', ()=> {
                 console.log("click");
-                getProject(projectName);
+                hideProject(projectName);
             });
             displayBtn.classList.add("display-items");
             projectHeaderDiv.appendChild(H2Name);

@@ -15,8 +15,9 @@ function start () {
     //const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
     const item = makeToDoItem("titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
     //console.log(item);
-    const projectIsAvailable = checkForProject(projectInput, projects);
-    //console.log(projectIsAvailable);
+    //const projectIsAvailable = checkForProject(projectInput, projects);
+    const projectIsAvailable = checkForProject("projectInput", projects); //debugging
+    console.log(projectIsAvailable);
     if(projectIsAvailable) //its not false so it returned one of the project strings
     {
         importToDoItemToDom(item, projectIsAvailable);

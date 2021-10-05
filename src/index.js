@@ -28,7 +28,8 @@ function start () {
         //Note = make sure before passing in value theres no spaces
        //CreateProject(projectInput); //actual use
        CreateProject("projectInput"); //debugging
-       importToDoItemToDom(item, projectInput)
+       //importToDoItemToDom(item, projectInput) //actual use
+       importToDoItemToDom(item, "projectInput");//debugging
     }
 }
 start();

@@ -1,12 +1,11 @@
 //Same as hideProject but for the item
 function hideToDo (ToDoItem, project) {
-    const ItemDiv = document.querySelector(`#${project} > Item-Text`);
+    const ItemDiv = document.querySelector(`#${ToDoItem.title}-body`);
+    console.log(ToDoItem.title);
     console.log(ItemDiv);
     if (ItemDiv.style.display === "none")
     {
-        ItemDiv.style.dis
-
-        play = "block";
+        ItemDiv.style.display = "block";
     }
     else {
         ItemDiv.style.display = "none";

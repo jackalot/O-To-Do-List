@@ -37,49 +37,53 @@ const projectDiv = document.querySelector('#' + project);
                         itemHeader.appendChild(displayBtn);
                         displayBtn.classList.add("display-items");
                 /*END HEADER DIV */
-                /*Due-Date, Priority, description */
-                const dueDateh3 = document.createElement("h3");
-                dueDateh3.textContent = item.dueDate;
-                dueDateh3.classList.add("Due-Date");
-                itemTextDiv.appendChild(dueDateh3);
-                const priorityh4 = document.createElement("h4");
-                priorityh4.textContent = item.priority;
-                priorityh4.classList.add("Priority");
-                itemTextDiv.appendChild(priorityh4);
-                const descriptionP = document.createElement("p");
-                descriptionP.textContent = item.description;
-                itemTextDiv.appendChild(descriptionP);
-                /*END Due-Date, Priority, description */
-                /*BEGIN Check list */
-                //This is the div that holds the check list
-                const checkListDiv = document.createElement("div");
-                itemTextDiv.appendChild(checkListDiv);
-                    const listNoteP = document.createElement("p");
-                    listNoteP.classList.add("list-note");
-                    listNoteP.textContent = "Your check list for this To-Do-List:"
-                    checkListDiv.appendChild(listNoteP);
-                    /*Un-ordered list begin */
-                    const checklistUL = document.createElement("ul");
-                    //for loop that loops through checklist and lists them
-                    for(let i = 0; i < item.checklist.length; i++)
-                    {
-                        let newlistItem = document.createElement("li");
-                        newlistItem.textContent = item.checklist[i];
-                        checklistUL.appendChild(newlistItem);
-                    }
-                    /* END unordered list*/
-                    itemTextDiv.appendChild(checklistUL);
-                const additionalNotesP = document.createElement("p");
-                additionalNotesP.textContent = item.notes;
-                itemTextDiv.appendChild(additionalNotesP);
-                /*BEGIN item box div */
-                const itemBoxDiv = document.createElement("div");
-                itemBoxDiv.classList.add("Item-Box");
-                ToDoItem.appendChild(itemBoxDiv);
-                    const editBtn = document.createElement("button");
-                    editBtn.textContent = "Edit to do list";
-                    itemBoxDiv.appendChild(editBtn);
-                    /*END item box div */
+                /*Item Body Begin */
+                const itemBody = document.createElement("div");
+                itemBody.classList.add("Item-Body");
+                itemBody.id = item.title + "-body";
+                ToDoItem.appendChild(itemBody);
+                    const dueDateh3 = document.createElement("h3");
+                    dueDateh3.textContent = item.dueDate;
+                    dueDateh3.classList.add("Due-Date");
+                    itemBody.appendChild(dueDateh3);
+                    const priorityh4 = document.createElement("h4");
+                    priorityh4.textContent = item.priority;
+                    priorityh4.classList.add("Priority");
+                    itemBody.appendChild(priorityh4);
+                    const descriptionP = document.createElement("p");
+                    descriptionP.textContent = item.description;
+                    itemBody.appendChild(descriptionP);
+                        /*BEGIN Check list */
+                        //This is the div that holds the check list
+                        const checkListDiv = document.createElement("div");
+                        itemBody.appendChild(checkListDiv);
+                            const listNoteP = document.createElement("p");
+                            listNoteP.classList.add("list-note");
+                            listNoteP.textContent = "Your check list for this To-Do-List:"
+                            checkListDiv.appendChild(listNoteP);
+                            /*Un-ordered list begin */
+                            const checklistUL = document.createElement("ul");
+                            //for loop that loops through checklist and lists them
+                            for(let i = 0; i < item.checklist.length; i++)
+                            {
+                                let newlistItem = document.createElement("li");
+                                newlistItem.textContent = item.checklist[i];
+                                checklistUL.appendChild(newlistItem);
+                            }
+                            /* END unordered list*/
+                            itemBody.appendChild(checklistUL);
+                        const additionalNotesP = document.createElement("p");
+                        additionalNotesP.textContent = item.notes;
+                        itemBody.appendChild(additionalNotesP);
+                        /*BEGIN item box div */
+                        const itemBoxDiv = document.createElement("div");
+                        itemBoxDiv.classList.add("Item-Box");
+                        ToDoItem.appendChild(itemBoxDiv);
+                            const editBtn = document.createElement("button");
+                            editBtn.textContent = "Edit to do list";
+                            itemBoxDiv.appendChild(editBtn);
+                            /*END item box div */
+                /*END Item Body*/
     }
 }
 export default importToDoItemToDom;

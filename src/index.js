@@ -7,7 +7,7 @@ let projects = []; //since I am too lazy to refactor modules to work with object
 
 const addContentBtn = document.querySelector("button");
 addContentBtn.addEventListener("click", () => {
-    const projectInput = window.prompt("Which project is this to do item? (if it is a new project, just insert the name)");
+    const projectInput = window.prompt("Which project is this to do item? (if it is a new project, just insert the name) No spaces for this!");
     const titleInput = window.prompt("What is the title of your to-do item?");
     const descInput = window.prompt("Whats the description for it?");
     const priorityInput = window.prompt("What priority does this have?");
@@ -37,7 +37,7 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
        CreateProject(projectInput); //actual use
        //CreateProject("projectInput"); //debugging
        importToDoItemToDom(item, projectInput) //actual use
-       importToDoItemToDom(item, "projectInput");//debugging
+       //importToDoItemToDom(item, "projectInput");//debugging
     }
 }
 //start();

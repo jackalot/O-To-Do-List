@@ -1,4 +1,5 @@
 import hideToDo from "./hideToDo";
+import addToCheckList from "./addToChecklist";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, project) {
 const projectDiv = document.querySelector('#' + project);
@@ -79,9 +80,12 @@ const projectDiv = document.querySelector('#' + project);
                         const itemBoxDiv = document.createElement("div");
                         itemBoxDiv.classList.add("Item-Box");
                         ToDoItem.appendChild(itemBoxDiv);
-                            const editBtn = document.createElement("button");
-                            editBtn.textContent = "Edit to do list";
-                            itemBoxDiv.appendChild(editBtn);
+                            const addToChecklistBtn = document.createElement("button");
+                            addToCheckListBtn.textContent = "Add to checklist";
+                            addToChecklistBtn.addEventListener('click', () => {
+                                addToCheckList(checklistUL, item);
+                            })
+                            itemBoxDiv.appendChild(addToChecklistBtn);
                             /*END item box div */
                 /*END Item Body*/
     }

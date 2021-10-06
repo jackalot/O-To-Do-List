@@ -92,7 +92,7 @@ const projectDiv = document.querySelector('#' + project);
                             const removeFromChecklist = document.createElement("button");
                             removeFromChecklist.textContent = "Remove from checklist";
                             removeFromChecklist.addEventListener('click', () => {
-                                removeFromChecklist(checklistUL, item);
+                                removeCheckListItem(checklistUL, item);
                             })
                             itemBoxDiv.appendChild(removeFromChecklist);
                             /*END item box div */

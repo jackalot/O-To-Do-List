@@ -71,7 +71,7 @@ const projectDiv = document.querySelector('#' + project);
                                 newlistItem.textContent = item.checklist[i];
                                 checklistUL.appendChild(newlistItem);
                             }
-                            /* END unordered list*/
+                            /* END unordered list and checklist*/
                             itemBody.appendChild(checklistUL);
                         const additionalNotesP = document.createElement("p");
                         additionalNotesP.textContent = item.notes;
@@ -79,13 +79,14 @@ const projectDiv = document.querySelector('#' + project);
                         /*BEGIN item box div */
                         const itemBoxDiv = document.createElement("div");
                         itemBoxDiv.classList.add("Item-Box");
-                        ToDoItem.appendChild(itemBoxDiv);
+                            //this is supposed to make a button called addToCheckListBtn but its not.
                             const addToChecklistBtn = document.createElement("button");
                             addToCheckListBtn.textContent = "Add to checklist";
                             addToChecklistBtn.addEventListener('click', () => {
                                 addToCheckList(checklistUL, item);
                             })
                             itemBoxDiv.appendChild(addToChecklistBtn);
+                            ToDoItem.appendChild(itemBoxDiv);
                             /*END item box div */
                 /*END Item Body*/
     }

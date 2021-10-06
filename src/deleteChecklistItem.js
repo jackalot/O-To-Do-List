@@ -1,4 +1,5 @@
 //deletes a specific checklist item
-function deleteCheckListItem (myCheckList, item) {
-    console.log("clicked");
+function removeCheckListItem (myCheckList, item) {
+    console.log("click")
 }
+export default removeCheckListItem;

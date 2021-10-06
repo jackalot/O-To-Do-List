@@ -32,7 +32,7 @@ const projectDiv = document.querySelector('#' + project);
                         displayBtn.textContent = "Display To-Do-List";
                         displayBtn.addEventListener('click', ()=> {
                             console.log("click");
-                            hideToDo(item);
+                            hideToDo(itemBody);
                         });
                         itemHeader.appendChild(displayBtn);
                         displayBtn.classList.add("display-items");

@@ -3,7 +3,7 @@ import makeToDoItem from './makeItem';
 import checkForProject from './checkForProject';
 import importToDoItemToDom from './importItem';
 import CreateProject from './createAProject';
-let projects = ["test1", "test2"]; //since I am too lazy to refactor modules to work with objects
+let projects = []; //since I am too lazy to refactor modules to work with objects
 
 const addContentBtn = document.querySelector("button");
 addContentBtn.addEventListener("click", () => {
@@ -19,9 +19,11 @@ addContentBtn.addEventListener("click", () => {
 function start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput) {
     const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
     //const item = makeToDoItem("titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
-    console.log(item);
-    console.log(item.checklist);
+    //console.log(item);
+    //console.log(item.checklist);
     const projectIsAvailable = checkForProject(projectInput, projects);
+    projects.push(projectInput);
+    console.log(projects);
     //const projectIsAvailable = checkForProject("projectInput", projects); //debugging
     //console.log(projectIsAvailable);
     if(projectIsAvailable) //its not false so it returned one of the project strings

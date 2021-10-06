@@ -81,12 +81,12 @@ const projectDiv = document.querySelector('#' + project);
                         itemBoxDiv.classList.add("Item-Box");
                             //this is supposed to make a button called addToCheckListBtn but its not.
                             const addToChecklistBtn = document.createElement("button");
-                            addToCheckListBtn.textContent = "Add to checklist";
+                            addToChecklistBtn.textContent = "Add to checklist";
                             addToChecklistBtn.addEventListener('click', () => {
                                 addToCheckList(checklistUL, item);
                             })
-                            itemBoxDiv.appendChild(addToChecklistBtn);
                             ToDoItem.appendChild(itemBoxDiv);
+                            itemBoxDiv.appendChild(addToChecklistBtn);
                             /*END item box div */
                 /*END Item Body*/
     }

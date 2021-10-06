@@ -1,6 +1,6 @@
 import hideToDo from "./hideToDo";
 import addToCheckList from "./addToChecklist";
-import removeFromChecklist from "./deleteCheckListItem";
+import removeCheckListItem from "./deleteCheckListItem";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, project) {
 const projectDiv = document.querySelector('#' + project);

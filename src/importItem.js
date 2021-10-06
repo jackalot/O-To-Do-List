@@ -1,5 +1,6 @@
 import hideToDo from "./hideToDo";
 import addToCheckList from "./addToChecklist";
+import removeFromChecklist from "./removeFromChecklist";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, project) {
 const projectDiv = document.querySelector('#' + project);
@@ -79,7 +80,7 @@ const projectDiv = document.querySelector('#' + project);
                         /*BEGIN item box div */
                         const itemBoxDiv = document.createElement("div");
                         itemBoxDiv.classList.add("Item-Box");
-                            //this is supposed to make a button called addToCheckListBtn but its not.
+                            //make a button that adds items to the checklist
                             const addToChecklistBtn = document.createElement("button");
                             addToChecklistBtn.textContent = "Add to checklist";
                             addToChecklistBtn.addEventListener('click', () => {
@@ -87,6 +88,13 @@ const projectDiv = document.querySelector('#' + project);
                             })
                             ToDoItem.appendChild(itemBoxDiv);
                             itemBoxDiv.appendChild(addToChecklistBtn);
+                            //make a button that removes items from the checklist.
+                            const removeFromChecklist = document.createElement("button");
+                            removeFromChecklist.textContent = "Remove from checklist";
+                            removeFromChecklist.addEventListener('click', () => {
+                                removeFromChecklist(checklistUL, item);
+                            })
+                            itemBoxDiv.appendChild(removeFromChecklist);
                             /*END item box div */
                 /*END Item Body*/
     }

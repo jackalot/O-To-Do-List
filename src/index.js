@@ -19,7 +19,8 @@ addContentBtn.addEventListener("click", () => {
 function start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput) {
     const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
     //const item = makeToDoItem("titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
-    //console.log(item);
+    console.log(item);
+    console.log(item.checklist);
     const projectIsAvailable = checkForProject(projectInput, projects);
     //const projectIsAvailable = checkForProject("projectInput", projects); //debugging
     //console.log(projectIsAvailable);
@@ -38,3 +39,4 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
     }
 }
 //start();
+//make an edit/delete button

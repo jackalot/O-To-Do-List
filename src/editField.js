@@ -1,6 +1,7 @@
-function editField(element, promptMessage, item) {
+//Edit each field,                               //ElementType is for the item object so we can change it depending on the field we're on
+function editField(element, promptMessage, item, elementType) {
 const input = window.prompt(promptMessage);
 element.textContent = input;
-item.dueDate = input;
+item.[elementType] = input;
 }
 export default editField;

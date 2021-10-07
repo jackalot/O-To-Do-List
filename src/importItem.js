@@ -81,14 +81,29 @@ const projectDiv = document.querySelector('#' + project);
                         /*BEGIN item box div */
                         const itemBoxDiv = document.createElement("div");
                         itemBoxDiv.classList.add("Item-Box");
+                        
+                            //make a button that edits the to-do-list header
+                            const editHeaderBtn = document.createElement("button");
+                            editHeaderBtn.textContent = "Edit To Do list Header";
+                            editHeaderBtn.addEventListener('click', () => {
+                                editField(headerH3, "Whats the name of this todo list?", item, "title")
+                            })
+                            ToDoItem.appendChild(itemBoxDiv);
+                            itemBoxDiv.appendChild(editHeaderBtn);
                             //make a button that edits the due date
                             const editDueDateBtn = document.createElement("button");
                             editDueDateBtn.textContent = "Edit Due Date";
                             editDueDateBtn.addEventListener('click', () => {
-                                editField(dueDateh3, "What time is this due?", item)
+                                editField(dueDateh3, "What time is this due?", item, "duedate")
                             })
-                            ToDoItem.appendChild(itemBoxDiv);
                             itemBoxDiv.appendChild(editDueDateBtn);
+                            //make a button that edits the priority
+                            const editPriorityBtn = document.createElement("button");
+                            editPriorityBtn.textContent = "Edit Priority";
+                            editPriorityBtn.addEventListener('click', () => {
+                                editField(priorityh4, "Whats the priority of this task?", item, "priority")
+                            })
+                            itemBoxDiv.appendChild(editPriorityBtn);
                             //make a button that adds items to the checklist
                             const addToChecklistBtn = document.createElement("button");
                             addToChecklistBtn.textContent = "Add to checklist";

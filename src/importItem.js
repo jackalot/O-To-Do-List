@@ -80,13 +80,20 @@ const projectDiv = document.querySelector('#' + project);
                         /*BEGIN item box div */
                         const itemBoxDiv = document.createElement("div");
                         itemBoxDiv.classList.add("Item-Box");
+                            //make a button that edits the due date
+                            const editDueDateBtn = document.createElement("button");
+                            editDueDateBtn.textContent = "Edit Due Date";
+                            editDueDateBtn.addEventListener('click', () => {
+                                console.log("hi");
+                            })
+                            ToDoItem.appendChild(itemBoxDiv);
+                            itemBoxDiv.appendChild(editDueDateBtn);
                             //make a button that adds items to the checklist
                             const addToChecklistBtn = document.createElement("button");
                             addToChecklistBtn.textContent = "Add to checklist";
                             addToChecklistBtn.addEventListener('click', () => {
                                 addToCheckList(checklistUL, item);
                             })
-                            ToDoItem.appendChild(itemBoxDiv);
                             itemBoxDiv.appendChild(addToChecklistBtn);
                             //make a button that removes items from the checklist.
                             const removeFromChecklist = document.createElement("button");

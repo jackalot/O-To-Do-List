@@ -1,6 +1,7 @@
 import hideToDo from "./hideToDo";
 import addToCheckList from "./addToChecklist";
 import removeCheckListItem from "./deleteCheckListItem";
+import editField from "./editField";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, project) {
 const projectDiv = document.querySelector('#' + project);
@@ -84,7 +85,7 @@ const projectDiv = document.querySelector('#' + project);
                             const editDueDateBtn = document.createElement("button");
                             editDueDateBtn.textContent = "Edit Due Date";
                             editDueDateBtn.addEventListener('click', () => {
-                                console.log("hi");
+                                editField(dueDateh3, "What time is this due?", item)
                             })
                             ToDoItem.appendChild(itemBoxDiv);
                             itemBoxDiv.appendChild(editDueDateBtn);

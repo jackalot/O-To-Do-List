@@ -2,18 +2,20 @@
 function checkForProject (name, projects) {
     if(projects.length === 0)
     {
-        console.log("project length is 0");
+        //console.log("project length is 0");
+        localStorage.setItem(`${name}`, name);
         return false;
     }
     for(let i = 0; i < projects.length; i++)
     {
         if(projects[i] === name)
         {
-            console.log("returned " + projects[i] + " at the index " + i);
+            //console.log("returned " + projects[i] + " at the index " + i);
             return projects[i];
         }
     }
-    console.log("returned false anyways");
+    //console.log("returned false anyways");
+    localStorage.setItem(`${name}`, name);
     return false;
 }
 export default checkForProject;

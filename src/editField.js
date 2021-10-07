@@ -2,6 +2,7 @@
 function editField(element, promptMessage, item, elementType) {
 const input = window.prompt(promptMessage);
 element.textContent = input;
-item.[elementType] = input;
+item[elementType] = input; //work on this
+console.log(item);
 }
 export default editField;

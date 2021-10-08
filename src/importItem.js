@@ -118,6 +118,13 @@ const projectDiv = document.querySelector('#' + project);
                                 removeCheckListItem(checklistUL, item);
                             })
                             itemBoxDiv.appendChild(removeFromChecklist);
+                            //make a button that edits the priority
+                            const editNotesBtn = document.createElement("button");
+                            editNotesBtn.textContent = "Edit Additional Notes";
+                            editNotesBtn.addEventListener('click', () => {
+                                editField(additionalNotesP, "What additional notes do you have?", item, "notes")
+                            })
+                            itemBoxDiv.appendChild(editNotesBtn);
                             /*END item box div */
                 /*END Item Body*/
     }

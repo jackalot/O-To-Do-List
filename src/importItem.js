@@ -129,7 +129,7 @@ const projectDiv = document.querySelector('#' + project);
                             const deleteToDoListBtn = document.createElement("button");
                             deleteToDoListBtn.textContent = "Delete To-Do List";
                             deleteToDoListBtn.addEventListener('click', () => {
-                                deleteTodoList(ToDoItem, item);
+                                deleteTodoList(ul, ToDoItem, item);
                             })
                             itemBoxDiv.appendChild(deleteToDoListBtn);
                             

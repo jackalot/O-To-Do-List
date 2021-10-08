@@ -2,6 +2,7 @@ import hideToDo from "./hideToDo";
 import addToCheckList from "./addToChecklist";
 import removeCheckListItem from "./deleteCheckListItem";
 import editField from "./editField";
+import deleteTodoList from "./deleteToDoList";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, project) {
 const projectDiv = document.querySelector('#' + project);
@@ -125,6 +126,13 @@ const projectDiv = document.querySelector('#' + project);
                                 editField(additionalNotesP, "What additional notes do you have?", item, "notes")
                             })
                             itemBoxDiv.appendChild(editNotesBtn);
+                            const deleteToDoListBtn = document.createElement("button");
+                            deleteToDoListBtn.textContent = "Delete To-Do List";
+                            deleteToDoListBtn.addEventListener('click', () => {
+                                deleteTodoList(ToDoItem, item);
+                            })
+                            itemBoxDiv.appendChild(deleteToDoListBtn);
+                            
                             /*END item box div */
                 /*END Item Body*/
     }

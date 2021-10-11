@@ -9,8 +9,12 @@
         <div class="form-popup" id="my-form">
             <form class ="form-container">
                 <h1>Login</h1>
-                <label for="Project-Name"> <b>Project Name</b></label>
-                <input type="text" placeholder="Enter Password" name="psw" required>
+                <label for="Project-Name"> <b>Choose a Project</b></label>
+                <select name ="Project-Name">
+                    <option value="test1">test1</option>
+                    <option value="NewProject">New Project</option>
+                </select>
+                <input type="text" placeholder="Enter" name="new-project">
 
                 <button type="submit" class="btn">Submit Project</button>
                 <button type="button" class="btn-cancel" onclick="closeForm()">Close</button>

@@ -13,16 +13,18 @@ function closeForm() {
 }
 const selectProjectMenu = document.querySelector(".Project-Name");//The actual menu
 const selectProjectOptions = selectProjectMenu.childNodes;
+const newProjectInput = document.querySelector(".new-project");
+newProjectInput.style.display = "none";
 selectProjectMenu.addEventListener('click', () => {
     AddProjElement();
 })
 function AddProjElement() { //when a select project element is clicked, it triggers this function
     if(selectProjectMenu.value === "NewProject")
     {
-     console.log("add the 'add project' element to the dom");
+     newProjectInput.style.display = "block";
     }
     else
     {
-        console.log("dont need to add any elements in");
+        newProjectInput.style.display = "none";
     }
 }

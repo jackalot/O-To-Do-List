@@ -26,6 +26,7 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
+    "eslint": "^7.32.0",
     "path-browserify": "^1.0.1",
     "url": "^0.11.0",
     "util": "^0.12.4"

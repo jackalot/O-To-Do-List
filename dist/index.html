@@ -3,8 +3,21 @@
     <head>
         <title>To-Do-List</title>
         <meta charset="UTF-8">
+        <script src="main.js"></script>
     </head>
     <body>
-        <script src="main.js"></script>
+        <button class="open-button">Open Form</button>
+        <div class="form-popup" id="my-form">
+            <form class ="form-container">
+                <h1>Login</h1>
+                <label for="Project-Name"> <b>Project Name</b></label>
+                <input type="text" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit" class="btn">Submit Project</button>
+                <button type="button" class="btn-cancel" onclick="closeForm()">Close</button>
+
+            </form>
+        </div>
+        <script src="/src/index.js"></script>
     </body>
 </html>

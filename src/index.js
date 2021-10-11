@@ -1,7 +1,7 @@
-const OpenBtn = document.querySelector("open-button");
+const OpenBtn = document.querySelector(".open-button");
 OpenBtn.addEventListener("click", () => {
-openForm()
-})
+    openForm();
+});
 function openForm() {
  const form  = document.querySelector("form-popup");
  form.style.display = "block";

@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("const OpenBtn = document.querySelector(\".open-button\");\nconsole.log({OpenBtn});\nOpenBtn.addEventListener(\"click\", () => {\n    openForm();\n});\nconst form  = document.querySelector(\".form-popup\");\nform.style.display = \"none\";\nfunction openForm() {\n form.style.display = \"block\";\n}\nfunction closeForm() {\n    form.style.display = \"none\";\n}\n\n//# sourceURL=webpack://O-To-Do-List/./src/index.js?");
+eval("const OpenBtn = document.querySelector(\".open-button\");\n//console.log({OpenBtn});\nOpenBtn.addEventListener(\"click\", () => {\n    openForm();\n});\nconst form  = document.querySelector(\".form-popup\");\nform.style.display = \"none\";\nfunction openForm() {\n form.style.display = \"block\";\n}\nfunction closeForm() {\n    form.style.display = \"none\";\n}\nlet selectMenuValue = document.querySelector(\".Project-Name\").value;\n    if(selectMenuValue === \"NewProject\")\n    {\n        console.log(\"new project?\");\n    }\n\n//# sourceURL=webpack://O-To-Do-List/./src/index.js?");
 
 /***/ })
 

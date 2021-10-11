@@ -1,5 +1,5 @@
 const OpenBtn = document.querySelector(".open-button");
-console.log({OpenBtn});
+//console.log({OpenBtn});
 OpenBtn.addEventListener("click", () => {
     openForm();
 });
@@ -11,3 +11,8 @@ function openForm() {
 function closeForm() {
     form.style.display = "none";
 }
+let selectMenuValue = document.querySelector(".Project-Name").value;
+    if(selectMenuValue === "NewProject")
+    {
+        console.log("new project?");
+    }

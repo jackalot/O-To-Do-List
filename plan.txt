@@ -1,0 +1,8 @@
+current focus: form inputs, adding more:
+* The todo list inputs, those being: 
+* add a title field
+* add a description box
+* add a dueDate box
+* add a notes box
+* the checklist will have to be last on as it will 
+ need to create new list items dynamically. i.e. with a button.

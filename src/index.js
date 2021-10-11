@@ -3,11 +3,11 @@ console.log({OpenBtn});
 OpenBtn.addEventListener("click", () => {
     openForm();
 });
+const form  = document.querySelector(".form-popup");
+form.style.display = "none";
 function openForm() {
- const form  = document.querySelector("form-popup");
  form.style.display = "block";
 }
 function closeForm() {
-    const form  = document.querySelector("form-popup");
     form.style.display = "none";
 }

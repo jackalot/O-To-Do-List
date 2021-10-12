@@ -1,4 +1,4 @@
-//this module pattern will handle manipulating the form when it comes to the dom
+//this module pattern will handle manipulating the form when it comes to the dom IE. clicking open form opens it, clicking new project adds in 'add a new project' field
 const formDomManupulate = (function(doc) {
     const OpenBtn = doc.querySelector(".open-button");
     OpenBtn.addEventListener("click", openForm);

@@ -21,34 +21,25 @@ const formDomManupulate = (function(doc) {
     newProjectInput.style.display = "none";
     //Every click on the select menu will call the AddProjElement(); 
     selectProjectMenu.addEventListener('click', () => {
-        AddProjElement();
+        AddNewElement(selectProjectMenu, newProjectInput, "NewProject");
     })
-    function AddProjElement() {
-        if(selectProjectMenu.value === "NewProject")
-        {
-         newProjectInput.style.display = "block";
-        }
-        else
-        {
-            newProjectInput.style.display = "none";
-        }
-    }
     //Same thing as the project menu, but for the todolist title
     const selectTitleMenu = document.querySelector(".To-Do-List-title");//The actual menu
     const newTitleInput = document.querySelector(".New-To-Do-List-title"); //The field that adds a new title
     newTitleInput.style.display = "none";
     //Every click on the select menu will call the AddTitleElement(); 
     selectTitleMenu.addEventListener('click', () => {
-        AddTitleElement();
+        AddNewElement(selectTitleMenu, newTitleInput, "NewToDoListTitle");
     })
-    function AddTitleElement() {
-        if(selectTitleMenu.value === "NewToDoListTitle")
+    //instead of making a seperate function per element, just do this
+    function AddNewElement(menuElement, inputElement, newValue) {
+        if(menuElement.value === newValue)
         {
-            newTitleInput.style.display = "block";
+            inputElement.style.display = "block";
         }
         else
         {
-            newTitleInput.style.display = "none";
+            inputElement.style.display = "none";
         }
     }
 })(document);

@@ -51,12 +51,7 @@ const formDomManupulate = (function(doc) {
         console.log(checkList);
         for(i=0; i < checkList.length; i++)
         {
-            if(checkList[i].classList.contains("To-Do-List-checklist-deleteListItem"))
-            {
-                checkList[i].addEventListener("click", () => {
-                    deleteClassList(checkList[i]);
-                })
-            }
+            //find the list item, then find the button
         }
     }
    function deleteClassList(button) {

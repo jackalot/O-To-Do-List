@@ -42,6 +42,9 @@ const formDomManupulate = (function(doc) {
             inputElement.style.display = "none";
         }
     }
+
     const checklistUl = doc.querySelector("To-Do-List-checklist"); //the UL element that holds the checklist
+    const addListBtn = doc.querySelector("To-Do-List-checklist-addListItem");
+    const deleteListBtn = doc.querySelector("To-Do-List-checklist-deleteListItem");
     
 })(document);

@@ -47,8 +47,8 @@ const formDomManupulate = (function(doc) {
     const addListBtn = doc.querySelector(".To-Do-List-checklist-addListItem");
     checkForButton();
     function checkForButton () {
-        let checkList = checkListUl.childNodes;
-        console.log(checkListUl);
+        let checkList = [...checkListUl.childNodes];
+        console.log(checkList);
         for(i=0; i < checkList.length; i++)
         {
             if(checkList[i].classList.contains("To-Do-List-checklist-deleteListItem"))

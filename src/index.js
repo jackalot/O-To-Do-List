@@ -33,4 +33,22 @@ const formDomManupulate = (function(doc) {
             newProjectInput.style.display = "none";
         }
     }
+    //Same thing as the project menu, but for the todolist title
+    const selectTitleMenu = document.querySelector(".To-Do-List-title");//The actual menu
+    const newTitleInput = document.querySelector(".New-To-Do-List-title"); //The field that adds a new title
+    newTitleInput.style.display = "none";
+    //Every click on the select menu will call the AddTitleElement(); 
+    selectTitleMenu.addEventListener('click', () => {
+        AddTitleElement();
+    })
+    function AddTitleElement() {
+        if(selectTitleMenu.value === "NewToDoListTitle")
+        {
+            newTitleInput.style.display = "block";
+        }
+        else
+        {
+            newTitleInput.style.display = "none";
+        }
+    }
 })(document);

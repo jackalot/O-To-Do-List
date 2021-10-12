@@ -47,12 +47,9 @@ const formDomManupulate = (function(doc) {
     const addListBtn = doc.querySelector(".To-Do-List-checklist-addListItem");
     checkForButton();
     function checkForButton () {
-        let checkList = [...checkListUl.childNodes];
-        console.log(checkList);
-        for(i=0; i < checkList.length; i++)
-        {
-            //find the list item, then find the button
-        }
+        //console.log(checkListUl.className);
+        let listItems = doc.querySelectorAll(`.${checkListUl.className} > li`);
+        console.log(listItems);
     }
    function deleteClassList(button) {
     console.log("delete me");

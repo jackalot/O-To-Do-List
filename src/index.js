@@ -43,11 +43,23 @@ const formDomManupulate = (function(doc) {
         }
     }
 
-    const checkListUl = doc.querySelector("To-Do-List-checklist"); //the UL element that holds the checklist
-    const addListBtn = doc.querySelector("To-Do-List-checklist-addListItem");
-    const deleteListBtn = doc.querySelector("To-Do-List-checklist-deleteListItem").addEventListener("click", deleteListItem});
-    function deleteListItem () {
+    const checkListUl = doc.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
+    const addListBtn = doc.querySelector(".To-Do-List-checklist-addListItem");
+    checkForButton();
+    function checkForButton () {
         let checkList = checkListUl.childNodes;
-        
+        console.log(checkListUl);
+        for(i=0; i < checkList.length; i++)
+        {
+            if(checkList[i].classList.contains("To-Do-List-checklist-deleteListItem"))
+            {
+                checkList[i].addEventListener("click", () => {
+                    deleteClassList(checkList[i]);
+                })
+            }
+        }
+    }
+   function deleteClassList(button) {
+    console.log("delete me");
     }
 })(document);

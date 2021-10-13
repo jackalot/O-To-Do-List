@@ -1,4 +1,37 @@
-current focus: form inputs, adding more:
-* The todo list inputs, those being: 
-* the checklist will have to be last on as it will 
- need to create new list items dynamically. i.e. with a button.
+current focus: grabbing all the data that was put in, and save it to local storage:
+* grab the project title from the dom
+
+* store project title in local storage
+
+* check if we can access it in local storage
+---------------------------------------------
+* grab the To Do list title from the dom
+
+* store To Do list title in local storage
+
+* check if we can access it in local storage
+---------------------------------------------
+* grab the To Do list description from the dom
+
+* store To Do list description in local storage
+
+* check if we can access it in local storage
+---------------------------------------------
+* grab the To Do list due Date from the dom
+
+* store To Do list due Date in local storage
+
+* check if we can access it in local storage
+---------------------------------------------
+* grab the To Do list notes from the dom
+
+* store To Do list notes in local storage
+
+* check if we can access it in local storage
+---------------------------------------------
+* grab the To Do list checklist from the dom
+
+* store To Do list checklist in local storage
+
+* check if we can access it in local storage
+---------------------------------------------

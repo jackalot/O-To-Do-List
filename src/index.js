@@ -50,15 +50,19 @@ const formDomManupulate = (function(doc) {
         //console.log(checkListUl.className);
         let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`);
         //console.log(AlllistItems);
-        let AllButtons = [];
-        for(i = 0; i < AlllistItems; i++)
+        for(i = 0; i < AlllistItems.length; i++)
         {
-            let btn = doc.querySelector(`${AlllistItems[i].tagName} > .To-Do-List-checklist-deleteListItem`);
-            AllButtons.push(btn);
+            //console.log(AlllistItems[i]);
+            let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`);
+            if(btn)
+            {
+                btn.addEventListener("click", () => {
+                    deleteListItem(AlllistItems[i]);
+                })
+            }
         }
-        console.log(AllButtons);
     }
-   function deleteClassList(button) {
-    console.log("delete me");
+   function deleteListItem(listItem) {
+    console.log("delete " + listItem);
     }
 })(document);

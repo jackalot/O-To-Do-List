@@ -90,22 +90,12 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);
     }
-    //public functions that get returned
-    function GetProjectTitle () {
-        //if the select menu is equal to a new project
-        if(selectProjectMenu === "NewProject")
-        {
-            const newProjectInput = doc.querySelector(".new-project-input");
-            console.log(newProjectInput);
-            return newProjectInput;
-        }
-    }
     return { GetProjectTitle };
 })(document);
 const formDataManipulate = (() => {
     function storeProjectTitle()
     {
-        let newProjectInput = formDomManupulate.GetProjectTitle();
+        const newProjectInput = document.querySelector(".new-project-input");
         let projectValue = newProjectInput.value;
         console.log(projectValue);
     }

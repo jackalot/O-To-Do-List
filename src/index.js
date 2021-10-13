@@ -90,14 +90,22 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);
     }
-    return { GetProjectTitle };
+    return {  };
 })(document);
 const formDataManipulate = (() => {
     function storeProjectTitle()
     {
-        const newProjectInput = document.querySelector(".new-project-input");
-        let projectValue = newProjectInput.value;
-        console.log(projectValue);
+        const selectProjectMenu = document.querySelector(".Project-Name");
+        if(selectProjectMenu.value === "NewProject")
+        {
+            const newProjectInput = document.querySelector(".new-project-input");
+            let projectValue = newProjectInput.value;
+            console.log(projectValue);
+        }
+        else
+        {
+            console.log(selectProjectMenu.value);
+        }
     }
     //Starts the store data functions
     function startStoring ()

@@ -90,12 +90,31 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);
     }
-    //public functions 
+    //public functions that get returned
     function GetProjectTitle () {
-
+        //if the select menu is equal to a new project
+        if(selectProjectMenu === "NewProject")
+        {
+            const newProjectInput = doc.querySelector(".new-project-input");
+            return newProjectInput;
+        }
     }
     return { GetProjectTitle };
 })(document);
-const formDataManipulate = (function() {
-
+const formDataManipulate = (() => {
+    function storeProjectTitle()
+    {
+        let newProjectInput = formDomManupulate.GetProjectTitle();
+        let projectValue = newProjectInput.value;
+        console.log(projectValue);
+    }
+    //Starts the store data functions
+    function startStoring ()
+    {
+        storeProjectTitle();
+    }
+     //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
+     const submitBtn = document.querySelector(".Submit-Button")
+     submitBtn.addEventListener("click", startStoring);
+    return { startStoring };
 })();

@@ -96,6 +96,7 @@ const formDomManupulate = (function(doc) {
         if(selectProjectMenu === "NewProject")
         {
             const newProjectInput = doc.querySelector(".new-project-input");
+            console.log(newProjectInput);
             return newProjectInput;
         }
     }

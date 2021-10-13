@@ -42,35 +42,34 @@ const formDomManupulate = (function(doc) {
             inputElement.style.display = "none";
         }
     }
-
+    //This is the start of the checklist section
     const checkListUl = doc.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
-    const addListBtn = doc.querySelector(".To-Do-List-checklist-addListItem");
-    checkForButton();
+    const addListBtn = doc.querySelector(".To-Do-List-checklist-addListItem"); //button that adds to the list
+    checkForButton(); //call this now so all delete buttons have their delete functions
     function checkForButton () {
         //console.log(checkListUl.className);
-        let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`);
+        let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items 
         //console.log(AlllistItems);
-        for(i = 0; i < AlllistItems.length; i++)
+        for(i = 0; i < AlllistItems.length; i++) 
         {
             console.log(AlllistItems[i]);
-            let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`);
+            let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`); //if we have a button in a list item, its our delete button
             if(btn)
             {
-                let li = AlllistItems[i];
                 btn.addEventListener("click", () => {
                     deleteListItem(btn);
                 })
             }
         }
     }
-   function deleteListItem(btn) {
+   function deleteListItem(btn) { //actual delete function
         //console.log("this button is " + btn.className);
-        let parentLI = btn.parentNode;
-        while (parentLI.firstChild)
+        let parentLI = btn.parentNode; //get the li node
+        while (parentLI.firstChild) //while the list item has children
         {
-          parentLI.removeChild(parentLI.firstChild);
+          parentLI.removeChild(parentLI.firstChild); //remove them all
         }
-        let parentUL = parentLI.parentNode;
-        parentUL.removeChild(parentLI);
+        let parentUL = parentLI.parentNode; // get the entire UL 
+        parentUL.removeChild(parentLI); // to remove the list item itself
     }
 })(document);

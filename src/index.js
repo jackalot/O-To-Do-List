@@ -80,6 +80,9 @@ const formDomManupulate = (function(doc) {
         textBox.placeholder = "type a checklist item here";
         textBox.classList.add("To-Do-List-checklist-item");
         const deleteButton = doc.createElement("button");
+        deleteButton.addEventListener("click", () => {
+            deleteListItem(deleteButton);
+        })
         deleteButton.classList.add("To-Do-List-checklist-deleteListItem");
         deleteButton.textContent = "Delete this item!";
         checkListUl.appendChild(newLI);

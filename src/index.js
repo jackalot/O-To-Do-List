@@ -52,17 +52,25 @@ const formDomManupulate = (function(doc) {
         //console.log(AlllistItems);
         for(i = 0; i < AlllistItems.length; i++)
         {
-            //console.log(AlllistItems[i]);
+            console.log(AlllistItems[i]);
             let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`);
             if(btn)
             {
+                let li = AlllistItems[i];
                 btn.addEventListener("click", () => {
-                    deleteListItem(AlllistItems[i]);
+                    deleteListItem(btn);
                 })
             }
         }
     }
-   function deleteListItem(listItem) {
-    console.log("delete " + listItem);
+   function deleteListItem(btn) {
+        //console.log("this button is " + btn.className);
+        let parentLI = btn.parentNode;
+        while (parentLI.firstChild)
+        {
+          parentLI.removeChild(parentLI.firstChild);
+        }
+        let parentUL = parentLI.parentNode;
+        parentUL.removeChild(parentLI);
     }
 })(document);

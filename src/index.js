@@ -72,4 +72,18 @@ const formDomManupulate = (function(doc) {
         let parentUL = parentLI.parentNode; // get the entire UL 
         parentUL.removeChild(parentLI); // to remove the list item itself
     }
+    addListBtn.addEventListener("click", addListItem);
+    function addListItem() {
+        const newLI = doc.createElement("li");
+        const textBox = doc.createElement("input");
+        textBox.type = "text";
+        textBox.placeholder = "type a checklist item here";
+        textBox.classList.add("To-Do-List-checklist-item");
+        const deleteButton = doc.createElement("button");
+        deleteButton.classList.add("To-Do-List-checklist-deleteListItem");
+        deleteButton.textContent = "Delete this item!";
+        checkListUl.appendChild(newLI);
+        newLI.appendChild(textBox);
+        newLI.appendChild(deleteButton);
+    }
 })(document);

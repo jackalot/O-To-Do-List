@@ -90,4 +90,12 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);
     }
+    //public functions 
+    function GetProjectTitle () {
+
+    }
+    return { GetProjectTitle };
 })(document);
+const formDataManipulate = (function() {
+
+})();

@@ -72,19 +72,20 @@ const formDomManupulate = (function(doc) {
         let parentUL = parentLI.parentNode; // get the entire UL 
         parentUL.removeChild(parentLI); // to remove the list item itself
     }
-    addListBtn.addEventListener("click", addListItem);
-    function addListItem() {
-        const newLI = doc.createElement("li");
-        const textBox = doc.createElement("input");
+    addListBtn.addEventListener("click", addListItem); //add the function below it to the button add List Item
+    function addListItem() { //adds a list item to the check list inputs
+        const newLI = doc.createElement("li"); //our list item which holds the content
+        const textBox = doc.createElement("input"); //the input which we store data in
         textBox.type = "text";
         textBox.placeholder = "type a checklist item here";
         textBox.classList.add("To-Do-List-checklist-item");
-        const deleteButton = doc.createElement("button");
+        const deleteButton = doc.createElement("button"); //delete button which we create, then immediately add its function to
         deleteButton.addEventListener("click", () => {
             deleteListItem(deleteButton);
         })
         deleteButton.classList.add("To-Do-List-checklist-deleteListItem");
         deleteButton.textContent = "Delete this item!";
+        //now add all those elements to the DOM
         checkListUl.appendChild(newLI);
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);

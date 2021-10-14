@@ -104,8 +104,8 @@ const formDataManipulate = (() => {
                 if(localStorage.projectTitles)
                 {
                     //projectTitles has been made
-                   let projectArray = localStorage.getItem("projectTitles"); //create a projectArray variable from local storage
-                   projectArray = JSON.parse(projectArray); //parse it into a javascript array we can use
+                   let Retrieved = localStorage.getItem("projectTitles"); //create a projectArray variable from local storage
+                   let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
                    projectArray.push(projectArray); //push it
                    localStorage.setItem("projectTitles", JSON.stringify(projectArray));
                 }

@@ -65,9 +65,9 @@ const formDomManupulate = (function(doc) {
    function deleteListItem(btn) { //actual delete function
         //console.log("this button is " + btn.className);
         let parentLI = btn.parentNode; //get the li node
-        console.log("parentLI = " + parentLI);
+        //console.log("parentLI = " + parentLI);
         let parentUL = parentLI.parentNode; // get the entire UL 
-        console.log("parentUL = " + parentUL);
+        //console.log("parentUL = " + parentUL);
         parentUL.removeChild(parentLI); // to remove the list item itself
     }
     addListBtn.addEventListener("click", addListItem); //add the function below it to the button add List Item
@@ -99,11 +99,25 @@ const formDataManipulate = (() => {
         {
             const newProjectInput = document.querySelector(".new-project-input");
             let projectValue = newProjectInput.value;
-            console.log(projectValue);
+            //console.log("NewProject " + projectValue);
+            if(typeof(Storage) !== "undefined") {
+                if(localStorage.projectTitles)
+                {
+                    localStorage.projectTitles.push(projectValue);
+                    console.log("push project value" + localStorage.projectTitles);
+                }
+                else
+                {
+                    localStorage.projectTitles = [];
+                    localStorage.projectTitles.push(projectValue)
+                    console.log("create localStorage.projectTitles:" + localStorage.projectTitles);
+
+                }
+            }
         }
         else
         {
-            console.log(selectProjectMenu.value);
+            console.log("old project" + selectProjectMenu.value);
         }
     }
     //Starts the store data functions

@@ -103,15 +103,18 @@ const formDataManipulate = (() => {
             if(typeof(Storage) !== "undefined") {
                 if(localStorage.projectTitles)
                 {
-                    localStorage.projectTitles.push(projectValue);
-                    console.log("push project value" + localStorage.projectTitles);
+                    //projectTitles has been made
+                   let projectArray = localStorage.getItem("projectTitles"); //create a projectArray variable from local storage
+                   projectArray = JSON.parse(projectArray); //parse it into a javascript array we can use
+                   projectArray.push(projectArray); //push it
+                   localStorage.setItem("projectTitles", JSON.stringify(projectArray));
                 }
-                else
+                else //projectTitles has not been made yet
                 {
-                    localStorage.projectTitles = [];
-                    localStorage.projectTitles.push(projectValue)
-                    console.log("create localStorage.projectTitles:" + localStorage.projectTitles);
-
+                    let projectArray = []; // new array to store all titles
+                    projectArray.push(projectValue); //push the projectValue onto that array
+                    console.log("ProjectArray is " + projectArray);
+                    localStorage.setItem("projectTitles", JSON.stringify(projectArray)); //store in local storage as a strigified array.
                 }
             }
         }

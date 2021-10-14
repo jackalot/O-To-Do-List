@@ -145,6 +145,9 @@ const formDataManipulate = (() => {
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")
-     submitBtn.addEventListener("click", startStoring);
+     submitBtn.addEventListener("click", () => {
+         console.log("submit got clicked");
+         startStoring();
+     });
     return { startStoring };
 })();

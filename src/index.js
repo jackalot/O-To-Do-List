@@ -91,6 +91,7 @@ const formDomManupulate = (function(doc) {
     }
     return { closeForm };
 })(document);
+//Handles saving data from all form inputs
 const formDataManipulate = (() => {
     const getCircularReplacer = () => {//for project titles since it gives a circular reference errors
         const seen = new WeakSet();

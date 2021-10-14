@@ -92,6 +92,19 @@ const formDomManupulate = (function(doc) {
     return {  };
 })(document);
 const formDataManipulate = (() => {
+    const getCircularReplacer = () => {//for project titles since it gives a circular reference errors
+        const seen = new WeakSet();
+        return (key, value) => {
+          if (typeof value === "object" && value !== null) {
+            if (seen.has(value)) {
+              return;
+            }
+            seen.add(value);
+          }
+          return value;
+        };
+      };
+      
     function storeProjectTitle()
     {
         const selectProjectMenu = document.querySelector(".Project-Name");
@@ -107,14 +120,14 @@ const formDataManipulate = (() => {
                    let Retrieved = localStorage.getItem("projectTitles"); //create a projectArray variable from local storage
                    let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
                    projectArray.push(projectArray); //push it
-                   localStorage.setItem("projectTitles", JSON.stringify(projectArray));
+                   localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
                 }
                 else //projectTitles has not been made yet
                 {
                     let projectArray = []; // new array to store all titles
                     projectArray.push(projectValue); //push the projectValue onto that array
                     console.log("ProjectArray is " + projectArray);
-                    localStorage.setItem("projectTitles", JSON.stringify(projectArray)); //store in local storage as a strigified array.
+                    localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
                 }
             }
         }

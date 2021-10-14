@@ -89,7 +89,7 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);
     }
-    return {  };
+    return { closeForm };
 })(document);
 const formDataManipulate = (() => {
     const getCircularReplacer = () => {//for project titles since it gives a circular reference errors
@@ -147,6 +147,7 @@ const formDataManipulate = (() => {
      const submitBtn = document.querySelector(".Submit-Button")
      submitBtn.addEventListener("click", () => {
          console.log("submit got clicked");
+         formDomManupulate.closeForm();
          startStoring();
      });
     return { startStoring };

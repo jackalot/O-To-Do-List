@@ -119,10 +119,10 @@ const formDataManipulate = (() => {
                 {
                     //projectTitles has been made
                     console.log("localStorage.projectTitles exists")
-                   let Retrieved = localStorage.getItem("projectTitles"); //create a projectArray variable from local storage
+                   let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
                    let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
                    projectArray.push(projectValue); //push it
-                   localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));//returns first value, null, null
+                   localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
                 }
                 else //projectTitles has not been made yet
                 {
@@ -139,10 +139,43 @@ const formDataManipulate = (() => {
             console.log("old project" + selectProjectMenu.value);
         }
     }
+    function storeToDoListTitle() {
+        const toDoListMenu = document.querySelector(".To-Do-List-title");
+        if(toDoListMenu.value === "NewProject")
+        {
+            const newProjectInput = document.querySelector(".new-project-input");
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+            let projectValue = newProjectInput.value;
+            if(typeof(Storage) !== "undefined") {
+                if(localStorage.projectValue)
+                {
+                    //projectTitles has been made
+                    console.log("localStorage.projectTitles exists")
+                   let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
+                   let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
+                   ToDoListTitles.push(newToDoListTitleInput.value); //push it
+                   localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
+                }
+                else //whatever projectValue is has not been made yet
+                {
+                    console.log("localStorage.projectValue-ToDoListTitles will now exist")
+                    let ToDoListTitles = []; // new array to store all titles
+                    ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
+                    //console.log("ProjectArray is " + projectArray);
+                    localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a strigified array.
+                }
+            }
+        }
+        else
+        {
+            console.log("old project" + selectProjectMenu.value);
+        }
+    }
     //Starts the store data functions
     function startStoring ()
     {
         storeProjectTitle();
+        storeToDoListTitle();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

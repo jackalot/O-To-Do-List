@@ -181,7 +181,11 @@ const formDataManipulate = (() => {
         }
     }
     function storeToDoListDescription() {
-
+        const newProjectInput = document.querySelector(".new-project-input");
+        let projectValue = newProjectInput.value;
+        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+        let TitleValue = newToDoListTitleInput.value;
+        
     }
     //Starts the store data functions
     function startStoring ()

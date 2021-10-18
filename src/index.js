@@ -203,7 +203,7 @@ const formDataManipulate = (() => {
         for(i = 0; i < AlllistItems.length; i++) 
         {
             console.log(AlllistItems[i]);
-            let btn = doc.querySelector(`${AlllistItems[i].tagName} > .To-Do-List-checklist-item`); //if we have a button in a list item, its our delete button
+            let btn = doc.querySelector(`${AlllistItems[i].tagName} > .To-Do-List-checklist-item`); //if we have a textbox in a list item
             if(btn)
             {
                 btn.addEventListener("click", () => {

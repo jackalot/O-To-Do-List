@@ -147,9 +147,9 @@ const formDataManipulate = (() => {
             const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
             let projectValue = newProjectInput.value;
             if(typeof(Storage) !== "undefined") {
-                if(localStorage.projectValue)
+                if(localStorage[projectValue])
                 {
-                    //projectTitles has been made
+                    //projectValue has been made
                     //onsole.log("localStorage.projectTitles exists")
                    let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
                    let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use

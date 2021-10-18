@@ -52,7 +52,7 @@ const formDomManupulate = (function(doc) {
         //console.log(AlllistItems);
         for(i = 0; i < AlllistItems.length; i++) 
         {
-            console.log(AlllistItems[i]);
+            //console.log(AlllistItems[i]);
             let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`); //if we have a button in a list item, its our delete button
             if(btn)
             {
@@ -181,9 +181,9 @@ const formDataManipulate = (() => {
         }
     }
     /* StoreSingleField, in an attempt to shorten making multiple functions:
-    *inputType = the type of input we are storing, ex. description, notes, dueDate
-    className = the class name for the input fied we are searching: .To-Do-List-notes, .To-Do-List-dueDate, .To-Do-List-description
-     */ 
+    * inputType = the type of input we are storing, ex. description, notes, dueDate
+    * className = the class name for the input fied we are searching, ex. .To-Do-List-notes, .To-Do-List-dueDate, .To-Do-List-description
+    */ 
     function StoreSingleField(inputType, className) {
         const newProjectInput = document.querySelector(".new-project-input");
         const projectValue = newProjectInput.value;
@@ -195,6 +195,23 @@ const formDataManipulate = (() => {
             localStorage.setItem(`${projectValue}-${TitleValue}-${inputType}`, JSON.stringify(ourField));
         }
     }
+    function storeCheckList() 
+    {
+        const checkListUl = doc.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
+        let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items 
+        //console.log(AlllistItems);
+        for(i = 0; i < AlllistItems.length; i++) 
+        {
+            console.log(AlllistItems[i]);
+            let btn = doc.querySelector(`${AlllistItems[i].tagName} > .To-Do-List-checklist-item`); //if we have a button in a list item, its our delete button
+            if(btn)
+            {
+                btn.addEventListener("click", () => {
+                    deleteListItem(btn);
+                })
+            }
+        }
+    }
     //Starts the store data functions
     function startStoring ()
     {
@@ -203,6 +220,7 @@ const formDataManipulate = (() => {
         StoreSingleField("description", ".To-Do-List-description");
         StoreSingleField("notes", ".To-Do-List-notes");
         StoreSingleField("dueDate", ".To-Do-List-dueDate");
+        storeCheckList();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

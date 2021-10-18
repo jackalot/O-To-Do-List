@@ -180,11 +180,15 @@ const formDataManipulate = (() => {
             console.log("old ToDoList" + toDoListMenu.value);
         }
     }
+    function storeToDoListDescription() {
+
+    }
     //Starts the store data functions
     function startStoring ()
     {
         storeProjectTitle();
         storeToDoListTitle();
+        storeToDoListDescription();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

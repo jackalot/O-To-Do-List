@@ -114,25 +114,30 @@ const formDataManipulate = (() => {
             const newProjectInput = document.querySelector(".new-project-input");
             let projectValue = newProjectInput.value;
             //console.log("NewProject " + projectValue);
-            if(typeof(Storage) !== "undefined") {
-                if(localStorage.projectTitles)
-                {
-                    //projectTitles has been made
-                    //console.log("localStorage.projectTitles exists")
-                   let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
-                   let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
-                   projectArray.push(projectValue); //push it
-                   localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
+          
+                if(typeof(Storage) !== "undefined") {
+                    if(localStorage.projectTitles)
+                    {
+                        //projectTitles has been made
+                        //console.log("localStorage.projectTitles exists")
+                       let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
+                       let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
+                        let projectIndex =projectArray.indexOf(projectValue); //This is if the project already exists, we won't just add more of the same name to local storage
+                        if(projectIndex === -1) //if it doesnt exist already
+                        {
+                        projectArray.push(projectValue); //push it
+                        localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
+                        }
+                    }
+                    else //projectTitles has not been made yet
+                    {
+                       // console.log("localStorage.projectTitles will now exist")
+                        let projectArray = []; // new array to store all titles
+                        projectArray.push(projectValue); //push the projectValue onto that array
+                        //console.log("ProjectArray is " + projectArray);
+                        localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
+                    }
                 }
-                else //projectTitles has not been made yet
-                {
-                   // console.log("localStorage.projectTitles will now exist")
-                    let projectArray = []; // new array to store all titles
-                    projectArray.push(projectValue); //push the projectValue onto that array
-                    //console.log("ProjectArray is " + projectArray);
-                    localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
-                }
-            }
         }
         else
         {

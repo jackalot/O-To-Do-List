@@ -167,10 +167,10 @@ const formDataManipulate = (() => {
                 }
                 else //whatever projectValue is has not been made yet
                 {
-                    console.log("localStorage.projectValue-ToDoListTitles will now exist")
+                    //console.log("localStorage.projectValue-ToDoListTitles will now exist")
                     let ToDoListTitles = []; // new array to store all titles
                     ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
-                    console.log("ToDoListTitles is " + ToDoListTitles);
+                    //console.log("ToDoListTitles is " + ToDoListTitles);
                     localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a strigified array.
                 }
             }
@@ -182,10 +182,23 @@ const formDataManipulate = (() => {
     }
     function storeToDoListDescription() {
         const newProjectInput = document.querySelector(".new-project-input");
-        let projectValue = newProjectInput.value;
+        const projectValue = newProjectInput.value;
         const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-        let TitleValue = newToDoListTitleInput.value;
-        
+        const TitleValue = newToDoListTitleInput.value;
+        const Description = document.querySelector(".To-Do-List-description").value;
+        if(typeof(Storage) !== "undefined")
+        {
+            if(localStorage[`${projectValue}-${TitleValue}-description`])
+            {
+                console.log("getting description local storage")
+                localStorage.setItem(`${projectValue}-${TitleValue}-description`, JSON.stringify(Description));
+            }
+            else
+            {
+                console.log("creating description local storage")
+                localStorage.setItem(`${projectValue}-${TitleValue}-description`, JSON.stringify(Description));
+            }
+        }
     }
     //Starts the store data functions
     function startStoring ()

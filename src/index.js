@@ -188,16 +188,7 @@ const formDataManipulate = (() => {
         const Description = document.querySelector(".To-Do-List-description").value;
         if(typeof(Storage) !== "undefined")
         {
-            if(localStorage[`${projectValue}-${TitleValue}-description`])
-            {
-                console.log("getting description local storage")
-                localStorage.setItem(`${projectValue}-${TitleValue}-description`, JSON.stringify(Description));
-            }
-            else
-            {
-                console.log("creating description local storage")
-                localStorage.setItem(`${projectValue}-${TitleValue}-description`, JSON.stringify(Description));
-            }
+            localStorage.setItem(`${projectValue}-${TitleValue}-description`, JSON.stringify(Description));
         }
     }
     //Starts the store data functions

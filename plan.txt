@@ -1,11 +1,5 @@
 current focus: grabbing all the data that was put in, and save it to local storage:
 
-* grab the To Do list description from the dom
-
-* store To Do list description in local storage
-
-* check if we can access it in local storage
----------------------------------------------
 * grab the To Do list due Date from the dom
 
 * store To Do list due Date in local storage

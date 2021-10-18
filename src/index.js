@@ -202,6 +202,17 @@ const formDataManipulate = (() => {
             localStorage.setItem(`${projectValue}-${TitleValue}-dueDate`, JSON.stringify(DueDate));
         }
     }
+    function storeTodoListNotes() {
+        const newProjectInput = document.querySelector(".new-project-input");
+        const projectValue = newProjectInput.value;
+        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+        const TitleValue = newToDoListTitleInput.value;
+        const Notes = document.querySelector(".To-Do-List-notes").value;
+        if(typeof(Storage) !== "undefined")
+        {
+            localStorage.setItem(`${projectValue}-${TitleValue}-Notes`, JSON.stringify(Notes));
+        }
+    }
     //Starts the store data functions
     function startStoring ()
     {
@@ -209,6 +220,7 @@ const formDataManipulate = (() => {
         storeToDoListTitle();
         storeToDoListDescription();
         storeTodoListDueDate();
+        storeTodoListNotes();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

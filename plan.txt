@@ -1,10 +1,5 @@
 current focus: grabbing all the data that was put in, and save it to local storage:
-* grab the project title from the dom
 
-* store project title in local storage
-
-* check if we can access it in local storage
----------------------------------------------
 * grab the To Do list title from the dom
 
 * store To Do list title in local storage

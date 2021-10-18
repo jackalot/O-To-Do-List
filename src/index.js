@@ -158,8 +158,12 @@ const formDataManipulate = (() => {
                     //onsole.log("localStorage.projectTitles exists")
                    let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
                    let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
-                   ToDoListTitles.push(newToDoListTitleInput.value); //push it
-                   localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
+                   let titleIndex = ToDoListTitles.indexOf(newToDoListTitleInput.value); //This is if the project already exists, we won't just add more of the same name to local storage
+                    if(titleIndex === -1) //if it doesnt exist already
+                    {
+                        ToDoListTitles.push(newToDoListTitleInput.value); //push it
+                        localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
+                    }
                 }
                 else //whatever projectValue is has not been made yet
                 {

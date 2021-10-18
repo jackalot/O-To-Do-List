@@ -105,112 +105,19 @@ const formDataManipulate = (() => {
           return value;
         };
       };
-      
-    function storeProjectTitle()
-    {
-        const selectProjectMenu = document.querySelector(".Project-Name");
-        if(selectProjectMenu.value === "NewProject")
-        {
-            const newProjectInput = document.querySelector(".new-project-input");
-            let projectValue = newProjectInput.value;
-            //console.log("NewProject " + projectValue);
-          
-                if(typeof(Storage) !== "undefined") {
-                    if(localStorage.projectTitles)
-                    {
-                        //projectTitles has been made
-                        //console.log("localStorage.projectTitles exists")
-                       let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
-                       let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
-                        let projectIndex =projectArray.indexOf(projectValue); //This is if the project already exists, we won't just add more of the same name to local storage
-                        if(projectIndex === -1) //if it doesnt exist already
-                        {
-                        projectArray.push(projectValue); //push it
-                        localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
-                        }
-                    }
-                    else //projectTitles has not been made yet
-                    {
-                       // console.log("localStorage.projectTitles will now exist")
-                        let projectArray = []; // new array to store all titles
-                        projectArray.push(projectValue); //push the projectValue onto that array
-                        //console.log("ProjectArray is " + projectArray);
-                        localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
-                    }
-                }
-        }
-        else
-        {
-            console.log("old project" + selectProjectMenu.value);
-        }
-    }
-    function storeToDoListTitle() {
-        const toDoListMenu = document.querySelector(".To-Do-List-title");
-        if(toDoListMenu.value === "NewToDoListTitle")
-        {
-            const newProjectInput = document.querySelector(".new-project-input");
-            let projectValue = newProjectInput.value;
-            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-            if(typeof(Storage) !== "undefined") {
-                if(localStorage[projectValue])
-                {
-                    //projectValue has been made
-                    //onsole.log("localStorage.projectTitles exists")
-                   let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
-                   let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
-                   let titleIndex = ToDoListTitles.indexOf(newToDoListTitleInput.value); //This is if the project already exists, we won't just add more of the same name to local storage
-                    if(titleIndex === -1) //if it doesnt exist already
-                    {
-                        ToDoListTitles.push(newToDoListTitleInput.value); //push it
-                        localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
-                    }
-                }
-                else //whatever projectValue is has not been made yet
-                {
-                    //console.log("localStorage.projectValue-ToDoListTitles will now exist")
-                    let ToDoListTitles = []; // new array to store all titles
-                    ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
-                    //console.log("ToDoListTitles is " + ToDoListTitles);
-                    localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a strigified array.
-                }
-            }
-        }
-        else
-        {
-            console.log("old ToDoList" + toDoListMenu.value);
-        }
-    }
-    function storeToDoListDescription() {
+    /* StoreSingleField, in an attempt to shorten making multiple functions:
+    *inputType = the type of input we are storing, ex. description, notes, dueDate
+    className = the class name for the input fied we are searching: .To-Do-List-notes, .To-Do-List-dueDate, .To-Do-List-description
+     */ 
+    function StoreSingleField(inputType, className) {
         const newProjectInput = document.querySelector(".new-project-input");
         const projectValue = newProjectInput.value;
         const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
         const TitleValue = newToDoListTitleInput.value;
-        const Description = document.querySelector(".To-Do-List-description").value;
+        const ourField = document.querySelector(className).value;
         if(typeof(Storage) !== "undefined")
         {
-            localStorage.setItem(`${projectValue}-${TitleValue}-description`, JSON.stringify(Description));
-        }
-    }
-    function storeTodoListDueDate() {
-        const newProjectInput = document.querySelector(".new-project-input");
-        const projectValue = newProjectInput.value;
-        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-        const TitleValue = newToDoListTitleInput.value;
-        const DueDate = document.querySelector(".To-Do-List-dueDate").value;
-        if(typeof(Storage) !== "undefined")
-        {
-            localStorage.setItem(`${projectValue}-${TitleValue}-dueDate`, JSON.stringify(DueDate));
-        }
-    }
-    function storeTodoListNotes() {
-        const newProjectInput = document.querySelector(".new-project-input");
-        const projectValue = newProjectInput.value;
-        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-        const TitleValue = newToDoListTitleInput.value;
-        const Notes = document.querySelector(".To-Do-List-notes").value;
-        if(typeof(Storage) !== "undefined")
-        {
-            localStorage.setItem(`${projectValue}-${TitleValue}-Notes`, JSON.stringify(Notes));
+            localStorage.setItem(`${projectValue}-${TitleValue}-${inputType}`, JSON.stringify(ourField));
         }
     }
     //Starts the store data functions
@@ -218,9 +125,9 @@ const formDataManipulate = (() => {
     {
         storeProjectTitle();
         storeToDoListTitle();
-        storeToDoListDescription();
-        storeTodoListDueDate();
-        storeTodoListNotes();
+        StoreSingleField("description", ".To-Do-List-description");
+        StoreSingleField("notes", ".To-Do-List-notes");
+        StoreSingleField("dueDate", ".To-Do-List-dueDate");
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

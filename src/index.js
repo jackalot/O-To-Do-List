@@ -118,7 +118,7 @@ const formDataManipulate = (() => {
                 if(localStorage.projectTitles)
                 {
                     //projectTitles has been made
-                    console.log("localStorage.projectTitles exists")
+                    //console.log("localStorage.projectTitles exists")
                    let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
                    let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
                    projectArray.push(projectValue); //push it
@@ -126,7 +126,7 @@ const formDataManipulate = (() => {
                 }
                 else //projectTitles has not been made yet
                 {
-                    console.log("localStorage.projectTitles will now exist")
+                   // console.log("localStorage.projectTitles will now exist")
                     let projectArray = []; // new array to store all titles
                     projectArray.push(projectValue); //push the projectValue onto that array
                     //console.log("ProjectArray is " + projectArray);
@@ -150,7 +150,7 @@ const formDataManipulate = (() => {
                 if(localStorage.projectValue)
                 {
                     //projectTitles has been made
-                    console.log("localStorage.projectTitles exists")
+                    //onsole.log("localStorage.projectTitles exists")
                    let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
                    let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
                    ToDoListTitles.push(newToDoListTitleInput.value); //push it
@@ -161,7 +161,7 @@ const formDataManipulate = (() => {
                     console.log("localStorage.projectValue-ToDoListTitles will now exist")
                     let ToDoListTitles = []; // new array to store all titles
                     ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
-                    //console.log("ProjectArray is " + projectArray);
+                    console.log("ToDoListTitles is " + ToDoListTitles);
                     localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a strigified array.
                 }
             }

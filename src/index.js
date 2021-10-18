@@ -149,8 +149,8 @@ const formDataManipulate = (() => {
         if(toDoListMenu.value === "NewToDoListTitle")
         {
             const newProjectInput = document.querySelector(".new-project-input");
-            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
             let projectValue = newProjectInput.value;
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
             if(typeof(Storage) !== "undefined") {
                 if(localStorage[projectValue])
                 {

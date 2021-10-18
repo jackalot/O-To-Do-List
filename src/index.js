@@ -141,7 +141,7 @@ const formDataManipulate = (() => {
     }
     function storeToDoListTitle() {
         const toDoListMenu = document.querySelector(".To-Do-List-title");
-        if(toDoListMenu.value === "NewProject")
+        if(toDoListMenu.value === "NewToDoListTitle")
         {
             const newProjectInput = document.querySelector(".new-project-input");
             const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
@@ -168,7 +168,7 @@ const formDataManipulate = (() => {
         }
         else
         {
-            console.log("old project" + selectProjectMenu.value);
+            console.log("old ToDoList" + toDoListMenu.value);
         }
     }
     //Starts the store data functions

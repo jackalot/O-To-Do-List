@@ -51,7 +51,7 @@ const formDomManupulate = (function(doc) {
         //console.log(checkListUl.className);
         let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items 
         //console.log(AlllistItems);
-        for(i = 0; i < AlllistItems.length; i++) 
+        for(let i = 0; i < AlllistItems.length; i++) 
         {
             //console.log(AlllistItems[i]);
             let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`); //if we have a button in a list item, its our delete button
@@ -222,7 +222,6 @@ const formDataManipulate = (() => {
         StoreSingleField("notes", ".To-Do-List-notes");
         StoreSingleField("dueDate", ".To-Do-List-dueDate");
         storeCheckList();
-        toDoListAddToDom();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

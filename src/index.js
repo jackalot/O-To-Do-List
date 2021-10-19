@@ -1,3 +1,4 @@
+import toDoListAddToDom from "/src/todoListDom";
 //this module pattern will handle manipulating the form when it comes to the dom IE. clicking open form opens it, clicking new project adds in 'add a new project' field
 const formDomManupulate = (function(doc) {
     const OpenBtn = doc.querySelector(".open-button");
@@ -221,6 +222,7 @@ const formDataManipulate = (() => {
         StoreSingleField("notes", ".To-Do-List-notes");
         StoreSingleField("dueDate", ".To-Do-List-dueDate");
         storeCheckList();
+        toDoListAddToDom();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")

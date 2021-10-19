@@ -1,8 +1,0 @@
-current focus: grabbing all the data that was put in, and save it to local storage:
-
-* grab the To Do list checklist from the dom
-
-* store To Do list checklist in local storage
-
-* check if we can access it in local storage
----------------------------------------------

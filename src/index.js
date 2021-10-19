@@ -171,7 +171,7 @@ const formDataManipulate = (() => {
                     let ToDoListTitles = []; // new array to store all titles
                     ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
                     //console.log("ToDoListTitles is " + ToDoListTitles);
-                    localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a strigified array.
+                    localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a stringified array.
                 }
             }
         }
@@ -218,6 +218,7 @@ const formDataManipulate = (() => {
             });
         }
         console.log("fullChecklist is: " + fullCheckList);
+        localStorage.setItem(`${projectValue}-${TitleValue}-checkList` ,  JSON.stringify(fullCheckList, getCircularReplacer())); //store in local storage as a strigified array.
     }
     //Starts the store data functions
     function startStoring ()

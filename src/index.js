@@ -197,11 +197,14 @@ const formDataManipulate = (() => {
     }
     function storeCheckList() 
     {
+        const newProjectInput = document.querySelector(".new-project-input");
+        const projectValue = newProjectInput.value;
+        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+        const TitleValue = newToDoListTitleInput.value;
         const checkListUl = document.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
-        let AlllistItems = document.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items
         let fullCheckList = [];
         if(typeof(Storage) !== "undefined") {
-            if(localStorage.fullCheckList)
+            if(localStorage[`${projectValue}-${TitleValue}-checkList`])
             {
                 //fullCheckList has been made in localStorage
                 let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage

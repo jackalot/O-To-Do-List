@@ -202,14 +202,6 @@ const formDataManipulate = (() => {
         const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
         const TitleValue = newToDoListTitleInput.value;
         let fullCheckList = [];
-        if(typeof(Storage) !== "undefined") {
-            if(localStorage[`${projectValue}-${TitleValue}-checkList`])
-            {
-                //fullCheckList has been made in localStorage
-                let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
-                fullCheckList = JSON.parse(Retrieved); //parse it into a javascript array we can use
-            }
-        }
         let input = document.querySelectorAll(`li > .To-Do-List-checklist-item`); //if we have a textbox in a list item
         if(input)
         {

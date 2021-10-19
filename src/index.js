@@ -201,7 +201,6 @@ const formDataManipulate = (() => {
         const projectValue = newProjectInput.value;
         const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
         const TitleValue = newToDoListTitleInput.value;
-        const checkListUl = document.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
         let fullCheckList = [];
         if(typeof(Storage) !== "undefined") {
             if(localStorage[`${projectValue}-${TitleValue}-checkList`])

@@ -197,20 +197,25 @@ const formDataManipulate = (() => {
     }
     function storeCheckList() 
     {
-        const checkListUl = doc.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
-        let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items 
-        //console.log(AlllistItems);
-        for(i = 0; i < AlllistItems.length; i++) 
-        {
-            console.log(AlllistItems[i]);
-            let btn = doc.querySelector(`${AlllistItems[i].tagName} > .To-Do-List-checklist-item`); //if we have a textbox in a list item
-            if(btn)
+        const checkListUl = document.querySelector(".To-Do-List-checklist"); //the UL element that holds the checklist
+        let AlllistItems = document.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items
+        let fullCheckList = [];
+        if(typeof(Storage) !== "undefined") {
+            if(localStorage.fullCheckList)
             {
-                btn.addEventListener("click", () => {
-                    deleteListItem(btn);
-                })
+                //fullCheckList has been made in localStorage
+                let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
+                fullCheckList = JSON.parse(Retrieved); //parse it into a javascript array we can use
             }
         }
+        let input = document.querySelectorAll(`li > .To-Do-List-checklist-item`); //if we have a textbox in a list item
+        if(input)
+        {
+            input.forEach(element => {
+                fullCheckList.push(element.value);
+            });
+        }
+        console.log("fullChecklist is: " + fullCheckList);
     }
     //Starts the store data functions
     function startStoring ()

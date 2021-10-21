@@ -54,7 +54,7 @@ const toDoListAddToDom = (() => {
             h1.textContent = ToDoListTitles[i];
             projDetails.Ul.append(Ul);
             ToDoListTitleUl.append(h1)
-            let tDLTitleDetails = { //Todolist title details
+            let TDLtitleDetails = { //Todolist title details, too long of a name, tdl will mean todolist for now on
                 Ul: Ul,
                 Name: ToDoListTitles[i],
                 Id: joined,

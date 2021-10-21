@@ -59,13 +59,6 @@ const toDoListAddToDom = (() => {
                 Name: ToDoListTitles[i],
                 Id: joined,
             }
-            /*
-            call the other display functions for the TDL
-            displayTDLDescription(projDetails, TDLtitleDetails);
-            displayTDLDueDate(projDetails, TDLtitleDetails);
-            displayTDLNotes(projDetails, TDLtitleDetails);
-            displayTDLChecklist(projDetails, TDLtitleDetails);
-            */
             displaySingleField(projDetails, TDLtitleDetails, "description");
             displaySingleField(projDetails, TDLtitleDetails, "notes");
             displaySingleField(projDetails, TDLtitleDetails, "dueDate");

@@ -38,7 +38,9 @@ const toDoListAddToDom = (() => {
     const loadBtn = document.querySelector(".load-button");
      loadBtn.addEventListener("click", displayProjectTitle);
     function displayToDoListTitles(projDetails) {
-        console.log(projDetails);
+        let Retrieved = localStorage.getItem(projDetails.Name); //retrieve items based off the project name
+        let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
+        console.log(ToDoListTitles);
     }
 })(document);
 export default toDoListAddToDom;

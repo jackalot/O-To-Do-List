@@ -62,6 +62,7 @@ const toDoListAddToDom = (() => {
             displaySingleField(projDetails, TDLtitleDetails, "description");
             displaySingleField(projDetails, TDLtitleDetails, "dueDate");
             displaySingleField(projDetails, TDLtitleDetails, "notes");
+            displayCheckList(projDetails, TDLtitleDetails);
         }
     }
     function displaySingleField(projDetails, TDLtitleDetails, fieldName) {
@@ -71,6 +72,10 @@ const toDoListAddToDom = (() => {
         paragraph.textContent = Retrieved;
         paragraph.classList.add(`${fieldName}-To-Do-List`);
         TDLtitleDetails.Ul.append(paragraph);
+    }
+    function displayCheckList(projDetails, TDLtitleDetails)
+    {
+
     }
 })(document);
 export default toDoListAddToDom;

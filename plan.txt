@@ -1,14 +1,5 @@
 Current focus, add the data to the ToDoList so the viewer can use it:
 
-* grab the description based on which project and title has been sent
-* display it to the dom
--------------------------------------------------------------------------------------------------------
-* grab the dueDate based on which project and title has been sent
-* display it to the dom
--------------------------------------------------------------------------------------------------------
-* grab the notes based on which project and title has been sent
-* display it to the dom
--------------------------------------------------------------------------------------------------------
 * grab the checkList based on which project and title has been sent
 * loop through the checkList
 * display each list item to the dom

@@ -69,5 +69,9 @@ const toDoListAddToDom = (() => {
             displayTDLDescription(projDetails, TDLtitleDetails);
         }
     }
+    function displayTDLDescription(projDetails, TDLtitleDetails) {
+        let Retrieved = localStorage.getItem(`${projDetails.Name}-${TDLtitleDetails.Name}-description`);
+        console.log(Retrieved);
+    }
 })(document);
 export default toDoListAddToDom;

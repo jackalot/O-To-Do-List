@@ -6,6 +6,7 @@ const toDoListAddToDom = (() => {
         let projectTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
         if(projectTitles !== null)
         {
+            toDoList.textContent = "";
             for(let i=0; i < projectTitles.length; i++)
             {
                 //create some elements for this titlte
@@ -13,7 +14,7 @@ const toDoListAddToDom = (() => {
                 const h1 = document.createElement("h1");
                 const titleDiv = document.createElement("div")
                 //assign each element what they need
-                titleDiv.classList.add("Project-Titles"); 
+                titleDiv.classList.add("project-titles-To-Do-List"); 
                 //ids cant have spaces so split this project title
                 let split = projectTitles[i].split(" ");
                 //join them
@@ -28,7 +29,6 @@ const toDoListAddToDom = (() => {
             }
         }
     }
-    console.log("hi");
     const loadBtn = document.querySelector(".load-button");
      loadBtn.addEventListener("click", displayProjectTitle)
 })(document);

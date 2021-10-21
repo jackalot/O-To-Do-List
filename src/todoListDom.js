@@ -26,10 +26,19 @@ const toDoListAddToDom = (() => {
                 toDoList.append(titleDiv);
                 titleDiv.append(h1);
                 titleDiv.append(Ul);
+                let projDetails = {
+                    Ul: Ul,
+                    Name: projectTitles[i],
+                    Id: joined,
+                };
+                displayToDoListTitles(projDetails);
             }
         }
     }
     const loadBtn = document.querySelector(".load-button");
-     loadBtn.addEventListener("click", displayProjectTitle)
+     loadBtn.addEventListener("click", displayProjectTitle);
+    function displayToDoListTitles(projDetails) {
+        console.log(projDetails);
+    }
 })(document);
 export default toDoListAddToDom;

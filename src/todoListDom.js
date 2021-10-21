@@ -8,7 +8,17 @@ const toDoListAddToDom = (() => {
         {
             for(let i=0; i < projectTitles.length; i++)
             {
-                toDoList.append(projectTitles[i]);
+                const Ul = document.createElement("Ul");
+                const h1 = document.createElement("h1");
+                const titleDiv = document.createElement("div")
+                titleDiv.classList.add("Project-Titles");
+                let split = projectTitles[i].split(" ");
+                let joined = split.join('-');
+                titleDiv.id = joined;
+                h1.textContent = projectTitles[i];
+                toDoList.append(titleDiv);
+                titleDiv.append(h1);
+                titleDiv.append(Ul);
             }
         }
     }

@@ -50,10 +50,10 @@ const toDoListAddToDom = (() => {
             let joined = split.join('-');
             //and now make it equal this ToDoList title
             Ul.id = joined;
-            const h1 = document.createElement("h1");
-            h1.textContent = ToDoListTitles[i];
+            const h2 = document.createElement("h2");
+            h2.textContent = ToDoListTitles[i];
             projDetails.Ul.append(Ul);
-            ToDoListTitleUl.append(h1)
+            Ul.append(h2)
             let TDLtitleDetails = { //Todolist title details, too long of a name, tdl will mean todolist for now on
                 Ul: Ul,
                 Name: ToDoListTitles[i],

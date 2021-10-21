@@ -8,14 +8,20 @@ const toDoListAddToDom = (() => {
         {
             for(let i=0; i < projectTitles.length; i++)
             {
+                //create some elements for this titlte
                 const Ul = document.createElement("Ul");
                 const h1 = document.createElement("h1");
                 const titleDiv = document.createElement("div")
-                titleDiv.classList.add("Project-Titles");
+                //assign each element what they need
+                titleDiv.classList.add("Project-Titles"); 
+                //ids cant have spaces so split this project title
                 let split = projectTitles[i].split(" ");
+                //join them
                 let joined = split.join('-');
+                //and now make it equal this project
                 titleDiv.id = joined;
                 h1.textContent = projectTitles[i];
+                //append them to the dom
                 toDoList.append(titleDiv);
                 titleDiv.append(h1);
                 titleDiv.append(Ul);

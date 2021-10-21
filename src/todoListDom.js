@@ -12,6 +12,8 @@ const toDoListAddToDom = (() => {
             }
         }
     }
-    return { displayProjectTitle };
+    console.log("hi");
+    const loadBtn = document.querySelector(".load-button");
+     loadBtn.addEventListener("click", displayProjectTitle)
 })(document);
 export default toDoListAddToDom;

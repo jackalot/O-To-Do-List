@@ -1,10 +1,5 @@
 Current focus, add the data to the ToDoList so the viewer can use it:
 
-* grab the project titles from local storage
-* loop through them
-* make the project title appear on the dom
-* send the current project to functions for the toDoList title
--------------------------------------------------------------------------------------------------------
 * grab the To-Do-List Titles based on which project has been sent
 * loop through each title
 * make the title appear on the dom

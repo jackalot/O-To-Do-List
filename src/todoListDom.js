@@ -66,12 +66,18 @@ const toDoListAddToDom = (() => {
             displayTDLNotes(projDetails, TDLtitleDetails);
             displayTDLChecklist(projDetails, TDLtitleDetails);
             */
-            displayTDLDescription(projDetails, TDLtitleDetails);
+            displaySingleField(projDetails, TDLtitleDetails, "description");
+            displaySingleField(projDetails, TDLtitleDetails, "notes");
+            displaySingleField(projDetails, TDLtitleDetails, "dueDate");
         }
     }
-    function displayTDLDescription(projDetails, TDLtitleDetails) {
-        let Retrieved = localStorage.getItem(`${projDetails.Name}-${TDLtitleDetails.Name}-description`);
+    function displaySingleField(projDetails, TDLtitleDetails, fieldName) {
+        let Retrieved = localStorage.getItem(`${projDetails.Name}-${TDLtitleDetails.Name}-${fieldName}`);
         console.log(Retrieved);
+        const paragraph = document.createElement("p");
+        paragraph.textContent = Retrieved;
+        paragraph.classList.add(`${fieldName}-To-Do-List`);
+        TDLtitleDetails.Ul.append(paragraph);
     }
 })(document);
 export default toDoListAddToDom;

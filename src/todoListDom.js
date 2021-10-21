@@ -41,6 +41,25 @@ const toDoListAddToDom = (() => {
         let Retrieved = localStorage.getItem(projDetails.Name); //retrieve items based off the project name
         let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
         console.log(ToDoListTitles);
+        for(let i = 0; i < ToDoListTitles.length; i++)
+        {
+            const Ul = document.createElement("ul");
+            //ids cant have spaces so split this ToDoList title
+            let split = ToDoListTitles[i].split(" ");
+            //join them
+            let joined = split.join('-');
+            //and now make it equal this ToDoList title
+            Ul.id = joined;
+            const h1 = document.createElement("h1");
+            h1.textContent = ToDoListTitles[i];
+            projDetails.Ul.append(Ul);
+            ToDoListTitleUl.append(h1)
+            let tDLTitleDetails = { //Todolist title details
+                Ul: Ul,
+                Name: ToDoListTitles[i],
+                Id: joined,
+            }
+        }
     }
 })(document);
 export default toDoListAddToDom;

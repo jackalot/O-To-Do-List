@@ -60,8 +60,8 @@ const toDoListAddToDom = (() => {
                 Id: joined,
             }
             displaySingleField(projDetails, TDLtitleDetails, "description");
-            displaySingleField(projDetails, TDLtitleDetails, "notes");
             displaySingleField(projDetails, TDLtitleDetails, "dueDate");
+            displaySingleField(projDetails, TDLtitleDetails, "notes");
         }
     }
     function displaySingleField(projDetails, TDLtitleDetails, fieldName) {

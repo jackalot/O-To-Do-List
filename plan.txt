@@ -1,0 +1,17 @@
+Current focus, update dropdowns with all current project names and todolist titles:
+
+* the project name dropdown should be updated everytime a project name is stored.
+* the names in the dropdown should be able to be clicked and used for submission.
+* to simplify being stored, make a new function that checks if the drop down has selected
+a option other than new project and return it so it can be called and its return value
+can be stored for whatever need it has.
+--------------------------------------------------------------------------------------
+* the todolist title dropdown should be updated everytime a todolist title is stored.
+* the title in the dropdown should be able to be clicked and used for submission.
+* to simplify being stored, make a new function that checks if the drop down has selected
+a option other than new todolist title and return it so it can be called and its return value
+can be stored for whatever need it has.
+---------------------------------------------------------------------------------------------
+* possible make the above two plan sections one function instead of two.
+
+some psuedo script for this plan: 

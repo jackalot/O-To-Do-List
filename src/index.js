@@ -1,3 +1,4 @@
+import { validate } from "schema-utils";
 import toDoListAddToDom from "./todoListDom";
 //this module pattern will handle manipulating the form when it comes to the dom IE. clicking open form opens it, clicking new project adds in 'add a new project' field
 const formDomManupulate = (function(doc) {
@@ -216,19 +217,35 @@ const formDataManipulate = (() => {
     //Starts the store data functions
     function startStoring ()
     {
+        let validate = formValidation.validateAll();
+        if()
         storeProjectTitle();
         storeToDoListTitle();
         StoreSingleField("description", ".To-Do-List-description");
         StoreSingleField("notes", ".To-Do-List-notes");
         StoreSingleField("dueDate", ".To-Do-List-dueDate");
         storeCheckList();
+        formDomManupulate.closeForm();
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")
      submitBtn.addEventListener("click", () => {
          console.log("submit got clicked");
-         formDomManupulate.closeForm();
          startStoring();
      });
     return { startStoring };
+})();
+const formValidation = (() => {
+    function validateAll() {
+        let projectTitle = validateProjectTitle();
+        if(projectTitle)
+        {
+            let ToDolistTitle = validateToDoListTitle();
+            if(ToDolistTitle)
+            {
+                //and so on
+            } 
+        }
+    }
+    return validateAll;
 })();

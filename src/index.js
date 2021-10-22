@@ -274,7 +274,18 @@ const formValidation = (() => {
         if(toDoListMenu.value === "NewToDoListTitle")
         {
             const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-            
+            if(newToDoListTitleInput.value === "")
+            {
+                return false; // invalid
+            }
+            else if(newToDoListTitleInput.value[0] === " ")
+            {
+                return false; // invalid
+            }
+            else
+            {
+                return true; // valid
+            }
         }
 
     }    

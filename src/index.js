@@ -92,6 +92,7 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(deleteButton);
     }
     //DropdownVariable refers to whether we are getting the title or project name
+    /* dropdownVariables can be: projectTitles or projectvalue (if we are tdl titles dropdown) */
     function AddToDropdown (dropdownClassName, dropdownsVariable, newItemValue) {
         console.log(dropdownClassName, dropdownsVariable, newItemValue);
         const Retrieved = localStorage.getItem(dropdownsVariable);
@@ -156,7 +157,7 @@ const formDataManipulate = (() => {
                         projectArray.push(projectValue); //push the projectValue onto that array
                         //console.log("ProjectArray is " + projectArray);
                         localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
-                        formDomManupulate.AddToDropdown(".Project-Name", projectValue, "NewProject");
+                        formDomManupulate.AddToDropdown(".Project-Name", "projectTitles", "NewProject");
                     }
                 }
         }
@@ -176,7 +177,6 @@ const formDataManipulate = (() => {
                 if(localStorage[projectValue])
                 {
                     //projectValue has been made
-                    //onsole.log("localStorage.projectTitles exists")
                    let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
                    let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
                    let titleIndex = ToDoListTitles.indexOf(newToDoListTitleInput.value); //This is if the project already exists, we won't just add more of the same name to local storage
@@ -185,6 +185,7 @@ const formDataManipulate = (() => {
                         ToDoListTitles.push(newToDoListTitleInput.value); //push it
                         localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
                     }
+                    formDomManupulate.AddToDropdown(".To-Do-List-title", projectValue, "NewToDoListTitle");
                 }
                 else //whatever projectValue is has not been made yet
                 {
@@ -193,6 +194,7 @@ const formDataManipulate = (() => {
                     ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
                     //console.log("ToDoListTitles is " + ToDoListTitles);
                     localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a stringified array.
+                    formDomManupulate.AddToDropdown(".To-Do-List-title", projectValue, "NewToDoListTitle");
                 }
             }
         }

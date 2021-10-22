@@ -49,12 +49,9 @@ const formDomManupulate = (function(doc) {
     const addListBtn = doc.querySelector(".To-Do-List-checklist-addListItem"); //button that adds to the list
     checkForButton(); //call this now so all delete buttons have their delete functions
     function checkForButton () {
-        //console.log(checkListUl.className);
         let AlllistItems = doc.querySelectorAll(`.${checkListUl.className} > li`); //find all the list items 
-        //console.log(AlllistItems);
         for(let i = 0; i < AlllistItems.length; i++) 
         {
-            //console.log(AlllistItems[i]);
             let btn = doc.querySelector(`${AlllistItems[i].tagName} > button`); //if we have a button in a list item, its our delete button
             if(btn)
             {
@@ -65,16 +62,12 @@ const formDomManupulate = (function(doc) {
         }
     }
    function deleteListItem(btn) { //actual delete function
-        //console.log("this button is " + btn.className);
         let parentLI = btn.parentNode; //get the li node
-        //console.log("parentLI = " + parentLI);
         let parentUL = parentLI.parentNode; // get the entire UL 
-        //console.log("parentUL = " + parentUL);
         parentUL.removeChild(parentLI); // to remove the list item itself
     }
     addListBtn.addEventListener("click", addListItem); //add the function below it to the button add List Item
     function addListItem() { //adds a list item to the check list inputs
-        //console.log("click");
         const newLI = doc.createElement("li"); //our list item which holds the content
         const textBox = doc.createElement("input"); //the input which we store data in
         textBox.type = "text";

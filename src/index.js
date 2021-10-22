@@ -101,9 +101,12 @@ const formDomManupulate = (function(doc) {
         console.log(dropDown);
         for(let i = 0; i < array.length; i++)
         {
-            //add all items from the array into the dropdown
+           let newOption = new Option(array[i], array[i]);
+           dropDown.add(newOption, undefined);
         }
         //add newItemValue
+        let lastOption = new Option(newItemValue, newItemValue);
+        dropDown.add(lastOption, undefined);
     }
     return { closeForm, AddToDropdown};
 })(document);
@@ -144,7 +147,7 @@ const formDataManipulate = (() => {
                         projectArray.push(projectValue); //push it
                         localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
                         }
-                        formDomManupulate.AddToDropdown(".Project-Name", projectValue, "NewProject");
+                        formDomManupulate.AddToDropdown(".Project-Name", "projectTitles", "NewProject");
                     }
                     else //projectTitles has not been made yet
                     {

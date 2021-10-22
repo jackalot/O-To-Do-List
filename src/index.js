@@ -250,6 +250,7 @@ const formValidation = (() => {
             } 
         }
     }
+    const warningtext = document.querySelector(".warning-errors");
     function validateProjectTitle() {
         const selectProjectMenu = document.querySelector(".Project-Name");
         if(selectProjectMenu.value === "NewProject")
@@ -257,14 +258,17 @@ const formValidation = (() => {
             const projectInput = document.querySelector(".new-project-input");
             if(projectInput.value === "")
             {
+                warningtext.textContent = "Error: You can not have an empty project name!";
                 return false; // invalid
             }
             else if(projectInput.value[0] === " ")
             {
+                warningtext.textContent = "Error: You can not have project name start with a space!";
                 return false; // invalid
             }
             else
             {
+                warningtext.textContent = "";
                 return true; // valid
             }
         }
@@ -276,14 +280,17 @@ const formValidation = (() => {
             const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
             if(newToDoListTitleInput.value === "")
             {
+                warningtext.textContent = "Error: You can not have an empty ToDoList Title!";
                 return false; // invalid
             }
             else if(newToDoListTitleInput.value[0] === " ")
             {
+                warningtext.textContent = "Error: You can not have ToDoList Title start with a space!";
                 return false; // invalid
             }
             else
             {
+                warningtext.textContent = "";
                 return true; // valid
             }
         }

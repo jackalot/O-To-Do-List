@@ -97,7 +97,8 @@ const formDomManupulate = (function(doc) {
         const Retrieved = localStorage.getItem(dropdownsVariable);
         const array = JSON.parse(Retrieved);
         const dropDown = document.querySelector(dropdownClassName);
-        dropDown.value = "";
+        dropDown.options.length = 0;
+        console.log(dropDown);
         for(let i = 0; i < array.length; i++)
         {
             //add all items from the array into the dropdown

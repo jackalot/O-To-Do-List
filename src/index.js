@@ -33,6 +33,7 @@ const formDomManupulate = (function(doc) {
     //Every click on the select menu will call the AddProjElement(); 
     selectProjectMenu.addEventListener('click', () => {
         AddNewElement(selectProjectMenu, newProjectInput, "NewProject");
+        AddToDropdown(".To-Do-List-title", selectProjectMenu.value, "NewToDoListTitle");
     })
     //Same thing as the project menu, but for the todolist title
     const selectTitleMenu = doc.querySelector(".To-Do-List-title");//The actual menu

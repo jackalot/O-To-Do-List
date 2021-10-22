@@ -269,5 +269,14 @@ const formValidation = (() => {
             }
         }
     }
+    function validateToDoListTitle() {
+        const toDoListMenu = document.querySelector(".To-Do-List-title");
+        if(toDoListMenu.value === "NewToDoListTitle")
+        {
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+            
+        }
+
+    }    
     return { validateAll } ;
 })();

@@ -6,7 +6,17 @@ const formDomManupulate = (function(doc) {
     //Grab the form itself, and hide it
     const form  = doc.querySelector(".form-popup");
     form.style.display = "none";
-
+    //updates all fields
+    updateAllFields();
+    function updateAllFields() {
+        AddToDropdown(".Project-Name", "projectTitles", "NewProject");
+        let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
+        let projectArray = JSON.parse(Retrieved);
+        if(projectArray)
+        {
+            AddToDropdown(".To-Do-List-title", projectArray[0], "NewToDoListTitle");
+        }
+    }
     function openForm() {
      form.style.display = "block";
     }
@@ -92,10 +102,13 @@ const formDomManupulate = (function(doc) {
         const dropDown = document.querySelector(dropdownClassName);
         dropDown.options.length = 0;
         console.log(dropDown);
-        for(let i = 0; i < array.length; i++)
+        if(array !== null)
         {
-           let newOption = new Option(array[i], array[i]);
-           dropDown.add(newOption, undefined);
+            for(let i = 0; i < array.length; i++)
+            {
+               let newOption = new Option(array[i], array[i]);
+               dropDown.add(newOption, undefined);
+            }
         }
         //add newItemValue
         let lastOption = new Option(newItemValue, newItemValue);

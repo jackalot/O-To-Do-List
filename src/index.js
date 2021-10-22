@@ -218,7 +218,8 @@ const formDataManipulate = (() => {
     function startStoring ()
     {
         let validate = formValidation.validateAll();
-        if()
+        if(validate)
+        {
         storeProjectTitle();
         storeToDoListTitle();
         StoreSingleField("description", ".To-Do-List-description");
@@ -226,6 +227,7 @@ const formDataManipulate = (() => {
         StoreSingleField("dueDate", ".To-Do-List-dueDate");
         storeCheckList();
         formDomManupulate.closeForm();
+        }
     }
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")
@@ -238,14 +240,34 @@ const formDataManipulate = (() => {
 const formValidation = (() => {
     function validateAll() {
         let projectTitle = validateProjectTitle();
+        console.log(projectTitle)
         if(projectTitle)
         {
             let ToDolistTitle = validateToDoListTitle();
             if(ToDolistTitle)
             {
-                //and so on
+                return true;
             } 
         }
     }
-    return validateAll;
+    function validateProjectTitle() {
+        const selectProjectMenu = document.querySelector(".Project-Name");
+        if(selectProjectMenu.value === "NewProject")
+        {
+            const projectInput = document.querySelector(".new-project-input");
+            if(projectInput.value === "")
+            {
+                return false; // invalid
+            }
+            else if(projectInput.value[0] === " ")
+            {
+                return false; // invalid
+            }
+            else
+            {
+                return true; // valid
+            }
+        }
+    }
+    return { validateAll } ;
 })();

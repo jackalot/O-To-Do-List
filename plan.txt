@@ -15,3 +15,14 @@ can be stored for whatever need it has.
 * possible make the above two plan sections one function instead of two.
 
 some psuedo script for this plan: 
+function AddToDropdown (dropdownClassName, dropdownsVariable, newItemValue) {
+    let Retrieved = localstorage.getItem(dropdownsVariable);
+    let array = //turn Retrieved into an array
+    //get dropdown with dropdownClassName
+    //empty it
+    for(i = 0; i < array; i++)
+    {
+        //add all items from the array into the dropdown
+    }
+    //add newItemValue
+}

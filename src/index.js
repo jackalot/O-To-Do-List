@@ -74,7 +74,7 @@ const formDomManupulate = (function(doc) {
     }
     addListBtn.addEventListener("click", addListItem); //add the function below it to the button add List Item
     function addListItem() { //adds a list item to the check list inputs
-        console.log("click");
+        //console.log("click");
         const newLI = doc.createElement("li"); //our list item which holds the content
         const textBox = doc.createElement("input"); //the input which we store data in
         textBox.type = "text";
@@ -91,7 +91,20 @@ const formDomManupulate = (function(doc) {
         newLI.appendChild(textBox);
         newLI.appendChild(deleteButton);
     }
-    return { closeForm };
+    //DropdownVariable refers to whether we are getting the title or project name
+    function AddToDropdown (dropdownClassName, dropdownsVariable, newItemValue) {
+        console.log(dropdownClassName, dropdownsVariable, newItemValue);
+        const Retrieved = localStorage.getItem(dropdownsVariable);
+        const array = JSON.parse(Retrieved);
+        const dropDown = document.querySelector(dropdownClassName);
+        dropDown.value = "";
+        for(let i = 0; i < array.length; i++)
+        {
+            //add all items from the array into the dropdown
+        }
+        //add newItemValue
+    }
+    return { closeForm, AddToDropdown};
 })(document);
 //Handles saving data from all form inputs
 const formDataManipulate = (() => {
@@ -130,6 +143,7 @@ const formDataManipulate = (() => {
                         projectArray.push(projectValue); //push it
                         localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
                         }
+                        formDomManupulate.AddToDropdown(".Project-Name", projectValue, "NewProject");
                     }
                     else //projectTitles has not been made yet
                     {
@@ -138,6 +152,7 @@ const formDataManipulate = (() => {
                         projectArray.push(projectValue); //push the projectValue onto that array
                         //console.log("ProjectArray is " + projectArray);
                         localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
+                        formDomManupulate.AddToDropdown(".Project-Name", projectValue, "NewProject");
                     }
                 }
         }
@@ -232,7 +247,7 @@ const formDataManipulate = (() => {
      //This would go in the DOM module, but since Data module comes after, it wouldnt call this function
      const submitBtn = document.querySelector(".Submit-Button")
      submitBtn.addEventListener("click", () => {
-         console.log("submit got clicked");
+         //console.log("submit got clicked");
          startStoring();
      });
     return { startStoring };

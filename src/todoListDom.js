@@ -75,7 +75,17 @@ const toDoListAddToDom = (() => {
     }
     function displayCheckList(projDetails, TDLtitleDetails)
     {
-
+        const Retrieved = localStorage.getItem(`${projDetails.Name}-${TDLtitleDetails.Name}-checkList`);
+        const checkList = JSON.parse(Retrieved);
+        console.log(checkList);
+        let Ul = document.createElement("ul");
+        TDLtitleDetails.Ul.append(Ul);
+        for(let i = 0; i < checkList.length; i++)
+        {
+            let paragraph = document.createElement("p");
+            paragraph.textContent = checkList[i];
+            Ul.append(paragraph);
+        }
     }
 })(document);
 export default toDoListAddToDom;

@@ -1,31 +1,40 @@
-Current focus, add the data to the ToDoList so the viewer can use it:
+Current focus, validate inputs:
+* project title can't be empty
+* project title can't start with a space
+---------------------------------------------
+* To Do List Title can not be empty
+* To Do List Title can not start with a space
+----------------------------------------------
 
-* grab the checkList based on which project and title has been sent
-* loop through the checkList
-* display each list item to the dom
--------------------------------------------------------------------------------------------------------
+psuedo script/idea
 
-the above notes in some simple script:
 
-displayProjectTitle () {
-    //get project length here
-    localStorage.get("projectTitle");
-    for(i=0; i < projectTitles.length; i++)
+startStoring () {
+let valid = formValidation();
+    if(valid)
     {
-        body.appendChild(projectTitles[i]);
-        displayToDoListTitles(projectTitles[i]);
+        storeProjectTitle();
+        storeToDoListTitle();
+        StoreSingleField("description", ".To-Do-List-description");
+        StoreSingleField("notes", ".To-Do-List-notes");
+        StoreSingleField("dueDate", ".To-Do-List-dueDate");
+        storeCheckList();
     }
 }
-displayToDoListTitles (projectTitle) {
-    //get Titles array length here based off projectTitle
-    for(i=0; i < toDoListTitles.length; i++)
-    {
-        body.appendChild(toDoListTitles[i]);
-        /*
-        display
-        the rest of the
-        items here
-        with their functions
-        */
+})()//end of module pattern
+
+
+const formValidation = (() => {
+    function validateAll() {
+       let ProjectTitle = validateProjectTitle();
+       if(ProjectTitle)
+       {
+           let ToDolistTitle = validateToDoListTitle();
+           if(ToDolistTitle)
+           {
+               //and so on if there are other fields that need to be validated
+           }
+       }
     }
-}
+    validateProjectTitle()
+})();

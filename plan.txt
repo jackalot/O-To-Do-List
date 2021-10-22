@@ -26,3 +26,14 @@ function AddToDropdown (dropdownClassName, dropdownsVariable, newItemValue) {
     }
     //add newItemValue
 }
+function CheckDropDown (dropdownClassName, dropdownsVariable, newItemValue) {
+    const dropdown = document.querySelector(dropdownClassName);
+    if(dropdown.value === newItemValue)
+    {
+        return newItemValue
+    }
+    else
+    {
+        return dropdown.value;
+    }
+}

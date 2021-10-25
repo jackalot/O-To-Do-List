@@ -1,4 +1,21 @@
-Current focus, update all code that correspond with project names and TDL titles:
-* project name dropwdown value has to be able to be used everywhere the newProject box is used.
----------------------------------------------------------------------------------------------------
-* TDL title dropwdown value has to be able to be used everywhere the newTItle box is used. 
+current focus, add ability to edit each property, I.E. project name, TDL title, description, notes, duedate, checklist:
+* add an edit button for project name
+* make a form pop up when the button is clicked
+* the form should have field with a label telling the user "what would like to change [name of project name] to?"
+* the submit button will close the form and will call a function that updates local storage and all the items under that project name.
+---------------------------------------------------------------------------------------------------------------------------------------
+* add an edit button for todolist title
+* make a form pop up when the button is clicked
+* the form should have field with a label telling the user "what would like to change [name of todolist title] to?"
+* the submit button will close the form and will call a function that updates local storage and all the items under that todolistTitle.
+----------------------------------------------------------------------------------------------------------------------------------------
+* add an edit button for [description, notes, duedate]
+* make a form popup when the button is clicked
+* the form should have field with a label telling the user "what would like to change the [description, notes, duedate] to?"
+* the submit button will close the form and will update the [description, notes, duedate] in local storage.
+----------------------------------------------------------------------------------------------------------------------------------------
+* add an edit button for the checklist
+* make a form popup when the button is clicked
+* the form should allow you to add or delete checklist items.
+* the submit button will close the form and update the checklist in local storage.
+----------------------------------------------------------------------------------------------------------------------------------------

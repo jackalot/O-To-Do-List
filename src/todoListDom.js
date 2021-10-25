@@ -1,6 +1,16 @@
 //adds items to the todolist
 const toDoListAddToDom = (() => {
     const toDoList = document.querySelector(".To-Do-List");
+    function createEditForm(variableToEdit) {
+        let split = variableToEdit.split(" ");
+                //join them
+         let joined = split.join('-');
+        const editBtn = document.createElement("button");
+            editBtn.textContent = 'Edit: ' + variableToEdit;
+        const form = document.createElement("div");
+            form.classList.add(`${joined}-edit-To-Do-List`);
+        return { editBtn, form }
+    }
    function displayProjectTitle () {
         let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
         let projectTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
@@ -15,10 +25,7 @@ const toDoListAddToDom = (() => {
                 const projectBody = document.createElement("div");
                 const projectHeader = document.createElement("div")
                 /* Begin elements for the edit button and form */
-                const editBtn = document.createElement("button");
-                editBtn.textContent = 'Edit: ' + projectTitles[i];
-                const form = document.createElement("div");
-                form.classList.add("project-titles-edit-To-Do-List");
+                const editFormDetails = createEditForm(projectTitles[i]);
                 //assign each element what they need
                 projectBody.classList.add("project-titles-To-Do-List");
                 projectHeader.classList.add("project-Header-To-Do-List") 
@@ -33,10 +40,9 @@ const toDoListAddToDom = (() => {
                 toDoList.append(projectBody);
                 projectBody.append(projectHeader);
                 projectHeader.append(h1);
-                projectHeader.append(editBtn);
-                projectHeader.append(form);
+                projectHeader.append(editFormDetails.editBtn);
+                projectHeader.append(editFormDetails.form);
                 projectBody.append(Ul);
-                projectBody.append(form);
                 let projDetails = {
                     Ul: Ul,
                     Name: projectTitles[i],

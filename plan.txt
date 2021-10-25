@@ -55,4 +55,4 @@ const editProjectFields = (() => {
             localStorage.removeItem(`${oldName}-${ToDoListTitles[i]-checklist`);
         }
     }
-})()
+})();

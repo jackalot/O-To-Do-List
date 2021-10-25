@@ -247,10 +247,26 @@ const formDataManipulate = (() => {
     }
     function storeCheckList() 
     {
-        const newProjectInput = document.querySelector(".new-project-input");
-        const projectValue = newProjectInput.value;
-        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-        const TitleValue = newToDoListTitleInput.value;
+        if(selectProjectMenu.value !== "NewProject")
+        {
+            projectValue = selectProjectMenu.value;
+        }
+        else
+        {
+            const newProjectInput = document.querySelector(".new-project-input");
+            projectValue = newProjectInput.value;
+        }
+        const toDoListMenu = document.querySelector(".To-Do-List-title");
+        let titleValue = "";
+        if(toDoListMenu.value !== "NewToDoListTitle")
+        {
+            titleValue = toDoListMenu.value;
+        }
+        else
+        {
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+             titleValue = newToDoListTitleInput.value;
+        }
         let fullCheckList = [];
         let input = document.querySelectorAll(`li > .To-Do-List-checklist-item`); //if we have a textbox in a list item
         if(input)
@@ -260,7 +276,7 @@ const formDataManipulate = (() => {
             });
         }
         console.log("fullChecklist is: " + fullCheckList);
-        localStorage.setItem(`${projectValue}-${TitleValue}-checkList` ,  JSON.stringify(fullCheckList, getCircularReplacer())); //store in local storage as a strigified array.
+        localStorage.setItem(`${projectValue}-${titleValue}-checkList` ,  JSON.stringify(fullCheckList, getCircularReplacer())); //store in local storage as a strigified array.
     }
     //Starts the store data functions
     function startStoring ()

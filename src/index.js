@@ -97,12 +97,12 @@ const formDomManupulate = (function(doc) {
     //DropdownVariable refers to whether we are getting the title or project name
     /* dropdownVariables can be: projectTitles or projectvalue (if we are tdl titles dropdown) */
     function AddToDropdown (dropdownClassName, dropdownsVariable, newItemValue) {
-        console.log(dropdownClassName, dropdownsVariable, newItemValue);
+        //console.log(dropdownClassName, dropdownsVariable, newItemValue);
         const Retrieved = localStorage.getItem(dropdownsVariable);
         const array = JSON.parse(Retrieved);
         const dropDown = document.querySelector(dropdownClassName);
         dropDown.options.length = 0;
-        console.log(dropDown);
+       // console.log(dropDown);
         if(array !== null)
         {
             for(let i = 0; i < array.length; i++)

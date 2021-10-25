@@ -214,15 +214,36 @@ const formDataManipulate = (() => {
     * className = the class name for the input fied we are searching, ex. .To-Do-List-notes, .To-Do-List-dueDate, .To-Do-List-description
     */ 
     function StoreSingleField(inputType, className) {
-        const newProjectInput = document.querySelector(".new-project-input");
-        const projectValue = newProjectInput.value;
-        const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-        const TitleValue = newToDoListTitleInput.value;
+        const selectProjectMenu = document.querySelector(".Project-Name");
+        let projectValue = "";
+        if(selectProjectMenu.value !== "NewProject")
+        {
+            projectValue = selectProjectMenu.value;
+        }
+        else
+        {
+            const newProjectInput = document.querySelector(".new-project-input");
+            projectValue = newProjectInput.value;
+        }
+        const toDoListMenu = document.querySelector(".To-Do-List-title");
+        let titleValue = "";
+        if(toDoListMenu.value !== "NewToDoListTitle")
+        {
+            titleValue = toDoListMenu.value;
+        }
+        else
+        {
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+             titleValue = newToDoListTitleInput.value;
+        }
+        console.log("projectvalue is " + projectValue + " and titleValue is " + titleValue);
         const ourField = document.querySelector(className).value;
         if(typeof(Storage) !== "undefined")
         {
-            localStorage.setItem(`${projectValue}-${TitleValue}-${inputType}`, JSON.stringify(ourField));
+            localStorage.setItem(`${projectValue}-${titleValue}-${inputType}`, JSON.stringify(ourField));
         }
+            
+        
     }
     function storeCheckList() 
     {

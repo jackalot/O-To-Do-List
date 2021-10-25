@@ -1,4 +1,4 @@
-Current focus, update all code that correspon with project names and TDL titles:
+Current focus, update all code that correspond with project names and TDL titles:
 * project name dropwdown value has to be able to be used everywhere the newProject box is used.
 ---------------------------------------------------------------------------------------------------
 * TDL title dropwdown value has to be able to be used everywhere the newTItle box is used. 

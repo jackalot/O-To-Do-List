@@ -9,23 +9,31 @@ const toDoListAddToDom = (() => {
             toDoList.textContent = "";
             for(let i=0; i < projectTitles.length; i++)
             {
-                //create some elements for this titlte
+                //create some elements for this title
                 const Ul = document.createElement("Ul");
                 const h1 = document.createElement("h1");
-                const titleDiv = document.createElement("div")
+                const projectBody = document.createElement("div")
+                /* Begin elements for the edit button and form */
+                const editBtn = document.createElement("button");
+                editBtn.textContent = 'Edit: ' + projectTitles[i];
+                const form = document.createElement("div");
+                form.classList.add("project-titles-edit-To-Do-List");
+
                 //assign each element what they need
-                titleDiv.classList.add("project-titles-To-Do-List"); 
+                projectBody.classList.add("project-titles-To-Do-List"); 
                 //ids cant have spaces so split this project title
                 let split = projectTitles[i].split(" ");
                 //join them
                 let joined = split.join('-');
                 //and now make it equal this project
-                titleDiv.id = joined;
+                projectBody.id = joined;
                 h1.textContent = projectTitles[i];
                 //append them to the dom
-                toDoList.append(titleDiv);
-                titleDiv.append(h1);
-                titleDiv.append(Ul);
+                toDoList.append(projectBody);
+                projectBody.append(h1);
+                projectBody.append(Ul);
+                projectBody.append(form);
+                projectBody.append(editBtn);
                 let projDetails = {
                     Ul: Ul,
                     Name: projectTitles[i],

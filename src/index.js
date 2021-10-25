@@ -299,8 +299,12 @@ const formValidation = (() => {
                 return true; // valid
             }
         }
+        else
+        {
+            return true; //this value was made before so it has to be valid
+        }
     }
-    function validateToDoListTitle() {
+    function validateToDoListTitle() { 
         const toDoListMenu = document.querySelector(".To-Do-List-title");
         if(toDoListMenu.value === "NewToDoListTitle")
         {
@@ -320,6 +324,10 @@ const formValidation = (() => {
                 warningtext.textContent = "";
                 return true; // valid
             }
+        }
+        else
+        {
+            return true; //this value was made before so it has to be valid
         }
 
     }    

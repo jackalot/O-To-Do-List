@@ -1,39 +1,4 @@
-Current focus, update dropdowns with all current project names and todolist titles:
-
-* the project name dropdown should be updated everytime a project name is stored.
-* the names in the dropdown should be able to be clicked and used for submission.
-* to simplify being stored, make a new function that checks if the drop down has selected
-a option other than new project and return it so it can be called and its return value
-can be stored for whatever need it has.
---------------------------------------------------------------------------------------
-* the todolist title dropdown should be updated everytime a todolist title is stored.
-* the title in the dropdown should be able to be clicked and used for submission.
-* to simplify being stored, make a new function that checks if the drop down has selected
-a option other than new todolist title and return it so it can be called and its return value
-can be stored for whatever need it has.
----------------------------------------------------------------------------------------------
-* possible make the above two plan sections one function instead of two.
-
-some psuedo script for this plan: 
-function AddToDropdown (dropdownClassName, dropdownsVariable, newItemValue) {
-    let Retrieved = localstorage.getItem(dropdownsVariable);
-    let array = //turn Retrieved into an array
-    //get dropdown with dropdownClassName
-    //empty it
-    for(i = 0; i < array; i++)
-    {
-        //add all items from the array into the dropdown
-    }
-    //add newItemValue
-}
-function CheckDropDown (dropdownClassName, dropdownsVariable, newItemValue) {
-    const dropdown = document.querySelector(dropdownClassName);
-    if(dropdown.value === newItemValue)
-    {
-        return newItemValue
-    }
-    else
-    {
-        return dropdown.value;
-    }
-}
+Current focus, update all code that correspon with project names and TDL titles:
+* project name dropwdown value has to be able to be used everywhere the newProject box is used.
+---------------------------------------------------------------------------------------------------
+* TDL title dropwdown value has to be able to be used everywhere the newTItle box is used.

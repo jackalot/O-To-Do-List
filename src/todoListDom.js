@@ -8,8 +8,11 @@ const toDoListAddToDom = (() => {
         const editBtn = document.createElement("button");
             editBtn.textContent = 'Edit: ' + variableToEdit;
         const form = document.createElement("div");
-            form.classList.add(`${joined}-edit-To-Do-List`);
-        return { editBtn, form }
+            form.classList.add(`${joined}-Edit-Form-To-Do-List`);
+        const textBox = document.createElement("input");
+        form.append(textBox);
+        textBox.type = "text";
+        return { editBtn, form, textBox }
     }
    function displayProjectTitle () {
         let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
@@ -26,8 +29,9 @@ const toDoListAddToDom = (() => {
                 const projectHeader = document.createElement("div")
                 /* Begin elements for the edit button and form */
                 const editFormDetails = createEditForm(projectTitles[i]);
+                editFormDetails.form.display = "none";
                 editFormDetails.editBtn.addEventListener("click", () => {
-                    
+                    editProjectFields.displayForm(editFormDetails.form);
                 })
                 //assign each element what they need
                 projectBody.classList.add("project-titles-To-Do-List");
@@ -110,13 +114,11 @@ const toDoListAddToDom = (() => {
 })(document);
 //This module handles all of the 
 const editProjectFields = (() => {
-    function displayForm (field) {
-          const ourForm = document.querySelector(`${field} > .form-class-name`);
-        ourForm.display = "block";
+    function displayForm (form) {
+        form.display = "block";
     }
-    function hideForm (field) {
-           const ourForm = document.querySelector(`${field} > .form-class-name`);
-        ourForm.display = "none";
+    function hideForm (form) {
+        form.display = "none";
     }
     //ourProject will be a object that holds all the project data
     function editProjectName(ourProject) {
@@ -126,5 +128,6 @@ const editProjectFields = (() => {
         let ToDoListTitles = JSON.parse(Retrieved);
         
     }
+    return {displayForm, hideForm};
 })();
 export default toDoListAddToDom;

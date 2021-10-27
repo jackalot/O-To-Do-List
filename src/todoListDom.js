@@ -155,8 +155,8 @@ const editProjectFields = (() => {
         for(let i = 0; i < ToDoListTitles.length; i++)
         {
             //set the new item equal to the old items
-            console.log("current query is: " + `${oldName}-${ToDoListTitles[i]}`)
-            let oldToDoListTitles = localStorage.getItem(`${oldName}-${ToDoListTitles[i]}`)
+            console.log("current query is: " + `${oldName}`)
+            let oldToDoListTitles = localStorage.getItem(`${oldName}`)
             console.log("oldToDoListTitles: " + oldToDoListTitles);
             localStorage.setItem(`${newName}-${ToDoListTitles[i]}`, oldToDoListTitles);
         }

@@ -7,6 +7,9 @@ const toDoListAddToDom = (() => {
          let joined = split.join('-');
         const editBtn = document.createElement("button");
             editBtn.textContent = 'Edit: ' + variableToEdit;
+        editBtn.addEventListener("click", () => {
+            editProjectFields.displayForm(form);
+        })
         const form = document.createElement("div");
             form.classList.add(`${joined}-Edit-Form-To-Do-List`);
         const textBox = document.createElement("input");
@@ -18,7 +21,8 @@ const toDoListAddToDom = (() => {
              editProjectFields.hideForm(form);
             });
         form.append(closeBtn);
-        return { editBtn, form, textBox }
+        form.style.display = "none";
+        return { editBtn, form, textBox, closeBtn }
     }
    function displayProjectTitle () {
         let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
@@ -35,10 +39,6 @@ const toDoListAddToDom = (() => {
                 const projectHeader = document.createElement("div")
                 /* Begin elements for the edit button and form */
                 const editFormDetails = createEditForm(projectTitles[i]);
-                editFormDetails.form.style.display = "none";
-                editFormDetails.editBtn.addEventListener("click", () => {
-                    editProjectFields.displayForm(editFormDetails.form);
-                })
                 //assign each element what they need
                 projectBody.classList.add("project-titles-To-Do-List");
                 projectHeader.classList.add("project-Header-To-Do-List") 

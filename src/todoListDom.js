@@ -13,6 +13,7 @@ const toDoListAddToDom = (() => {
         const form = document.createElement("div");
             form.classList.add(`${joined}-Edit-Form-To-Do-List`);
         const textBox = document.createElement("input");
+        textBox.classList.add(`edit-${joined}-form`)
         textBox.type = "text";
         textBox.name = "Edit-" + joined;
         textBox.placeholder = "Enter the new value here!"
@@ -135,8 +136,11 @@ const editProjectFields = (() => {
         form.style.display = "none";
     }
     //ourProject will be a object that holds all the project data
-    function editProjectName(ourProject) {
-        const newName = document.querySelector(`${ourProject.name} > form > field`).value;
+    function editProjectName(projectTitle) {
+        let split = projectTitle.split(" ");
+                //join them
+         let joined = split.join('-');
+        const newName = document.querySelector(`edit-${joined}-form`).value;
         const oldName = ourProject.name;
         let Retrieved = localStorage.getItem(oldName); //retrieve items based off the old name
         let ToDoListTitles = JSON.parse(Retrieved);

@@ -12,9 +12,14 @@ const toDoListAddToDom = (() => {
         })
         const form = document.createElement("div");
             form.classList.add(`${joined}-Edit-Form-To-Do-List`);
+        const label = document.createElement("LABEL");
+        label.textContent = "this is a label";
+        label.setAttribute("for", "Edit-" + joined);
+        form.append(label);
         const textBox = document.createElement("input");
-        form.append(textBox);
         textBox.type = "text";
+        textBox.name = "Edit-" + joined;
+        form.append(textBox);
         const closeBtn = document.createElement("button");
         closeBtn.textContent = "Close: " + variableToEdit + " edit form";
         closeBtn.addEventListener("click", () => {

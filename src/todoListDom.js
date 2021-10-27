@@ -29,7 +29,7 @@ const toDoListAddToDom = (() => {
                 const projectHeader = document.createElement("div")
                 /* Begin elements for the edit button and form */
                 const editFormDetails = createEditForm(projectTitles[i]);
-                editFormDetails.form.display = "none";
+                editFormDetails.form.style.display = "none";
                 editFormDetails.editBtn.addEventListener("click", () => {
                     editProjectFields.displayForm(editFormDetails.form);
                 })
@@ -64,7 +64,7 @@ const toDoListAddToDom = (() => {
     function displayToDoListTitles(projDetails) {
         let Retrieved = localStorage.getItem(projDetails.Name); //retrieve items based off the project name
         let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
-        console.log(ToDoListTitles);
+        //console.log(ToDoListTitles);
         for(let i = 0; i < ToDoListTitles.length; i++)
         {
             const Ul = document.createElement("ul");
@@ -91,7 +91,7 @@ const toDoListAddToDom = (() => {
     }
     function displaySingleField(projDetails, TDLtitleDetails, fieldName) {
         let Retrieved = localStorage.getItem(`${projDetails.Name}-${TDLtitleDetails.Name}-${fieldName}`);
-        console.log(Retrieved);
+        //console.log(Retrieved);
         const paragraph = document.createElement("p");
         paragraph.textContent = Retrieved;
         paragraph.classList.add(`${fieldName}-To-Do-List`);
@@ -101,7 +101,7 @@ const toDoListAddToDom = (() => {
     {
         const Retrieved = localStorage.getItem(`${projDetails.Name}-${TDLtitleDetails.Name}-checkList`);
         const checkList = JSON.parse(Retrieved);
-        console.log(checkList);
+        //console.log(checkList);
         let Ul = document.createElement("ul");
         TDLtitleDetails.Ul.append(Ul);
         for(let i = 0; i < checkList.length; i++)
@@ -115,10 +115,10 @@ const toDoListAddToDom = (() => {
 //This module handles all of the 
 const editProjectFields = (() => {
     function displayForm (form) {
-        form.display = "block";
+        form.style.display = "block";
     }
     function hideForm (form) {
-        form.display = "none";
+        form.style.display = "none";
     }
     //ourProject will be a object that holds all the project data
     function editProjectName(ourProject) {

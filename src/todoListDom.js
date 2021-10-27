@@ -12,6 +12,12 @@ const toDoListAddToDom = (() => {
         const textBox = document.createElement("input");
         form.append(textBox);
         textBox.type = "text";
+        const closeBtn = document.createElement("button");
+        closeBtn.textContent = "Close: " + variableToEdit + " edit form";
+        closeBtn.addEventListener("click", () => {
+             editProjectFields.hideForm(form);
+            });
+        form.append(closeBtn);
         return { editBtn, form, textBox }
     }
    function displayProjectTitle () {

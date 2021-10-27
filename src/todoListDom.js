@@ -158,21 +158,22 @@ const editProjectFields = (() => {
                 //join them
          let joined = split.join('-');
         const newName = document.querySelector(`.edit-${joined}-form`).value;
-        console.log("newName: " + newName);
+        //console.log("newName: " + newName);
         const oldName = projectTitle;
         let TDLTitlesRetrieved = localStorage.getItem(oldName); //retrieve items based off the old name
-        console.log("TDLTitlesRetrieved: " + TDLTitlesRetrieved);
+        //console.log("TDLTitlesRetrieved: " + TDLTitlesRetrieved);
         let ToDoListTitles = JSON.parse(TDLTitlesRetrieved);
-        console.log("ToDoListTitles: " + ToDoListTitles);
+        //console.log("ToDoListTitles: " + ToDoListTitles);
         for(let i = 0; i < ToDoListTitles.length; i++)
         {
             //set the new item equal to the old items
-            console.log("current query is: " + `${oldName}`)
+            //console.log("current query is: " + `${oldName}`)
             //Our project holds an array of todolist titles, so get the individual projectTitle which is the old name
             let oldToDoListTitles = localStorage.getItem(`${oldName}`)
-            console.log("oldToDoListTitles: " + oldToDoListTitles);
-            //store it into the new project title
+            //console.log("oldToDoListTitles: " + oldToDoListTitles);
+            //get the old names properties and store them to the new name
             localStorage.setItem(`${newName}-${ToDoListTitles[i]}`, oldToDoListTitles);
+            localStorage.setItem(`${newName}`, localStorage.getItem(`${oldName}`));
             localStorage.removeItem(`${oldName}`);
             localStorage.setItem(`${newName}-${ToDoListTitles[i]}-description`, localStorage.getItem(`${oldName}-${ToDoListTitles[i]}-description`));
             localStorage.removeItem(`${oldName}-${ToDoListTitles[i]}`);
@@ -187,15 +188,13 @@ const editProjectFields = (() => {
             //new value is "taco, this is a to do list title" 
             let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
                        let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
-                       const index = projectArray.indexOf(5);
+                       const index = projectArray.indexOf(oldName);
+                       console.log(index);
                        if(index > -1) {
                            projectArray.splice(index, 1);
+                           projectArray.push(newName);
                        }
-                        if(index === -1) //if it doesnt exist already
-                        {
-                        projectArray.push(newName); //push it
                         localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
-                        }
                         
         }
     }

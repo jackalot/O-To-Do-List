@@ -146,10 +146,12 @@ const editProjectFields = (() => {
                 //join them
          let joined = split.join('-');
         const newName = document.querySelector(`.edit-${joined}-form`).value;
+        console.log("newName: " + newName);
         const oldName = projectTitle;
         let Retrieved = localStorage.getItem(oldName); //retrieve items based off the old name
+        console.log("Retrieved: " + Retrieved);
         let ToDoListTitles = JSON.parse(Retrieved);
-        
+        console.log("ToDoListTitles: " + ToDoListTitles);
     }
     return {displayForm, hideForm, editProjectName};
 })();

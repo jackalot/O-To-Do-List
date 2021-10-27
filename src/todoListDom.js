@@ -1,7 +1,7 @@
 //adds items to the todolist
 const toDoListAddToDom = (() => {
     const toDoList = document.querySelector(".To-Do-List");
-    function createEditForm(variableToEdit) {
+    function createEditForm(variableToEdit, variableType) {
         let split = variableToEdit.split(" ");
                 //join them
          let joined = split.join('-');
@@ -22,6 +22,11 @@ const toDoListAddToDom = (() => {
         submitBtn.textContent = "Click to Submit changes!";
         submitBtn.addEventListener("click", () => {
             editProjectFields.hideForm(form);
+            if(variableType === "project-title")
+            {
+            editProjectFields.editProjectName(variableToEdit)
+            }
+            
         })
         form.append(submitBtn);
         const closeBtn = document.createElement("button");
@@ -47,7 +52,7 @@ const toDoListAddToDom = (() => {
                 const projectBody = document.createElement("div");
                 const projectHeader = document.createElement("div")
                 /* Begin elements for the edit button and form */
-                const editFormDetails = createEditForm(projectTitles[i]);
+                const editFormDetails = createEditForm(projectTitles[i], 'project-title');
                 //assign each element what they need
                 projectBody.classList.add("project-titles-To-Do-List");
                 projectHeader.classList.add("project-Header-To-Do-List") 
@@ -140,12 +145,12 @@ const editProjectFields = (() => {
         let split = projectTitle.split(" ");
                 //join them
          let joined = split.join('-');
-        const newName = document.querySelector(`edit-${joined}-form`).value;
-        const oldName = ourProject.name;
+        const newName = document.querySelector(`.edit-${joined}-form`).value;
+        const oldName = projectTitle;
         let Retrieved = localStorage.getItem(oldName); //retrieve items based off the old name
         let ToDoListTitles = JSON.parse(Retrieved);
         
     }
-    return {displayForm, hideForm};
+    return {displayForm, hideForm, editProjectName};
 })();
 export default toDoListAddToDom;

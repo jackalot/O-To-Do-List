@@ -134,6 +134,18 @@ const toDoListAddToDom = (() => {
 })(document);
 //This module handles all of the 
 const editProjectFields = (() => {
+    const getCircularReplacer = () => {//for project titles since it gives a circular reference errors
+        const seen = new WeakSet();
+        return (key, value) => {
+          if (typeof value === "object" && value !== null) {
+            if (seen.has(value)) {
+              return;
+            }
+            seen.add(value);
+          }
+          return value;
+        };
+      };
     function displayForm (form) {
         form.style.display = "block";
     }
@@ -148,9 +160,9 @@ const editProjectFields = (() => {
         const newName = document.querySelector(`.edit-${joined}-form`).value;
         console.log("newName: " + newName);
         const oldName = projectTitle;
-        let Retrieved = localStorage.getItem(oldName); //retrieve items based off the old name
-        console.log("Retrieved: " + Retrieved);
-        let ToDoListTitles = JSON.parse(Retrieved);
+        let TDLTitlesRetrieved = localStorage.getItem(oldName); //retrieve items based off the old name
+        console.log("TDLTitlesRetrieved: " + TDLTitlesRetrieved);
+        let ToDoListTitles = JSON.parse(TDLTitlesRetrieved);
         console.log("ToDoListTitles: " + ToDoListTitles);
         for(let i = 0; i < ToDoListTitles.length; i++)
         {
@@ -161,8 +173,30 @@ const editProjectFields = (() => {
             console.log("oldToDoListTitles: " + oldToDoListTitles);
             //store it into the new project title
             localStorage.setItem(`${newName}-${ToDoListTitles[i]}`, oldToDoListTitles);
+            localStorage.removeItem(`${oldName}`);
+            localStorage.setItem(`${newName}-${ToDoListTitles[i]}-description`, localStorage.getItem(`${oldName}-${ToDoListTitles[i]}-description`));
+            localStorage.removeItem(`${oldName}-${ToDoListTitles[i]}`);
+            localStorage.removeItem(`${oldName}-${ToDoListTitles[i]}-description`);
+            localStorage.setItem(`${newName}-${ToDoListTitles[i]}-notes`, localStorage.getItem(`${oldName}-${ToDoListTitles[i]}-notes`));
+            localStorage.removeItem(`${oldName}-${ToDoListTitles[i]}-notes`);
+            localStorage.setItem(`${newName}-${ToDoListTitles[i]}-dueDate`, localStorage.getItem(`${oldName}-${ToDoListTitles[i]}-dueDate`));
+            localStorage.removeItem(`${oldName}-${ToDoListTitles[i]}-dueDate`);
+            localStorage.setItem(`${newName}-${ToDoListTitles[i]}-checkList`, localStorage.getItem(`${oldName}-${ToDoListTitles[i]}-checkList`));
+            localStorage.removeItem(`${oldName}-${ToDoListTitles[i]}-checkList`);
             //i.e old value is "this is a project name, this is a to do list title"
             //new value is "taco, this is a to do list title" 
+            let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
+                       let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
+                       const index = projectArray.indexOf(5);
+                       if(index > -1) {
+                           projectArray.splice(index, 1);
+                       }
+                        if(index === -1) //if it doesnt exist already
+                        {
+                        projectArray.push(newName); //push it
+                        localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
+                        }
+                        
         }
     }
     return {displayForm, hideForm, editProjectName};

@@ -247,6 +247,8 @@ const formDataManipulate = (() => {
     }
     function storeCheckList() 
     {
+        const selectProjectMenu = document.querySelector(".Project-Name");
+        let projectValue = "";
         if(selectProjectMenu.value !== "NewProject")
         {
             projectValue = selectProjectMenu.value;

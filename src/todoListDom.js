@@ -17,6 +17,12 @@ const toDoListAddToDom = (() => {
         textBox.name = "Edit-" + joined;
         textBox.placeholder = "Enter the new value here!"
         form.append(textBox);
+        const submitBtn = document.createElement("button");
+        submitBtn.textContent = "Click to Submit changes!";
+        submitBtn.addEventListener("click", () => {
+            editProjectFields.hideForm(form);
+        })
+        form.append(submitBtn);
         const closeBtn = document.createElement("button");
         closeBtn.textContent = "Close: " + variableToEdit + " edit form";
         closeBtn.addEventListener("click", () => {

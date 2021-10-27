@@ -156,9 +156,13 @@ const editProjectFields = (() => {
         {
             //set the new item equal to the old items
             console.log("current query is: " + `${oldName}`)
+            //Our project holds an array of todolist titles, so get the individual projectTitle which is the old name
             let oldToDoListTitles = localStorage.getItem(`${oldName}`)
             console.log("oldToDoListTitles: " + oldToDoListTitles);
+            //store it into the new project title
             localStorage.setItem(`${newName}-${ToDoListTitles[i]}`, oldToDoListTitles);
+            //i.e old value is "this is a project name, this is a to do list title"
+            //new value is "taco, this is a to do list title" 
         }
     }
     return {displayForm, hideForm, editProjectName};

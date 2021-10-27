@@ -152,6 +152,12 @@ const editProjectFields = (() => {
         console.log("Retrieved: " + Retrieved);
         let ToDoListTitles = JSON.parse(Retrieved);
         console.log("ToDoListTitles: " + ToDoListTitles);
+        for(let i = 0; i < ToDoListTitles.length; i++)
+        {
+            //set the new item equal to the old items
+            let oldToDoListTitles = localStorage.getItem(`${oldName}-${ToDoListTitles[i]}`)
+            localStorage.setItem(`${newName}-${ToDoListTitles[i]}`, oldToDoListTitles);
+        }
     }
     return {displayForm, hideForm, editProjectName};
 })();

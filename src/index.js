@@ -145,20 +145,20 @@ const formDataManipulate = (() => {
                     if(localStorage.projectTitles)
                     {
                         //projectTitles has been made
-                        console.log("localStorage.projectTitles exists")
+                       // console.log("localStorage.projectTitles exists")
                        let Retrieved = localStorage.getItem("projectTitles"); //create a Retrieved variable from local storage
                        let projectArray = JSON.parse(Retrieved); //parse it into a javascript array we can use
                        projectArray.push(projectValue); //push it
-                       console.log("ProjectArray is: " + projectArray);
+                       //console.log("ProjectArray is: " + projectArray);
                        localStorage.setItem("projectTitles", JSON.stringify(projectArray, getCircularReplacer()));
                         formDomManupulate.AddToDropdown(".Project-Name", "projectTitles", "NewProject");
                     }
                     else //projectTitles has not been made yet
                     {
-                        console.log("localStorage.projectTitles will now exist")
+                        //console.log("localStorage.projectTitles will now exist")
                         let projectArray = []; // new array to store all titles
                         projectArray.push(projectValue); //push the projectValue onto that array
-                        console.log("ProjectArray is: " + projectArray);
+                        //console.log("ProjectArray is: " + projectArray);
                         localStorage.setItem("projectTitles",  JSON.stringify(projectArray, getCircularReplacer())); //store in local storage as a strigified array.
                         formDomManupulate.AddToDropdown(".Project-Name", "projectTitles", "NewProject");
                     }
@@ -166,7 +166,7 @@ const formDataManipulate = (() => {
         }
         else
         {
-            console.log("old project" + selectProjectMenu.value);
+            console.log("old project: " + selectProjectMenu.value);
         }
     }
     function storeToDoListTitle() {
@@ -180,14 +180,12 @@ const formDataManipulate = (() => {
                 if(localStorage[projectValue])
                 {
                     //projectValue has been made
+                    //console.log("localStorage.projectValue-ToDoListTitles will now exist")
                    let Retrieved = localStorage.getItem(projectValue); //create a Retrieved variable from local storage
                    let ToDoListTitles = JSON.parse(Retrieved); //parse it into a javascript array we can use
-                   let titleIndex = ToDoListTitles.indexOf(newToDoListTitleInput.value); //This is if the project already exists, we won't just add more of the same name to local storage
-                    if(titleIndex === -1) //if it doesnt exist already
-                    {
-                        ToDoListTitles.push(newToDoListTitleInput.value); //push it
-                        localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
-                    }
+                    ToDoListTitles.push(newToDoListTitleInput.value); //push it
+                   // console.log("projectValue: " + projectValue + " ToDoListTitles: " + ToDoListTitles);
+                    localStorage.setItem(projectValue , JSON.stringify(ToDoListTitles, getCircularReplacer()));
                     formDomManupulate.AddToDropdown(".To-Do-List-title", projectValue, "NewToDoListTitle");
                 }
                 else //whatever projectValue is has not been made yet
@@ -195,7 +193,7 @@ const formDataManipulate = (() => {
                     //console.log("localStorage.projectValue-ToDoListTitles will now exist")
                     let ToDoListTitles = []; // new array to store all titles
                     ToDoListTitles.push(newToDoListTitleInput.value); //push the newToDoListTitleInput.value onto that array
-                    //console.log("ToDoListTitles is " + ToDoListTitles);
+                    //console.log("projectValue: " + projectValue + "ToDoListTitles: " + ToDoListTitles);
                     localStorage.setItem(projectValue ,  JSON.stringify(ToDoListTitles, getCircularReplacer())); //store in local storage as a stringified array.
                     formDomManupulate.AddToDropdown(".To-Do-List-title", projectValue, "NewToDoListTitle");
                 }
@@ -213,27 +211,29 @@ const formDataManipulate = (() => {
     function StoreSingleField(inputType, className) {
         const selectProjectMenu = document.querySelector(".Project-Name");
         let projectValue = "";
-        if(selectProjectMenu.value !== "NewProject")
-        {
-            projectValue = selectProjectMenu.value;
-        }
-        else
+        console.log("selectProjectMenu.value: " + selectProjectMenu.value)
+        if(selectProjectMenu.value === "NewProject")
         {
             const newProjectInput = document.querySelector(".new-project-input");
             projectValue = newProjectInput.value;
         }
+        else
+        {
+            projectValue = selectProjectMenu.value;
+        }
         const toDoListMenu = document.querySelector(".To-Do-List-title");
         let titleValue = "";
-        if(toDoListMenu.value !== "NewToDoListTitle")
+        console.log("toDoListMenu.value: " + toDoListMenu.value)
+        if(toDoListMenu.value === "NewToDoListTitle")
         {
-            titleValue = toDoListMenu.value;
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title-input");
+             titleValue = newToDoListTitleInput.value;
         }
         else
         {
-            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
-             titleValue = newToDoListTitleInput.value;
+            titleValue = toDoListMenu.value;
         }
-        console.log("projectvalue is " + projectValue + " and titleValue is " + titleValue);
+        console.log("projectvalue is: " + projectValue + " and titleValue is: " + titleValue);
         const ourField = document.querySelector(className).value;
         if(typeof(Storage) !== "undefined")
         {
@@ -286,9 +286,9 @@ const formDataManipulate = (() => {
         storeProjectTitle();
         storeToDoListTitle();
         StoreSingleField("description", ".To-Do-List-description");
-        StoreSingleField("notes", ".To-Do-List-notes");
-        StoreSingleField("dueDate", ".To-Do-List-dueDate");
-        storeCheckList();
+        //StoreSingleField("notes", ".To-Do-List-notes");
+        //StoreSingleField("dueDate", ".To-Do-List-dueDate");
+        //storeCheckList();
         formDomManupulate.closeForm();
         }
     }

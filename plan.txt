@@ -1,9 +1,4 @@
 current focus, add ability to edit each property, I.E. project name, TDL title, description, notes, duedate, checklist:
-* add an edit button for project name
-* make a form pop up when the button is clicked
-* the form should have field with a label telling the user "what would like to change [name of project name] to?"
-* the submit button will close the form and will call a function that updates local storage and all the items under that project name.
----------------------------------------------------------------------------------------------------------------------------------------
 * add an edit button for todolist title
 * make a form pop up when the button is clicked
 * the form should have field with a label telling the user "what would like to change [name of todolist title] to?"

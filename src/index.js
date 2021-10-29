@@ -226,7 +226,7 @@ const formDataManipulate = (() => {
         console.log("toDoListMenu.value: " + toDoListMenu.value)
         if(toDoListMenu.value === "NewToDoListTitle")
         {
-            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title-input");
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
              titleValue = newToDoListTitleInput.value;
         }
         else

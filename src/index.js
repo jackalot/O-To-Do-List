@@ -175,7 +175,7 @@ const formDataManipulate = (() => {
         {
             const newProjectInput = document.querySelector(".new-project-input");
             let projectValue = newProjectInput.value;
-            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title-input");
             if(typeof(Storage) !== "undefined") {
                 if(localStorage[projectValue])
                 {
@@ -344,7 +344,7 @@ const formValidation = (() => {
         const toDoListMenu = document.querySelector(".To-Do-List-title");
         if(toDoListMenu.value === "NewToDoListTitle")
         {
-            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title");
+            const newToDoListTitleInput = document.querySelector(".new-To-Do-List-title-input");
             if(newToDoListTitleInput.value === "")
             {
                 warningtext.textContent = "Error: You can not have an empty ToDoList Title!";

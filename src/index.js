@@ -17,8 +17,8 @@ addContentBtn.addEventListener("click", () => {
     start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput);
 })
 function start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput) {
-    const item = makeToDoItem(projectInput, titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
-    //const item = makeToDoItem("projectInput", "titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
+    //const item = makeToDoItem(projectInput, titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
+    const item = makeToDoItem("projectInput", "titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
     localStorage.setItem(`${item.ProjectTitle}`, JSON.stringify(item));
     //console.log(item);
     //console.log(item.checklist);
@@ -43,3 +43,14 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
 }
 //start();
 //make an edit/delete button
+/*
+function CreateProject (projectName, toDoListTitle, dueDate, priority, notes, checklist)
+{
+    return { projectName, toDoListTitle, dueDate, priority, notes, checklist }
+}
+const newObj = CreateProject("project", "new title", "new dudedate", "new priority", "notes are cool", ["checklist item one", "checklist item 2"]);
+localStorage.setItem(`${newObj.projectName}`, JSON.stringify(newObj));
+let retrieved = localStorage.getItem(`${newObj.projectName}`);
+let objectAfter = JSON.parse(retrieved);
+console.log(objectAfter.projectName);
+*/

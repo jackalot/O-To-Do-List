@@ -3,7 +3,7 @@ import makeToDoItem from './makeItem';
 import checkForProject from './checkForProject';
 import importToDoItemToDom from './importItem';
 import CreateProject from './createAProject';
-let projects = []; //since I am too lazy to refactor modules to work with objects
+let projects = [];
 
 const addContentBtn = document.querySelector("button");
 addContentBtn.addEventListener("click", () => {
@@ -22,8 +22,8 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
     localStorage.setItem(`${item.ProjectTitle}`, JSON.stringify(item));
     //console.log(item);
     //console.log(item.checklist);
-    const projectIsAvailable = checkForProject(projectInput, projects);
-    projects.push(projectInput);
+    const projectIsAvailable = checkForProject(item.ProjectTitle, projects);
+    projects.push(item.ProjectTitle);
     console.log(projects);
     //const projectIsAvailable = checkForProject("projectInput", projects); //debugging
     //console.log(projectIsAvailable);
@@ -35,10 +35,9 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
     {
         //console.log("creating project");
         //Note = make sure before passing in value theres no spaces
-       CreateProject(projectInput); //actual use
+       CreateProject(item.ProjectTitle); //actual use
        //CreateProject("projectInput"); //debugging
-       importToDoItemToDom(item, projectInput) //actual use
-       //importToDoItemToDom(item, "projectInput");//debugging
+       importToDoItemToDom(item)
     }
 }
 //start();

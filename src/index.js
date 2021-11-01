@@ -29,7 +29,9 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
     //console.log(projectIsAvailable);
     if(projectIsAvailable) //its not false so it returned one of the project strings
     {
-        importToDoItemToDom(item, projectIsAvailable);
+        let split = item.ProjectTitle.split(" ");
+        let joined = split.join("-");
+        importToDoItemToDom(item, joined);
     }
     else if(!projectIsAvailable)
     {
@@ -38,7 +40,7 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
         let split = item.ProjectTitle.split(" ");
         let joined = split.join("-");
        CreateProject(joined);
-       importToDoItemToDom(item)
+       importToDoItemToDom(item, joined)
     }
 }
 //start();

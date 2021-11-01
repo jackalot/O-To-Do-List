@@ -4,8 +4,8 @@ import removeCheckListItem from "./deleteCheckListItem";
 import editField from "./editField";
 import deleteTodoList from "./deleteToDoList";
 //put the item and list it under its individual project
-function importToDoItemToDom (item, project) {
-const projectDiv = document.querySelector('#' + project);
+function importToDoItemToDom (item, joinedProjectName) {
+const projectDiv = document.querySelector('#' + joinedProjectName);
 //console.log(projectDiv);
     if(projectDiv === null)
     {
@@ -14,7 +14,7 @@ const projectDiv = document.querySelector('#' + project);
     else
     {
         //when we get to making projects, assume theres a ul already made
-        const ul = document.querySelector(`#${project} > ul`);
+        const ul = document.querySelector(`#${joinedProjectName} > ul`);
         //console.log(ul);
         //Elements are created the same way its sorted in html
         //This is the list element that holds everything
@@ -30,7 +30,7 @@ const projectDiv = document.querySelector('#' + project);
                 itemHeader.classList.add("Item-Header");
                 itemTextDiv.appendChild(itemHeader);
                     const headerH3 = document.createElement("h3");
-                    headerH3.textContent = localStorage.getItem(`${project}-${item.title}-title`);
+                    headerH3.textContent = localStorage.getItem(`${joinedProjectName}-${item.title}-title`);
                     itemHeader.appendChild(headerH3);
                         const displayBtn = document.createElement("button");
                         displayBtn.textContent = "Display To-Do-List";
@@ -44,18 +44,18 @@ const projectDiv = document.querySelector('#' + project);
                 /*Item Body Begin */
                 const itemBody = document.createElement("div");
                 itemBody.classList.add("Item-Body");
-                itemBody.id = localStorage.getItem(`${project}-${item.title}-title`) + "-body";
+                itemBody.id = localStorage.getItem(`${joinedProjectName}-${item.title}-title`) + "-body";
                 ToDoItem.appendChild(itemBody);
                     const dueDateh3 = document.createElement("h3");
-                    dueDateh3.textContent = localStorage.getItem(`${project}-${item.title}-dueDate`);
+                    dueDateh3.textContent = localStorage.getItem(`${joinedProjectName}-${item.title}-dueDate`);
                     dueDateh3.classList.add("Due-Date");
                     itemBody.appendChild(dueDateh3);
                     const priorityh4 = document.createElement("h4");
-                    priorityh4.textContent = localStorage.getItem(`${project}-${item.title}-priority`);
+                    priorityh4.textContent = localStorage.getItem(`${joinedProjectName}-${item.title}-priority`);
                     priorityh4.classList.add("Priority");
                     itemBody.appendChild(priorityh4);
                     const descriptionP = document.createElement("p");
-                    descriptionP.textContent =  localStorage.getItem(`${project}-${item.title}-description`);
+                    descriptionP.textContent =  localStorage.getItem(`${joinedProjectName}-${item.title}-description`);
                     itemBody.appendChild(descriptionP);
                         /*BEGIN Check list */
                         //This is the div that holds the check list

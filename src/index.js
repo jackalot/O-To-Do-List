@@ -14,10 +14,19 @@ addContentBtn.addEventListener("click", () => {
     const dudeDateInput = window.prompt("When is this due?")
     const notesInput = window.prompt("Any additional notes?");
     const checkListInput = window.prompt("For the checklist, insert one of the things you want in there?");
-    start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput);
+    const allInputs = {
+        projectInput: projectInput,
+        titleInput: titleInput,
+        descInput: descInput,
+        priorityInput: priorityInput,
+        dudeDateInput: dudeDateInput,
+        notesInput: notesInput,
+        checkListInput: checkListInput,
+    }
+    start (allInputs);
 })
-function start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput) {
-    //const item = makeToDoItem(projectInput, titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
+function start (allInputs) {
+    const item = makeToDoItem(allinputs.projectInput, allinputs.titleInput, allinputs.descInput, allinputs.dudeDateInput, allinputs.priorityInput, allinputs.notesInput, allinputs.[checkListInput]); // actual use
     const item = makeToDoItem("projectInput", "titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
     localStorage.setItem(`${item.ProjectTitle}`, JSON.stringify(item));
     //console.log(item);

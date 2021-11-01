@@ -35,8 +35,9 @@ function start (projectInput, titleInput, descInput, priorityInput, dudeDateInpu
     {
         //console.log("creating project");
         //Note = make sure before passing in value theres no spaces
-       CreateProject(item.ProjectTitle); //actual use
-       //CreateProject("projectInput"); //debugging
+        let split = item.ProjectTitle.split(" ");
+        let joined = split.join("-");
+       CreateProject(joined);
        importToDoItemToDom(item)
     }
 }

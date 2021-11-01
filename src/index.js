@@ -17,8 +17,9 @@ addContentBtn.addEventListener("click", () => {
     start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput);
 })
 function start (projectInput, titleInput, descInput, priorityInput, dudeDateInput, notesInput, checkListInput) {
-    const item = makeToDoItem(titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput], projectInput); // actual use
-    //const item = makeToDoItem("titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
+    const item = makeToDoItem(projectInput, titleInput, descInput, dudeDateInput, priorityInput, notesInput, [checkListInput]); // actual use
+    //const item = makeToDoItem("projectInput", "titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
+    localStorage.setItem(`${item.ProjectTitle}`, JSON.stringify(item));
     //console.log(item);
     //console.log(item.checklist);
     const projectIsAvailable = checkForProject(projectInput, projects);

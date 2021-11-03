@@ -76,6 +76,7 @@ function CreateProject (projectName) {
     createProjectHeader(projectName);
         createProjectUL(projectName);
         createProjectHeadingName(projectName);
+        createProjectDisplayButton(projectName);
     /*
     the wholeDocument object is messy, so instead of using one giant object just make a small object that only stores
     relevant elements for the next function
@@ -84,6 +85,5 @@ function CreateProject (projectName) {
     element from another function could call that function
     I.E: anything that needs createProjectHeader to be called can call it.
     */
-    createProjectDisplayButton(projectName);
 }
 export default CreateProject;

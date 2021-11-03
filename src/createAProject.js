@@ -20,10 +20,8 @@ function CreateProject (projectName) {
     }
     //creates the projectDiv and appends it to the body
     function createProjectDiv(projectName) {
-        console.log('createProjectDiv');
         const body = document.querySelector("body");
         const projectDiv = createNewElement("div", "Project-div", body, null, `${projectName}-ProjectDiv`)
-        console.log("projectDiv: " + projectDiv);
     }
     function createProjectHeader(projectName) {
         //console.log('createProjectHeader');
@@ -36,31 +34,33 @@ function CreateProject (projectName) {
         //console.log(projectHeaderDiv);
     }
     function createProjectHeadingName(projectName) {
-        //console.log('createProjectHeadingName');
         const projectHeaderDiv = document.querySelector(`#${projectName}-ProjectHeader`);
         if(projectHeaderDiv === null)
         {
         createProjectHeader(projectName);
         }
+        else
+        {
          const H2Name = createNewElement("h2", "project-Heading", projectHeaderDiv, null, `${projectName}-ProjectH2`);
-         H2Name.textContent = localStorage.getItem(`${projectName}`);
-         console.log("H2Name: " + H2Name);
+         H2Name.textContent = "this is some test text";
+        }
     }
    
     function createProjectDisplayButton(projectName) {
-        console.log('createProjectDisplayButton');
         const projectHeaderDiv = document.querySelector(`#${projectName}-ProjectHeader`);
         if(projectHeaderDiv === null)
         {
             createProjectHeader(projectName);
         }
+        else
+        {
             const displayBtn = createNewElement("button", "display-items", projectHeaderDiv, null, `${projectName}-displayButton`)
-            console.log("displayBtn" + displayBtn);
             displayBtn.textContent = "Display Project To-Do-List";
             displayBtn.addEventListener('click', ()=> {
                 console.log("click");
                 hideProject(localStorage.getItem(`${projectName}`));
             });
+        }
     }
     
     function createProjectUL (projectName) {
@@ -71,12 +71,11 @@ function CreateProject (projectName) {
             createProjectDiv(projectName);
         }
         const ul = createNewElement("ul", "project-UL", projectDiv, null, `${projectName}-ul`);
-        console.log("ul:" + ul)
+        //console.log("ul:" + ul)
     }
-    createProjectDisplayButton(projectName);
-    createProjectHeadingName(projectName)
-
-    createProjectUL(projectName);
+    createProjectHeader(projectName);
+        createProjectUL(projectName);
+        createProjectHeadingName(projectName);
     /*
     the wholeDocument object is messy, so instead of using one giant object just make a small object that only stores
     relevant elements for the next function
@@ -85,5 +84,6 @@ function CreateProject (projectName) {
     element from another function could call that function
     I.E: anything that needs createProjectHeader to be called can call it.
     */
+    createProjectDisplayButton(projectName);
 }
 export default CreateProject;

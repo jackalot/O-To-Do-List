@@ -23,7 +23,7 @@ function CreateProject (projectName) {
         console.log('createProjectDiv');
         const body = document.querySelector("body");
         const projectDiv = createNewElement("div", "Project-div", body, null, `${projectName}-ProjectDiv`)
-        //console.log(projectDiv);
+        console.log("projectDiv: " + projectDiv);
     }
     function createProjectHeader(projectName) {
         //console.log('createProjectHeader');
@@ -44,7 +44,7 @@ function CreateProject (projectName) {
         }
          const H2Name = createNewElement("h2", "project-Heading", projectHeaderDiv, null, `${projectName}-ProjectH2`);
          H2Name.textContent = localStorage.getItem(`${projectName}`);
-         console.log(H2Name);
+         console.log("H2Name: " + H2Name);
     }
    
     function createProjectDisplayButton(projectName) {
@@ -54,8 +54,8 @@ function CreateProject (projectName) {
         {
             createProjectHeader(projectName);
         }
-            const displayBtn = createNewElement("button", "display-items", projectHeaderDiv, null, null)
-            console.log(displayBtn);
+            const displayBtn = createNewElement("button", "display-items", projectHeaderDiv, null, `${projectName}-displayButton`)
+            console.log("displayBtn" + displayBtn);
             displayBtn.textContent = "Display Project To-Do-List";
             displayBtn.addEventListener('click', ()=> {
                 console.log("click");
@@ -63,14 +63,15 @@ function CreateProject (projectName) {
             });
     }
     
-    function createProjectUL (wholeDocument) {
+    function createProjectUL (projectName) {
+        console.log("createProjectUl")
         const projectDiv = document.querySelector(`#${projectName}-ProjectDiv`);
         if(projectDiv === null)
         {
             createProjectDiv(projectName);
         }
-        const ul = createNewElement("ul", "project-UL", projectDiv, null, null);
-        console.log(ul)
+        const ul = createNewElement("ul", "project-UL", projectDiv, null, `${projectName}-ul`);
+        console.log("ul:" + ul)
     }
     createProjectDisplayButton(projectName);
     createProjectHeadingName(projectName)

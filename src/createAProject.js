@@ -23,20 +23,20 @@ function CreateProject (projectName) {
         console.log('createProjectDiv');
         const body = document.querySelector("body");
         const projectDiv = createNewElement("div", "Project-div", body, null, `${projectName}-ProjectDiv`)
-        console.log(projectDiv);
+        //console.log(projectDiv);
     }
     function createProjectHeader(projectName) {
-        console.log('createProjectHeader');
+        //console.log('createProjectHeader');
         const projectDiv = document.querySelector(`#${projectName}-ProjectDiv`);
         if(projectDiv === null)
         {
             createProjectDiv(projectName);
         }
         const projectHeaderDiv = createNewElement("div", "project-header", projectDiv, null,  `${projectName}-ProjectHeader`);
-        console.log(projectHeaderDiv);
+        //console.log(projectHeaderDiv);
     }
     function createProjectHeadingName(projectName) {
-        console.log('createProjectHeadingName');
+        //console.log('createProjectHeadingName');
         const projectHeaderDiv = document.querySelector(`#${projectName}-ProjectHeader`);
         if(projectHeaderDiv === null)
         {
@@ -46,25 +46,36 @@ function CreateProject (projectName) {
          H2Name.textContent = localStorage.getItem(`${projectName}`);
          console.log(H2Name);
     }
-    createProjectHeadingName(projectName);
-    function createProjectDisplayButton(wholeDocument) {
-        
-        const displayBtn = document.createElement("button");
+   
+    function createProjectDisplayButton(projectName) {
+        console.log('createProjectDisplayButton');
+        const projectHeaderDiv = document.querySelector(`#${projectName}-ProjectHeader`);
+        if(projectHeaderDiv === null)
+        {
+            createProjectHeader(projectName);
+        }
+            const displayBtn = createNewElement("button", "display-items", projectHeaderDiv, null, null)
+            console.log(displayBtn);
             displayBtn.textContent = "Display Project To-Do-List";
             displayBtn.addEventListener('click', ()=> {
                 console.log("click");
                 hideProject(localStorage.getItem(`${projectName}`));
             });
-            displayBtn.classList.add("display-items");
-            wholeDocument.projectHeaderDiv.appendChild(displayBtn);
-            createProjectUL(wholeDocument);
     }
+    
     function createProjectUL (wholeDocument) {
-        const ul = document.createElement("ul");
-        wholeDocument.ul = ul;
-        wholeDocument.projectDiv.appendChild(ul);
-        console.log(wholeDocument);
+        const projectDiv = document.querySelector(`#${projectName}-ProjectDiv`);
+        if(projectDiv === null)
+        {
+            createProjectDiv(projectName);
+        }
+        const ul = createNewElement("ul", "project-UL", projectDiv, null, null);
+        console.log(ul)
     }
+    createProjectDisplayButton(projectName);
+    createProjectHeadingName(projectName)
+
+    createProjectUL(projectName);
     /*
     the wholeDocument object is messy, so instead of using one giant object just make a small object that only stores
     relevant elements for the next function

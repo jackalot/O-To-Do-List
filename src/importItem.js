@@ -35,6 +35,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             console.log("createToDoItem")
             const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
         }
+        //This is the div element that holds the header, and other info
         function createItemTextDiv() {
             const ToDoItem = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
             if(ToDoItem === null)
@@ -47,7 +48,21 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const itemTextDiv = createNewElement("div", "Item-Text", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
             }
         }
-        createItemTextDiv();
+        //This is the headerdiv that has the title of the item and a button to collapses it
+        function createItemHeader() {
+            const itemTextDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
+            if(itemTextDiv === null)
+            {
+                createItemTextDiv();
+                createItemHeader(); //call this function again now that itemTextDiv has been created
+            }
+            else
+            {
+                const itemHeader = createNewElement("div", "Item-Header", itemTextDiv, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeaderDiv`)
+            }
+        }
+        createItemHeader();
+
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html
@@ -59,7 +74,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             const itemTextDiv = document.createElement("div");
             itemTextDiv.classList.add("Item-Text");
             ToDoItem.appendChild(itemTextDiv);
-                //This is the headerdiv that has the title of the item and a button to collaps it
+                //This is the headerdiv that has the title of the item and a button to collapses it
                 const itemHeader = document.createElement("div");
                 itemHeader.classList.add("Item-Header");
                 itemTextDiv.appendChild(itemHeader);

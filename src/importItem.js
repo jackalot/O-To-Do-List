@@ -5,7 +5,8 @@ import editField from "./editField";
 import deleteTodoList from "./deleteToDoList";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, joinedProjectName) {
-const projectDiv = document.querySelector('#' + joinedProjectName);
+const projectDiv = document.querySelector(`#${joinedProjectName}-ul`);
+console.log(`#${joinedProjectName}-ul`);
 //console.log(projectDiv);
     if(projectDiv === null)
     {

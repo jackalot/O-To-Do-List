@@ -70,12 +70,13 @@ function CreateProject (projectName) {
         if(projectDiv === null)
         {
             createProjectDiv(projectName);
+            createProjectUL(projectName);
         }
         const ul = createNewElement("ul", "project-UL", projectDiv, null, `${projectName}-ul`);
-        //console.log("ul:" + ul)
+        console.log(ul)
     }
-        createProjectUL(projectName);
         createProjectHeadingName(projectName);
         createProjectDisplayButton(projectName);
+        createProjectUL(projectName);
 }
 export default CreateProject;

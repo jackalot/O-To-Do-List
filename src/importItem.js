@@ -61,8 +61,20 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const itemHeader = createNewElement("div", "Item-Header", itemTextDiv, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeaderDiv`)
             }
         }
-        createItemHeader();
-
+        function createItemHeading() {
+            const itemHeader = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
+            if(itemHeader === null)
+            {
+                createItemHeader();
+                createItemHeading(); //call this function again now that itemHeader has been created
+            }
+            else
+            {
+                const headerH3 = createNewElement("h3", "Item-Heading", itemHeader, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
+                headerH3.textContent = JSON.parse(localStorage.getItem(`${item.ProjectTitle}-${item.ToDoListtitle}`));
+            }
+        }
+        createItemHeading();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

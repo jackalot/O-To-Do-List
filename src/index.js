@@ -8,7 +8,7 @@ let projects = [];
 const addContentBtn = document.querySelector("button");
 addContentBtn.addEventListener("click", () => {
     const projectInput = window.prompt("Which project is this to do item? (if it is a new project, just insert the name) No spaces for this!");
-    const titleInput = window.prompt("What is the title of your to-do item?");
+    const ToDoListtitle = window.prompt("What is the title of your to-do item?");
     const descInput = window.prompt("Whats the description for it?");
     const priorityInput = window.prompt("What priority does this have?");
     const dudeDateInput = window.prompt("When is this due?")
@@ -16,7 +16,7 @@ addContentBtn.addEventListener("click", () => {
     const checkListInput = window.prompt("For the checklist, insert one of the things you want in there?");
     const allInputs = {
         projectInput: projectInput,
-        titleInput: titleInput,
+        ToDoListtitle: ToDoListtitle,
         descInput: descInput,
         priorityInput: priorityInput,
         dudeDateInput: dudeDateInput,
@@ -27,8 +27,9 @@ addContentBtn.addEventListener("click", () => {
 })
 function start (allInputs) {
     //const item = makeToDoItem(allInputs.projectInput, allInputs.titleInput, allInputs.descInput, allInputs.dudeDateInput, allInputs.priorityInput, allInputs.notesInput, allInputs.checkListInput); // actual use
-    const item = makeToDoItem("projectInput", "titleInput", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
-    localStorage.setItem(`${item.ProjectTitle}`, JSON.stringify(item));
+    const item = makeToDoItem("projectInput", "ToDoListtitle", "descInput", "dudeDateInput", "priorityInput", "notesInput", ["checkListInput"]); //debugging
+    localStorage.setItem(`${item.ProjectTitle}`, JSON.stringify(item.projectInput));
+    localStorage.setItem(`${item.ProjectTitle}-${item.ToDoListtitle}`, JSON.stringify(item.ToDoListtitle));
     //console.log(item);
     //console.log(item.checklist);
     const projectIsAvailable = checkForProject(item.ProjectTitle, projects);

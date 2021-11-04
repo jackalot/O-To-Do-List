@@ -5,17 +5,37 @@ import editField from "./editField";
 import deleteTodoList from "./deleteToDoList";
 //put the item and list it under its individual project
 function importToDoItemToDom (item, joinedProjectName) {
-const projectDiv = document.querySelector(`#${joinedProjectName}-ul`);
-console.log(`#${joinedProjectName}-ul`);
-//console.log(projectDiv);
-    if(projectDiv === null)
+const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
+//console.log(`#${joinedProjectName}-ul`);
+//console.log(projectUL);
+    if(projectUL === null)
     {
         console.log("it doesnt exist")
     }
     else
     {
-        //when we get to making projects, assume theres a ul already made
-        const ul = document.querySelector(`#${joinedProjectName} > ul`);
+        function createNewElement(element, elementClassList, parent, child, id) {
+            const newElement = document.createElement(element);
+            newElement.classList.add(elementClassList);
+            newElement.id = id;
+            if(parent != null)
+            {
+                parent.appendChild(newElement);
+            }
+            else
+            {
+                if(child != null)
+                {
+                    newElement.appendChild(child);
+                }
+            }
+            return newElement;
+        }
+        function createToDoItem () {
+            const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `#${joinedProjectName}-${item.ToDoListtitle}-div`);
+        }
+        createToDoItem();
+    /*
         //console.log(ul);
         //Elements are created the same way its sorted in html
         //This is the list element that holds everything
@@ -43,7 +63,7 @@ console.log(`#${joinedProjectName}-ul`);
                         displayBtn.classList.add("display-items");
                 /*END HEADER DIV */
                 /*Item Body Begin */
-                const itemBody = document.createElement("div");
+    /*            const itemBody = document.createElement("div");
                 itemBody.classList.add("Item-Body");
                 itemBody.id = localStorage.getItem(`${joinedProjectName}-${item.title}-title`) + "-body";
                 ToDoItem.appendChild(itemBody);
@@ -60,14 +80,14 @@ console.log(`#${joinedProjectName}-ul`);
                     itemBody.appendChild(descriptionP);
                         /*BEGIN Check list */
                         //This is the div that holds the check list
-                        const checkListDiv = document.createElement("div");
+    /*                    const checkListDiv = document.createElement("div");
                         itemBody.appendChild(checkListDiv);
                             const listNoteP = document.createElement("p");
                             listNoteP.classList.add("list-note");
                             listNoteP.textContent = "Your check list for this To-Do-List:"
                             checkListDiv.appendChild(listNoteP);
-                            /*Un-ordered list begin */
-                            const checklistUL = document.createElement("ul");
+      */                      /*Un-ordered list begin */
+     /*                       const checklistUL = document.createElement("ul");
                             //for loop that loops through checklist and lists them
                             for(let i = 0; i < item.checklist.length; i++)
                             {
@@ -75,13 +95,13 @@ console.log(`#${joinedProjectName}-ul`);
                                 newlistItem.textContent = item.checklist[i];
                                 checklistUL.appendChild(newlistItem);
                             }
-                            /* END unordered list and checklist*/
-                            itemBody.appendChild(checklistUL);
+       */                     /* END unordered list and checklist*/
+     /*                       itemBody.appendChild(checklistUL);
                         const additionalNotesP = document.createElement("p");
                         additionalNotesP.textContent = item.notes;
                         itemBody.appendChild(additionalNotesP);
-                        /*BEGIN item box div */
-                        const itemBoxDiv = document.createElement("div");
+       */                 /*BEGIN item box div */
+      /*                  const itemBoxDiv = document.createElement("div");
                         itemBoxDiv.classList.add("Item-Box");
                         
                             //make a button that edits the to-do-list header
@@ -134,7 +154,7 @@ console.log(`#${joinedProjectName}-ul`);
                             })
                             itemBoxDiv.appendChild(deleteToDoListBtn);
                             
-                            /*END item box div */
+        */                    /*END item box div */
                 /*END Item Body*/
     }
 }

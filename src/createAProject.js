@@ -73,7 +73,7 @@ function CreateProject (projectName) {
             createProjectUL(projectName);
         }
         const ul = createNewElement("ul", "project-UL", projectDiv, null, `${projectName}-ul`);
-        console.log(ul)
+        //console.log(ul)
     }
         createProjectHeadingName(projectName);
         createProjectDisplayButton(projectName);

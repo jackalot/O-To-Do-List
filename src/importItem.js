@@ -31,10 +31,23 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             return newElement;
         }
-        function createToDoItem () {
-            const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `${joinedProjectName}-${item.ToDoListtitle}-div`);
+        function createToDoItem() {
+            console.log("createToDoItem")
+            const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
         }
-        createToDoItem();
+        function createItemTextDiv() {
+            const ToDoItem = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
+            if(ToDoItem === null)
+            {
+                createToDoItem();
+                createItemTextDiv(); //call this function again now that todo item has been created
+            }
+            else
+            {
+                const itemTextDiv = createNewElement("div", "Item-Text", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
+            }
+        }
+        createItemTextDiv();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

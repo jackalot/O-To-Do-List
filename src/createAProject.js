@@ -77,13 +77,5 @@ function CreateProject (projectName) {
         createProjectUL(projectName);
         createProjectHeadingName(projectName);
         createProjectDisplayButton(projectName);
-    /*
-    the wholeDocument object is messy, so instead of using one giant object just make a small object that only stores
-    relevant elements for the next function
-    since we create, apply a class, and appendCHild, make a function that does that in one go.
-    the fact that every function depends on createProjectDiv is a problem to begin with, so probably make it so any function that needs an
-    element from another function could call that function
-    I.E: anything that needs createProjectHeader to be called can call it.
-    */
 }
 export default CreateProject;

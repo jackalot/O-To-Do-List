@@ -38,6 +38,7 @@ function CreateProject (projectName) {
         if(projectHeaderDiv === null)
         {
         createProjectHeader(projectName);
+        createProjectHeadingName(projectName); //one recursive function to call it again, as a project header should exist now
         }
         else
         {
@@ -51,6 +52,7 @@ function CreateProject (projectName) {
         if(projectHeaderDiv === null)
         {
             createProjectHeader(projectName);
+            createProjectDisplayButton(projectName); //one recursive function to call it again, as a project header should exist now
         }
         else
         {
@@ -64,7 +66,6 @@ function CreateProject (projectName) {
     }
     
     function createProjectUL (projectName) {
-        console.log("createProjectUl")
         const projectDiv = document.querySelector(`#${projectName}-ProjectDiv`);
         if(projectDiv === null)
         {
@@ -73,7 +74,6 @@ function CreateProject (projectName) {
         const ul = createNewElement("ul", "project-UL", projectDiv, null, `${projectName}-ul`);
         //console.log("ul:" + ul)
     }
-    createProjectHeader(projectName);
         createProjectUL(projectName);
         createProjectHeadingName(projectName);
         createProjectDisplayButton(projectName);

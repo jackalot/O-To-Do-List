@@ -32,7 +32,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             return newElement;
         }
         function createToDoItem () {
-            const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `#${joinedProjectName}-${item.ToDoListtitle}-div`);
+            const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `${joinedProjectName}-${item.ToDoListtitle}-div`);
         }
         createToDoItem();
     /*

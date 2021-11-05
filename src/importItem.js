@@ -71,7 +71,9 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             else
             {
                 const headerH3 = createNewElement("h3", "Item-Heading", itemHeader, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
-                headerH3.textContent = JSON.parse(localStorage.getItem(`${item.ProjectTitle}-${item.ToDoListtitle}`));
+               let retrieved = localStorage.getItem(`${item.projectTitle}`);
+               let nowParsed = JSON.parse(retrieved);
+               headerH3 = nowParsed.toDoListTitle; 
             }
         }
         function createItemBodyDisplayButton() {
@@ -103,8 +105,6 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 }
             }
         } 
-        createItemHeading();
-        createItemBodyDisplayButton();
         //stores the rest of the items, like due date, checklist, priority, description, etc.
         function createItemBody() {
             const ToDoItem = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
@@ -118,6 +118,23 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const itemBody = createNewElement("div", "Item-Body", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemBody`);
             }            
         }
+        function createDueDateField() {
+            const itemBody = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBody`); //find the itemBody
+            if(itemBody === null)
+            {
+                createItemBody();
+                createDueDateField(); //call this function again now that todo item has been created
+            }
+            else
+            {
+                const dueDateh3 = createNewElement("p", "Due-Date", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-dueDate`);
+                dueDateh3.textContent = localStorage.getItem(`${item.ProjectTitle}-${item.ToDoListtitle}-${item.dueDate}`);
+                
+            }
+        }
+        createItemHeading();
+        createItemBodyDisplayButton();
+        createDueDateField();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

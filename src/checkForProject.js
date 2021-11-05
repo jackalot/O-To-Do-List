@@ -3,7 +3,6 @@ function checkForProject (name, projects) {
     if(projects.length === 0)
     {
         //console.log("project length is 0");
-        localStorage.setItem(`${name}`, name);
         return false;
     }
     for(let i = 0; i < projects.length; i++)
@@ -15,7 +14,6 @@ function checkForProject (name, projects) {
         }
     }
     //console.log("returned false anyways");
-    localStorage.setItem(`${name}`, name);
     return false;
 }
 export default checkForProject;

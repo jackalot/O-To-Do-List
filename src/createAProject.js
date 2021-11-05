@@ -60,7 +60,7 @@ function CreateProject (projectName) {
             displayBtn.textContent = "Display Project To-Do-List";
             displayBtn.addEventListener('click', ()=> {
                 console.log("click");
-                hideProject(localStorage.getItem(`${projectName}`));
+                //hideProject(localStorage.getItem(`${projectName}`));
             });
         }
     }

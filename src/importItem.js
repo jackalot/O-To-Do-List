@@ -83,17 +83,41 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const displayBtn = createNewElement("button", "display-items", itemHeader, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemHeadingDisplayButton`);
-                displayBtn.textContent = "Display To-Do-List";
-                displayBtn.addEventListener('click', ()=> {
-                    console.log("click");
-                    //hideToDo(itemBody); item body hasnt been made yet
-                });
+                const validDisplayBtn = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBodyDisplayButton`);
+                if(!validDisplayBtn) //if one hasnt been made yet, create a new one
+                {
+                    const displayBtn = createNewElement("button", "display-items", itemHeader, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBodyDisplayButton`);
+                    displayBtn.textContent = "Display To-Do-List";
+                }
+                const itemBody = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBody`); //find the itemBody
+                if(itemBody === null) { //if its null do the usual call its function and call this one
+                    createItemBody();
+                    createItemBodyDisplayButton(); //call this function again now that itemBody has been created
+                }
+                else
+                {
+                    validDisplayBtn.addEventListener('click', ()=> {
+                        console.log("click");
+                        hideToDo(itemBody); 
+                    });
+                }
             }
-
         } 
         createItemHeading();
         createItemBodyDisplayButton();
+        //stores the rest of the items, like due date, checklist, priority, description, etc.
+        function createItemBody() {
+            const ToDoItem = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
+            if(ToDoItem === null)
+            {
+                createToDoItem();
+                createItemBody(); //call this function again now that todo item has been created
+            }
+            else
+            {
+                const itemBody = createNewElement("div", "Item-Body", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemBody`);
+            }            
+        }
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

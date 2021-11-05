@@ -72,8 +72,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             {
                 const headerH3 = createNewElement("h3", "Item-Heading", itemHeader, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
                let retrieved = localStorage.getItem(`${item.projectTitle}`);
-               let nowParsed = JSON.parse(retrieved);
-               headerH3 = nowParsed.toDoListTitle; 
+               console.log(JSON.parse(retrieved)); 
             }
         }
         function createItemBodyDisplayButton() {
@@ -128,8 +127,8 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             else
             {
                 const dueDateh3 = createNewElement("p", "Due-Date", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-dueDate`);
-                dueDateh3.textContent = localStorage.getItem(`${item.ProjectTitle}-${item.ToDoListtitle}-${item.dueDate}`);
-                
+                let retrieved = localStorage.getItem(`${item.projectTitle}`);
+                dueDateh3.textContent = retrieved.dueDate; 
             }
         }
         createItemHeading();

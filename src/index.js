@@ -6,4 +6,4 @@ const newObj = CreateProject("project", "new title", "new dudedate", "new priori
 localStorage.setItem(`${newObj.projectName}`, JSON.stringify(newObj));
 let retrieved = localStorage.getItem(`${newObj.projectName}`);
 let objectAfter = JSON.parse(retrieved);
-console.log(objectAfter.projectName);
+console.log(objectAfter.toDoListTitle);

@@ -133,9 +133,26 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 dueDateh3.textContent = objectAfter.dueDate; 
             }
         }
+        function createPriorityField() {
+            const itemBody = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBody`); //find the itemBody
+            if(itemBody === null)
+            {
+                createItemBody();
+                createPriorityField(); //call this function again now that todo item has been created
+            }
+            else
+            {
+                const priorityH4 = createNewElement("h4", "Priority", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-priority`);
+                let retrieved = localStorage.getItem(`${item.projectTitle}`);
+                let objectAfter = JSON.parse(retrieved);
+                priorityH4.textContent = objectAfter.priority; 
+            }
+        }
+                   
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
+        createPriorityField();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

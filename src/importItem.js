@@ -74,7 +74,26 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 headerH3.textContent = JSON.parse(localStorage.getItem(`${item.ProjectTitle}-${item.ToDoListtitle}`));
             }
         }
+        function createItemBodyDisplayButton() {
+            const itemHeader = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
+            if(itemHeader === null)
+            {
+                createItemHeader();
+                createItemBodyDisplayButton(); //call this function again now that itemHeader has been created
+            }
+            else
+            {
+                const displayBtn = createNewElement("button", "display-items", itemHeader, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemHeadingDisplayButton`);
+                displayBtn.textContent = "Display To-Do-List";
+                displayBtn.addEventListener('click', ()=> {
+                    console.log("click");
+                    //hideToDo(itemBody); item body hasnt been made yet
+                });
+            }
+
+        } 
         createItemHeading();
+        createItemBodyDisplayButton();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

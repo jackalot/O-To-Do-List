@@ -158,21 +158,47 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             const checkListDiv = createNewElement("div", "checklist-Div", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`);
         }
         function createChecklistNote() {
-            const checkListDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`); //find the itemBody
+            const checkListDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`); //find the checklistDiv
             if(checkListDiv === null)
             {
                 createChecklistDiv();
-                createChecklistNote(); //call this function again now that itemBody has been created
+                createChecklistNote(); //call this function again now that checklistDiv has been created
             }
+            let validNote = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
+            if(validNote === null) //this can be called many times, so check if its been made before
+            {
             const checkListNote = createNewElement("p", "checklist-note", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
             checkListNote.textContent = "Your check list for this To-Do-List:";
+            }
+        }
+        function createChecklistUL () {
+            const checkListNote =  document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
+            const checkListDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`); //this isnt really needed for functionality its just for user readability
+            if(checkListDiv === null)
+            {
+                createChecklistDiv();
+                createChecklistUL(); //call this function again now that checklistDiv has been created
+            }
+            if(checkListNote === null)
+            {
+                createChecklistNote();
+                createChecklistUL(); //call this function again now that checklistDiv has been created
+            }
+            const checklistUL = createNewElement("ul", "checklist-ul", checkListDiv, null, `#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
+            //for loop that loops through checklist and lists them
+            /*for(let i = 0; i < item.checklist.length; i++)
+            {
+                let newlistItem = document.createElement("li");
+                newlistItem.textContent = item.checklist[i];
+                checklistUL.appendChild(newlistItem);
+            }*/
         }
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
         createPriorityField();
-        createChecklistNote();
-        
+        createChecklistUL();
+
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

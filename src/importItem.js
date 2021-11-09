@@ -138,7 +138,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             if(itemBody === null)
             {
                 createItemBody();
-                createPriorityField(); //call this function again now that todo item has been created
+                createPriorityField(); //call this function again now that itemBody has been created
             }
             else
             {
@@ -148,11 +148,20 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 priorityH4.textContent = objectAfter.priority; 
             }
         }
-                   
+        function createChecklistDiv() {
+            const itemBody = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBody`); //find the itemBody
+            if(itemBody === null)
+            {
+                createItemBody();
+                createChecklistDiv(); //call this function again now that itemBody has been created
+            }
+            const checkListDiv = createNewElement("div", "checklist-Div", itemBody, "", `${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`);
+        }
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
         createPriorityField();
+        createChecklistDiv();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

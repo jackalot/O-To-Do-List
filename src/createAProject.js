@@ -43,7 +43,7 @@ function CreateProject (projectName) {
         else
         {
          const H2Name = createNewElement("h2", "project-Heading", projectHeaderDiv, null, `${projectName}-ProjectH2`);
-         H2Name.textContent = "this is some test text";
+         H2Name.textContent = projectName;
         }
     }
    

@@ -225,13 +225,30 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const itemBoxDiv = createNewElement("div", "Item-Box", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
             }
         }
+        function createEditHeaderBtn() {
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            if(itemBoxDiv === null)
+            {
+                createItemBoxDiv();
+                createEditHeaderBtn(); //call this function again now that todo item has been created
+            }
+            else
+            {
+                const editHeaderBtn = createNewElement("button", "editHeaderBtn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editHeaderBtn`);
+                editHeaderBtn.textContent = "Edit To Do list Header";
+                editHeaderBtn.addEventListener('click', () => {
+                    editField(headerH3, "Whats the name of this todo list?", item, "title")
+                })
+            }
+        }
+        //make a button that edits the to-do-list header
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
         createPriorityField();
         createChecklistUL();
         createAdditionalNotes();
-        createItemBoxDiv();
+        createEditHeaderBtn();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

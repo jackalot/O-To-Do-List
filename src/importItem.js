@@ -201,12 +201,24 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 }
             }    
         }
+        function createAdditionalNotes() {
+            const itemBody = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBody`); //find the itemBody
+            if(itemBody === null)
+            {
+                createItemBody();
+                createAdditionalNotes(); //call this function again now that itemBody has been created
+            }
+            const additionalNotesP = createNewElement("p", "additional-notes", itemBody, null, `#${joinedProjectName}-${item.ToDoListtitle}-additionalNotes`);
+            let retrieved = localStorage.getItem(`${item.projectTitle}`);
+                let objectAfter = JSON.parse(retrieved);
+            additionalNotesP.textContent = objectAfter.notes;
+        }
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
         createPriorityField();
         createChecklistUL();
-
+        createAdditionalNotes();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

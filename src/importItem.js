@@ -155,13 +155,24 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 createItemBody();
                 createChecklistDiv(); //call this function again now that itemBody has been created
             }
-            const checkListDiv = createNewElement("div", "checklist-Div", itemBody, "", `${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`);
+            const checkListDiv = createNewElement("div", "checklist-Div", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`);
+        }
+        function createChecklistNote() {
+            const checkListDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkListDiv`); //find the itemBody
+            if(checkListDiv === null)
+            {
+                createChecklistDiv();
+                createChecklistNote(); //call this function again now that itemBody has been created
+            }
+            const checkListNote = createNewElement("p", "checklist-note", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
+            checkListNote.textContent = "Your check list for this To-Do-List:";
         }
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
         createPriorityField();
-        createChecklistDiv();
+        createChecklistNote();
+        
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

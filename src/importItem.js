@@ -208,10 +208,22 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 createItemBody();
                 createAdditionalNotes(); //call this function again now that itemBody has been created
             }
-            const additionalNotesP = createNewElement("p", "additional-notes", itemBody, null, `#${joinedProjectName}-${item.ToDoListtitle}-additionalNotes`);
+            const additionalNotesP = createNewElement("p", "additional-notes", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-additionalNotes`);
             let retrieved = localStorage.getItem(`${item.projectTitle}`);
                 let objectAfter = JSON.parse(retrieved);
             additionalNotesP.textContent = objectAfter.notes;
+        }
+        function createItemBoxDiv() {
+            const ToDoItem = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
+            if(ToDoItem === null)
+            {
+                createToDoItem();
+                createItemBoxDiv(); //call this function again now that todo item has been created
+            }
+            else
+            {
+                const itemBoxDiv = createNewElement("div", "Item-Box", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            }
         }
         createItemHeading();
         createItemBodyDisplayButton();
@@ -219,6 +231,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createPriorityField();
         createChecklistUL();
         createAdditionalNotes();
+        createItemBoxDiv();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

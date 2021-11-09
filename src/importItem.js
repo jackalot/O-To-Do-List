@@ -184,8 +184,22 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 createChecklistNote();
                 createChecklistUL(); //call this function again now that checklistDiv has been created
             }
-            const checklistUL = createNewElement("ul", "checklist-ul", checkListDiv, null, `#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
-            //for loop that loops through checklist and lists them
+            let validChecklistUl = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
+            if(validChecklistUl === null)
+            {
+                const checklistUL = createNewElement("ul", "checklist-ul", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
+                //for loop that loops through checklist and lists them
+                let retrieved = localStorage.getItem(`${item.projectTitle}`);
+                let objectAfter = JSON.parse(retrieved);
+                for(let i = 0; i < objectAfter.checklist.length; i++)        
+                {
+                    if(document.querySelector(`#${objectAfter[i]}`) === null)
+                    {
+                    let newListItem = createNewElement("li", "checklist-Item", checklistUL, null, `${objectAfter[i]}`)
+                    newListItem.textContent = objectAfter.checklist[i];   
+                    }
+                }
+            }    
             /*for(let i = 0; i < item.checklist.length; i++)
             {
                 let newlistItem = document.createElement("li");

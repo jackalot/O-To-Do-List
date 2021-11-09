@@ -200,12 +200,6 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                     }
                 }
             }    
-            /*for(let i = 0; i < item.checklist.length; i++)
-            {
-                let newlistItem = document.createElement("li");
-                newlistItem.textContent = item.checklist[i];
-                checklistUL.appendChild(newlistItem);
-            }*/
         }
         createItemHeading();
         createItemBodyDisplayButton();

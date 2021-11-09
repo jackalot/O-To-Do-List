@@ -73,7 +73,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const headerH3 = createNewElement("h3", "Item-Heading", itemHeader, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
                let retrieved = localStorage.getItem(`${item.projectTitle}`);
               let objectAfter = JSON.parse(retrieved);
-              headerH3.textContent = objectAfter.projectTitle;
+              headerH3.textContent = objectAfter.ToDoListtitle;
             }
         }
         function createItemBodyDisplayButton() {

@@ -328,8 +328,9 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             {
                 const editNotesBtn = createNewElement("button", "edit-Notes-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editNotesBtn`)
                 editNotesBtn.textContent = "Edit Additional Notes";
+                const notesField = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-additionalNotes`);
                 editNotesBtn.addEventListener('click', () => {
-                    editField(additionalNotesP, "What additional notes do you have?", item, "notes")
+                    editField(notesField, "What additional notes do you have?", item, "notes")
                 })
             }
         }

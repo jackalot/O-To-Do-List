@@ -342,10 +342,12 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
+                
+                const ToDoItem = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
                 const deleteToDoListBtn = createNewElement("button", "delete-To-Do-List-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-deleteToDoListBtn`)
                 deleteToDoListBtn.textContent = "Delete To-Do List";
                 deleteToDoListBtn.addEventListener('click', () => {
-                    deleteTodoList(ul, ToDoItem, item);
+                    deleteTodoList(projectUL, ToDoItem, item);
                 })
             }
         }

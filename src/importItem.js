@@ -222,11 +222,11 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const itemBoxDiv = createNewElement("div", "item-Box", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+                const itemBoxDiv = createNewElement("div", "item-Box", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             }
         }
         function createEditHeaderBtn() {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv();
@@ -242,7 +242,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
         }
         function createDueDateBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv();
@@ -258,7 +258,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
         }
         function createEditPriorityBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv();
@@ -275,7 +275,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         }
         function createAddToChecklistBtn () {
             const checklistUl = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(checklistUl === null)
             {
                 createChecklistUL();
@@ -293,7 +293,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         }
         function createRemoveFromChecklistBtn () {
             const checklistUl = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv()
@@ -318,7 +318,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
         }
         function createEditNotesBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv()
@@ -334,7 +334,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
         }
         function createDeleteTodoListBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv()

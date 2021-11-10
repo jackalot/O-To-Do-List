@@ -30,7 +30,7 @@ function CreateProject (projectName) {
         {
             createProjectDiv(projectName);
         }
-        const projectHeaderDiv = createNewElement("div", "project-header", projectDiv, null,  `${projectName}-projectHeader`);
+        const projectHeaderDiv = createNewElement("div", "project-Header", projectDiv, null,  `${projectName}-projectHeader`);
         //console.log(projectHeaderDiv);
     }
     function createProjectHeadingName(projectName) {

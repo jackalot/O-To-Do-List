@@ -234,10 +234,11 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
+                const headerH3 = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
                 const editHeaderBtn = createNewElement("button", "editHeaderBtn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editHeaderBtn`);
                 editHeaderBtn.textContent = "Edit To Do list Header";
                 editHeaderBtn.addEventListener('click', () => {
-                    editField(headerH3, "Whats the name of this todo list?", item, "title")
+                    editField(headerH3, "Whats the name of this todo list?", item, "ToDoListtitle")
                 })
             }
         }
@@ -250,10 +251,11 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
+                const dueDateh3 = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-dueDate`);
                 const editDueDateBtn = createNewElement("button", "edit-Due-Date-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editDueDateBtn`);
                 editDueDateBtn.textContent = "Edit Due Date";
                 editDueDateBtn.addEventListener('click', () => {
-                    editField(dueDateh3, "What time is this due?", item, "duedate")
+                    editField(dueDateh3, "What time is this due?", item, "dueDate")
                 })
             }
         }
@@ -266,10 +268,11 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
+                const priorityH4 = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-priority`);
                 const editPriorityBtn = createNewElement("button", "edit-Priority-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editPriorityBtn`);
                 editPriorityBtn.textContent = "Edit Priority";
                 editPriorityBtn.addEventListener('click', () => {
-                    editField(priorityh4, "Whats the priority of this task?", item, "priority")
+                    editField(priorityH4, "Whats the priority of this task?", item, "priority")
                 })
             }
         }
@@ -287,7 +290,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const addToChecklistBtn = createNewElement("button", "add-To-Check-List-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
                 addToChecklistBtn.textContent = "Add to checklist";
                 addToChecklistBtn.addEventListener('click', () => {
-                    addToCheckList(checklistUL, item);
+                    addToCheckList(checklistUl, item);
                 })
             }
         }
@@ -312,7 +315,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                     const removeFromChecklistBtn = createNewElement("button", "remove-From-Check-List-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
                     removeFromChecklistBtn.textContent = "Remove From checklist";
                     removeFromChecklistBtn.addEventListener('click', () => {
-                        removeCheckListItem(checklistUL, item);
+                        removeCheckListItem(checklistUl, item);
                     })
                 }
             }

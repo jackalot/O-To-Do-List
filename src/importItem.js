@@ -322,7 +322,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv()
-                createRemoveFromChecklistBtn();
+                createEditNotesBtn();
             }
             else
             {
@@ -333,7 +333,22 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 })
             }
         }
-        
+        function createDeleteTodoListBtn () {
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            if(itemBoxDiv === null)
+            {
+                createItemBoxDiv()
+                createDeleteTodoListBtn();
+            }
+            else
+            {
+                const deleteToDoListBtn = createNewElement("button", "delete-todo-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-deleteToDoListBtn`)
+                deleteToDoListBtn.textContent = "Delete To-Do List";
+                deleteToDoListBtn.addEventListener('click', () => {
+                    deleteTodoList(ul, ToDoItem, item);
+                })
+            }
+        }
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
@@ -345,6 +360,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createAddToChecklistBtn();
         createRemoveFromChecklistBtn();
         createEditNotesBtn();
+        createDeleteTodoListBtn();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

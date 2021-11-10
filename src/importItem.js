@@ -273,7 +273,48 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 })
             }
         }
-        //make a button that edits the to-do-list header
+        function createAddToChecklistBtn () {
+            const checklistUl = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            if(checklistUl === null)
+            {
+                createChecklistUL();
+                createAddToChecklistBtn();
+            }
+            else
+            {
+                //make a button that adds items to the checklist
+                const addToChecklistBtn = createNewElement("button", "add-to-check-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
+                addToChecklistBtn.textContent = "Add to checklist";
+                addToChecklistBtn.addEventListener('click', () => {
+                    addToCheckList(checklistUL, item);
+                })
+            }
+        }
+        function createRemoveFromChecklistBtn () {
+            const checklistUl = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+            if(checklistUl === null)
+            {
+                createChecklistUL();
+                createRemoveFromChecklistBtn();
+            }
+            else
+            {
+                //make a button that adds items to the checklist
+                const removeFromChecklistBtn = createNewElement("button", "remove-from-check-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
+                removeFromChecklistBtn.textContent = "Add to checklist";
+                removeFromChecklistBtn.addEventListener('click', () => {
+                    removeCheckListItem(checklistUL, item);
+                })
+            }
+        }
+        //make a button that removes items from the checklist.
+        const removeFromChecklist = document.createElement("button");
+        removeFromChecklist.textContent = "Remove from checklist";
+        removeFromChecklist.addEventListener('click', () => {
+            removeCheckListItem(checklistUL, item);
+        })
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
@@ -283,6 +324,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createEditHeaderBtn();
         createDueDateBtn();
         createEditPriorityBtn();
+        createAddToChecklistBtn();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

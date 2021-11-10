@@ -4,7 +4,7 @@ function removeCheckListItem (myCheckList, item) {
     let Index = item.checklist.indexOf(ListItem);
     //make a copy of the checklist array without the item we are removing
     let copy = [
-        ...item.checklist.slice(0, Index),
+        ...item.checklist.slice(0, Index - 1),
         ...item.checklist.slice(Index + 1),
     ]
     console.log("Copy is " + copy);

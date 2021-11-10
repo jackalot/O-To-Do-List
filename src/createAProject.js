@@ -21,20 +21,20 @@ function CreateProject (projectName) {
     //creates the projectDiv and appends it to the body
     function createProjectDiv(projectName) {
         const body = document.querySelector("body");
-        const projectDiv = createNewElement("div", "Project-div", body, null, `${projectName}-ProjectDiv`)
+        const projectDiv = createNewElement("div", "project-Div", body, null, `${projectName}-projectDiv`)
     }
     function createProjectHeader(projectName) {
         //console.log('createProjectHeader');
-        const projectDiv = document.querySelector(`#${projectName}-ProjectDiv`);
+        const projectDiv = document.querySelector(`#${projectName}-projectDiv`);
         if(projectDiv === null)
         {
             createProjectDiv(projectName);
         }
-        const projectHeaderDiv = createNewElement("div", "project-header", projectDiv, null,  `${projectName}-ProjectHeader`);
+        const projectHeaderDiv = createNewElement("div", "project-header", projectDiv, null,  `${projectName}-projectHeader`);
         //console.log(projectHeaderDiv);
     }
     function createProjectHeadingName(projectName) {
-        const projectHeaderDiv = document.querySelector(`#${projectName}-ProjectHeader`);
+        const projectHeaderDiv = document.querySelector(`#${projectName}-projectHeader`);
         if(projectHeaderDiv === null)
         {
         createProjectHeader(projectName);
@@ -42,13 +42,13 @@ function CreateProject (projectName) {
         }
         else
         {
-         const H2Name = createNewElement("h2", "project-Heading", projectHeaderDiv, null, `${projectName}-ProjectH2`);
+         const H2Name = createNewElement("h2", "project-Heading", projectHeaderDiv, null, `${projectName}-projectH2`);
          H2Name.textContent = projectName;
         }
     }
    
     function createProjectDisplayButton(projectName) {
-        const projectHeaderDiv = document.querySelector(`#${projectName}-ProjectHeader`);
+        const projectHeaderDiv = document.querySelector(`#${projectName}-projectHeader`);
         if(projectHeaderDiv === null)
         {
             createProjectHeader(projectName);
@@ -56,27 +56,26 @@ function CreateProject (projectName) {
         }
         else
         {
-            const displayBtn = createNewElement("button", "display-items", projectHeaderDiv, null, `${projectName}-displayButton`)
+            const displayBtn = createNewElement("button", "display-Items", projectHeaderDiv, null, `${projectName}-displayButton`)
             displayBtn.textContent = "Display Project To-Do-List";
             displayBtn.addEventListener('click', ()=> {
                 console.log("click");
-                //hideProject(localStorage.getItem(`${projectName}`));
+                hideProject(projectName);
             });
         }
     }
     
-    function createProjectUL (projectName) {
-        const projectDiv = document.querySelector(`#${projectName}-ProjectDiv`);
+    function createProjectUl (projectName) {
+        const projectDiv = document.querySelector(`#${projectName}-projectDiv`);
         if(projectDiv === null)
         {
             createProjectDiv(projectName);
-            createProjectUL(projectName);
+            createProjectUl(projectName);
         }
-        const ul = createNewElement("ul", "project-UL", projectDiv, null, `${projectName}-ul`);
-        //console.log(ul)
+        const ul = createNewElement("ul", "project-Ul", projectDiv, null, `${projectName}-ul`);
     }
         createProjectHeadingName(projectName);
         createProjectDisplayButton(projectName);
-        createProjectUL(projectName);
+        createProjectUl(projectName);
 }
 export default CreateProject;

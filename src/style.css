@@ -9,35 +9,35 @@ header h1 {
     padding-left: 5px;
     padding-right: 5px;
 }
-.To-Do-Item {
+.to-Do-Item {
     background: gray;
     display: flex;
     flex-direction: row;
 }
-.To-Do-Item .Item-Text {
+.to-Do-Item .item-Text {
     display: flex;
     flex-direction: column;
     margin: 20px;
 }
-.To-Do-Item .Item-Box {
+.to-Do-Item .item-Box {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.To-Do-Item .Due-Date {
+.to-Do-Item .due-Date {
    border-radius: 20px;
    border-style: dashed;
 }
-.To-Do-Item .Priority {
+.to-Do-Item .priority {
     border-radius: 20px;
     border-style: dashed;
  }
- .To-Do-Item .Item-Header {
+ .to-Do-Item .item-Header {
     display: flex;
     flex-direction: row;
  }
- .display-items {
+ .display-Items {
      display: flex;
      flex-direction: row;
      justify-content: flex-end;
@@ -47,22 +47,22 @@ header h1 {
      border: solid white 1px;
      border-radius: 10%;
  }
-.display-items:hover {
+.display-Items:hover {
     padding-top: 20px;
 background: rgba(138, 233, 126, 0.424);
 }
-.display-items:focus {
+.display-Items:focus {
     padding-top: 20px;
     background: rgba(0, 0, 0, 0.424);
 }
- .To-Do-Item .Item-Header h3 {
+ .to-Do-Item .item-Header h3 {
    border-bottom: solid black 5px;
  }
- .Project-div {
+ .project-Div {
     background-color: rgb(75, 75, 75);
     padding: 10px;
  }
- .project-header {
+ .project-Header {
      display: flex;
      flex-direction: row;
      justify-content: center;

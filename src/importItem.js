@@ -33,7 +33,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         }
         function createToDoItem() {
             console.log("createToDoItem")
-            const ToDoItem = createNewElement("li", "To-Do-Item", projectUL, null, `${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
+            const ToDoItem = createNewElement("li", "to-Do-Item", projectUL, null, `${joinedProjectName}-${item.ToDoListtitle}-toDoItemDiv`);
         }
         //This is the div element that holds the header, and other info
         function createItemTextDiv() {
@@ -45,7 +45,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const itemTextDiv = createNewElement("div", "Item-Text", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
+                const itemTextDiv = createNewElement("div", "item-Text", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemTextDiv`);
             }
         }
         //This is the headerdiv that has the title of the item and a button to collapses it
@@ -58,7 +58,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const itemHeader = createNewElement("div", "Item-Header", itemTextDiv, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeaderDiv`)
+                const itemHeader = createNewElement("div", "item-Header", itemTextDiv, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeaderDiv`)
             }
         }
         function createItemHeading() {
@@ -70,7 +70,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const headerH3 = createNewElement("h3", "Item-Heading", itemHeader, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
+                const headerH3 = createNewElement("h3", "item-Heading", itemHeader, null,`${joinedProjectName}-${item.ToDoListtitle}-ItemHeading`);
                let retrieved = localStorage.getItem(`${item.projectTitle}`);
               let objectAfter = JSON.parse(retrieved);
               headerH3.textContent = objectAfter.ToDoListtitle;
@@ -88,7 +88,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const validDisplayBtn = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-ItemBodyDisplayButton`);
                 if(!validDisplayBtn) //if one hasnt been made yet, create a new one
                 {
-                    const displayBtn = createNewElement("button", "display-items", itemHeader, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBodyDisplayButton`);
+                    const displayBtn = createNewElement("button", "display-Items", itemHeader, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBodyDisplayButton`);
                     displayBtn.textContent = "Display To-Do-List";
                 }
                 const itemBody = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBody`); //find the itemBody
@@ -115,7 +115,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const itemBody = createNewElement("div", "Item-Body", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemBody`);
+                const itemBody = createNewElement("div", "item-Body", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-itemBody`);
             }            
         }
         function createDueDateField() {
@@ -127,7 +127,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const dueDateh3 = createNewElement("p", "Due-Date", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-dueDate`);
+                const dueDateh3 = createNewElement("p", "due-Date", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-dueDate`);
                 let retrieved = localStorage.getItem(`${item.projectTitle}`);
                 let objectAfter = JSON.parse(retrieved);
                 dueDateh3.textContent = objectAfter.dueDate; 
@@ -142,7 +142,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const priorityH4 = createNewElement("h4", "Priority", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-priority`);
+                const priorityH4 = createNewElement("h4", "priority", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-priority`);
                 let retrieved = localStorage.getItem(`${item.projectTitle}`);
                 let objectAfter = JSON.parse(retrieved);
                 priorityH4.textContent = objectAfter.priority; 
@@ -167,7 +167,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             let validNote = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
             if(validNote === null) //this can be called many times, so check if its been made before
             {
-            const checkListNote = createNewElement("p", "checklist-note", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
+            const checkListNote = createNewElement("p", "checklist-Note", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Note`);
             checkListNote.textContent = "Your check list for this To-Do-List:";
             }
         }
@@ -187,7 +187,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             let validChecklistUl = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
             if(validChecklistUl === null)
             {
-                const checklistUL = createNewElement("ul", "checklist-ul", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
+                const checklistUL = createNewElement("ul", "checklist-Ul", checkListDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-checkList-Ul`);
                 //for loop that loops through checklist and lists them
                 let retrieved = localStorage.getItem(`${item.projectTitle}`);
                 let objectAfter = JSON.parse(retrieved);
@@ -208,7 +208,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 createItemBody();
                 createAdditionalNotes(); //call this function again now that itemBody has been created
             }
-            const additionalNotesP = createNewElement("p", "additional-notes", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-additionalNotes`);
+            const additionalNotesP = createNewElement("p", "additional-Notes", itemBody, null, `${joinedProjectName}-${item.ToDoListtitle}-additionalNotes`);
             let retrieved = localStorage.getItem(`${item.projectTitle}`);
                 let objectAfter = JSON.parse(retrieved);
             additionalNotesP.textContent = objectAfter.notes;
@@ -250,7 +250,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const editDueDateBtn = createNewElement("button", "editHeaderBtn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editDueDateBtn`);
+                const editDueDateBtn = createNewElement("button", "edit-Due-Date-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editDueDateBtn`);
                 editDueDateBtn.textContent = "Edit Due Date";
                 editDueDateBtn.addEventListener('click', () => {
                     editField(dueDateh3, "What time is this due?", item, "duedate")
@@ -266,7 +266,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const editPriorityBtn = createNewElement("button", "editHeaderBtn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editPriorityBtn`);
+                const editPriorityBtn = createNewElement("button", "edit-Priority-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editPriorityBtn`);
                 editPriorityBtn.textContent = "Edit Priority";
                 editPriorityBtn.addEventListener('click', () => {
                     editField(priorityh4, "Whats the priority of this task?", item, "priority")
@@ -284,7 +284,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             else
             {
                 //make a button that adds items to the checklist
-                const addToChecklistBtn = createNewElement("button", "add-to-check-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
+                const addToChecklistBtn = createNewElement("button", "add-To-Check-List-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
                 addToChecklistBtn.textContent = "Add to checklist";
                 addToChecklistBtn.addEventListener('click', () => {
                     addToCheckList(checklistUL, item);
@@ -309,7 +309,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 else
                 {
                     //make a button that adds items to the checklist
-                    const removeFromChecklistBtn = createNewElement("button", "remove-from-check-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
+                    const removeFromChecklistBtn = createNewElement("button", "remove-From-Check-List-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
                     removeFromChecklistBtn.textContent = "Remove From checklist";
                     removeFromChecklistBtn.addEventListener('click', () => {
                         removeCheckListItem(checklistUL, item);
@@ -326,7 +326,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const editNotesBtn = createNewElement("button", "edit-notes", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editNotesBtn`)
+                const editNotesBtn = createNewElement("button", "edit-Notes-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-editNotesBtn`)
                 editNotesBtn.textContent = "Edit Additional Notes";
                 editNotesBtn.addEventListener('click', () => {
                     editField(additionalNotesP, "What additional notes do you have?", item, "notes")
@@ -342,7 +342,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const deleteToDoListBtn = createNewElement("button", "delete-todo-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-deleteToDoListBtn`)
+                const deleteToDoListBtn = createNewElement("button", "delete-To-Do-List-Btn", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-deleteToDoListBtn`)
                 deleteToDoListBtn.textContent = "Delete To-Do List";
                 deleteToDoListBtn.addEventListener('click', () => {
                     deleteTodoList(ul, ToDoItem, item);

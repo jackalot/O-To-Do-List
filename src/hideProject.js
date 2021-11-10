@@ -1,5 +1,5 @@
 function hideProject (projectName) {
-    const projectDiv = document.querySelector(`#${projectName} > ul`);
+    const projectDiv = document.querySelector(`#${projectName}-ul`);
     if (projectDiv.style.display === "none")
     {
         projectDiv.style.display = "block";

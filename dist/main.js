@@ -176,7 +176,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction hideProject (projectName) {\n    const projectDiv = document.querySelector(`#${projectName} > ul`);\n    if (projectDiv.style.display === \"none\")\n    {\n        projectDiv.style.display = \"block\";\n    }\n    else {\n        projectDiv.style.display = \"none\";\n    }\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (hideProject);\n\n//# sourceURL=webpack://O-To-Do-List/./src/hideProject.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction hideProject (projectName) {\n    const projectDiv = document.querySelector(`#${projectName}-ul`);\n    if (projectDiv.style.display === \"none\")\n    {\n        projectDiv.style.display = \"block\";\n    }\n    else {\n        projectDiv.style.display = \"none\";\n    }\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (hideProject);\n\n//# sourceURL=webpack://O-To-Do-List/./src/hideProject.js?");
 
 /***/ }),
 

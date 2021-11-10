@@ -222,7 +222,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             }
             else
             {
-                const itemBoxDiv = createNewElement("div", "Item-Box", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
+                const itemBoxDiv = createNewElement("div", "item-Box", ToDoItem, null, `${joinedProjectName}-${item.ToDoListtitle}-ItemBox`);
             }
         }
         function createEditHeaderBtn() {

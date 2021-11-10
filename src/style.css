@@ -21,9 +21,10 @@ header h1 {
 }
 .to-Do-Item .item-Box {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    margin-left: auto;
 }
 .to-Do-Item .due-Date {
    border-radius: 20px;

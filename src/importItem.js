@@ -303,7 +303,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             {
                 //make a button that adds items to the checklist
                 const removeFromChecklistBtn = createNewElement("button", "remove-from-check-list", itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-addToChecklistBtn`)
-                removeFromChecklistBtn.textContent = "Add to checklist";
+                removeFromChecklistBtn.textContent = "Remove From checklist";
                 removeFromChecklistBtn.addEventListener('click', () => {
                     removeCheckListItem(checklistUL, item);
                 })
@@ -325,6 +325,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createDueDateBtn();
         createEditPriorityBtn();
         createAddToChecklistBtn();
+        createRemoveFromChecklistBtn();
     /*
         //console.log(ul);
         //Elements are created the same way its sorted in html

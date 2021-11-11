@@ -242,23 +242,6 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 })
             }
         }
-        function createDueDateBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
-            if(itemBoxDiv === null)
-            {
-                createItemBoxDiv();
-                createDueDateBtn(); //call this function again now that todo item has been created
-            }
-            else
-            {
-                const dueDateh3 = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-dueDate`);
-                const editDueDateBtn = createNewElement("button", "edit-Due-Date-Btn", itemBoxDiv, null, `${joinedProjectName}-${joinedToDoListTitle}-editDueDateBtn`);
-                editDueDateBtn.textContent = "Edit Due Date";
-                editDueDateBtn.addEventListener('click', () => {
-                    editField(dueDateh3, "What time is this due?", item, "dueDate")
-                })
-            }
-        }
         function createAddToChecklistBtn () {
             const checklistUl = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-checkList-Ul`);
             const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
@@ -345,7 +328,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createPriorityField();
         createAdditionalNotes();
         createEditHeaderBtn();
-        createDueDateBtn();
+        createEditButtons("edit-Due-Date-Btn", "dueDate", "Edit Due Date", "What time is this due?", "dueDate")
         createEditButtons("edit-Priority-Btn", "priority", "Edit Priority", "Whats the priority of this task?", "priority");
         createAddToChecklistBtn();
         createRemoveFromChecklistBtn();

@@ -26,8 +26,8 @@ addContentBtn.addEventListener("click", () => {
     start (allInputs);
 })
 function start (allInputs) {
-    //const item = makeToDoItem(allInputs.projectInput, allInputs.toDoListTitle, allInputs.descInput, allInputs.dueDate, allInputs.priority, allInputs.notes, allInputs.checkList); // actual use
-    const item = makeToDoItem("projectInput", "toDoListTitle", "descInput", "dueDate", "priority", "notes", ["checkList"]); //debugging
+    const item = makeToDoItem(allInputs.projectTitle, allInputs.toDoListTitle, allInputs.descInput, allInputs.dueDate, allInputs.priority, allInputs.notes, [allInputs.checkList]); // actual use
+    //const item = makeToDoItem("projectInput", "toDoListTitle", "descInput", "dueDate", "priority", "notes", ["checkList"]); //debugging
     localStorage.setItem(`${item.projectTitle}`, JSON.stringify(item)); //make it so we can grab an object from local storage
     //console.log(item);
     //console.log(item.checklist);

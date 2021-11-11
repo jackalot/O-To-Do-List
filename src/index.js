@@ -7,8 +7,8 @@ let projects = [];
 
 const addContentBtn = document.querySelector("button");
 addContentBtn.addEventListener("click", () => {
-    const projectTitle = window.prompt("Which project is this to do item? (if it is a new project, just insert the name) No spaces for this!");
-    const toDoListTitle = window.prompt("What is the title of your to-do item?");
+    const projectTitle = window.prompt("Which project is this to do item? (if it is a new project, just insert the name) No numbers for this!");
+    const toDoListTitle = window.prompt("What is the title of your to-do item? No numbers for this either!");
     const descInput = window.prompt("Whats the description for it?");
     const priority = window.prompt("What priority does this have?");
     const dueDate = window.prompt("When is this due?")

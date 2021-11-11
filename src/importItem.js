@@ -259,23 +259,6 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 })
             }
         }
-        function createEditPriorityBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
-            if(itemBoxDiv === null)
-            {
-                createItemBoxDiv();
-                createEditPriorityBtn(); //call this function again now that todo item has been created
-            }
-            else
-            {
-                const priorityH4 = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-priority`);
-                const editPriorityBtn = createNewElement("button", "edit-Priority-Btn", itemBoxDiv, null, `${joinedProjectName}-${joinedToDoListTitle}-editPriorityBtn`);
-                editPriorityBtn.textContent = "Edit Priority";
-                editPriorityBtn.addEventListener('click', () => {
-                    editField(priorityH4, "Whats the priority of this task?", item, "priority")
-                })
-            }
-        }
         function createAddToChecklistBtn () {
             const checklistUl = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-checkList-Ul`);
             const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
@@ -318,23 +301,6 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                         removeCheckListItem(checklistUl, item);
                     })
                 }
-            }
-        }
-        function createEditNotesBtn () {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
-            if(itemBoxDiv === null)
-            {
-                createItemBoxDiv()
-                createEditNotesBtn();
-            }
-            else
-            {
-                const editNotesBtn = createNewElement("button", "edit-Notes-Btn", itemBoxDiv, null, `${joinedProjectName}-${joinedToDoListTitle}-editNotesBtn`)
-                editNotesBtn.textContent = "Edit Additional Notes";
-                const notesField = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-additionalNotes`);
-                editNotesBtn.addEventListener('click', () => {
-                    editField(notesField, "What additional notes do you have?", item, "notes")
-                })
             }
         }
         function createDeleteTodoListBtn () {

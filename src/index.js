@@ -38,9 +38,11 @@ function start (allInputs) {
     //console.log(projectIsAvailable);
     if(projectIsAvailable) //its not false so it returned one of the project strings
     {
-        let split = item.projectTitle.split(" ");
-        let joined = split.join("-");
-        importToDoItemToDom(item, joined);
+        let splitProject = item.projectTitle.split(" ");
+        let joinedProject = split.join("-");
+        let splitToDoListTitle = item.ToDoListtitle.split(" ");
+        let joinedToDoListTitle = splitToDoListTitle.join("-");
+        importToDoItemToDom(item, joinedProject, joinedToDoListTitle);
     }
     else if(!projectIsAvailable)
     {

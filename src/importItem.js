@@ -225,23 +225,6 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 const itemBoxDiv = createNewElement("div", "item-Box", ToDoItem, null, `${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
             }
         }
-        function createEditHeaderBtn() {
-            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
-            if(itemBoxDiv === null)
-            {
-                createItemBoxDiv();
-                createEditHeaderBtn(); //call this function again now that todo item has been created
-            }
-            else
-            {
-                const headerH3 = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-ItemHeading`);
-                const editHeaderBtn = createNewElement("button", "editHeaderBtn", itemBoxDiv, null, `${joinedProjectName}-${joinedToDoListTitle}-editHeaderBtn`);
-                editHeaderBtn.textContent = "Edit To Do list Header";
-                editHeaderBtn.addEventListener('click', () => {
-                    editField(headerH3, "Whats the name of this todo list?", item, "ToDoListtitle")
-                })
-            }
-        }
         function createAddToChecklistBtn () {
             const checklistUl = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-checkList-Ul`);
             const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${joinedToDoListTitle}-itemBox`);
@@ -327,7 +310,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createDueDateField();
         createPriorityField();
         createAdditionalNotes();
-        createEditHeaderBtn();
+        createEditButtons("editHeaderBtn", "ItemHeading", "Edit To Do list Header", "Whats the name of this todo list?", "ToDoListtitle");
         createEditButtons("edit-Due-Date-Btn", "dueDate", "Edit Due Date", "What time is this due?", "dueDate")
         createEditButtons("edit-Priority-Btn", "priority", "Edit Priority", "Whats the priority of this task?", "priority");
         createAddToChecklistBtn();

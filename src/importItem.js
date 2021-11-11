@@ -361,7 +361,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
             if(itemBoxDiv === null)
             {
                 createItemBoxDiv();
-                createEditButtons();
+                createEditButtons(buttonClassName, fieldId, buttonText, editFieldMessage, fieldType);
             }
             else
             {
@@ -380,10 +380,9 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createAdditionalNotes();
         createEditHeaderBtn();
         createDueDateBtn();
-        createEditPriorityBtn();
+        createEditButtons("edit-Priority-Btn", "priority", "Edit Priority", "Whats the priority of this task?", "priority");
         createAddToChecklistBtn();
         createRemoveFromChecklistBtn();
-        createEditNotesBtn();
         createEditButtons("edit-Notes-Btn", "additionalNotes", "Edit Additional Notes", "What additional notes do you have?", "notes");
         createDeleteTodoListBtn();
     /*

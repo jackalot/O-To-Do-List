@@ -355,6 +355,24 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
                 })
             }
         }
+        //doesnt include checklist buttons
+        function createEditButtons(buttonClassName, fieldId, buttonText, editFieldMessage, fieldType) {
+            const itemBoxDiv = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-itemBox`);
+            if(itemBoxDiv === null)
+            {
+                createItemBoxDiv();
+                createEditButtons();
+            }
+            else
+            {
+                const newButton = createNewElement("button", `${buttonClassName}`, itemBoxDiv, null, `${joinedProjectName}-${item.ToDoListtitle}-edit${fieldId}Btn`)
+                const relatedField = document.querySelector(`#${joinedProjectName}-${item.ToDoListtitle}-${fieldId}`);
+                newButton.textContent = `${buttonText}`;
+                newButton.addEventListener('click', () => {
+                    editField(relatedField, editFieldMessage, item, fieldType);
+                })
+            }
+        }
         createItemHeading();
         createItemBodyDisplayButton();
         createDueDateField();
@@ -366,6 +384,7 @@ const projectUL = document.querySelector(`#${joinedProjectName}-ul`);
         createAddToChecklistBtn();
         createRemoveFromChecklistBtn();
         createEditNotesBtn();
+        createEditButtons("edit-Notes-Btn", "additionalNotes", "Edit Additional Notes", "What additional notes do you have?", "notes");
         createDeleteTodoListBtn();
     /*
         //console.log(ul);
